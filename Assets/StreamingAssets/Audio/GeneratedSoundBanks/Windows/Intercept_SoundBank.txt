@@ -1,0 +1,29 @@
+Event	ID	Name			Wwise Object Path	Notes
+	245635415	mx_mystery_stinger			\Default Work Unit\mx_mystery_stinger	
+	747531632	sfx_typing			\Default Work Unit\sfx_typing	
+	1527636025	mx_calculating_stinger			\Default Work Unit\mx_calculating_stinger	
+	2309060650	mx_tension_stinger			\Default Work Unit\mx_tension_stinger	
+	2713007029	mx_waiting_stinger			\Default Work Unit\mx_waiting_stinger	
+	3124573721	sfx_paper			\Default Work Unit\sfx_paper	
+	3134498127	mx_confession_stinger			\Default Work Unit\mx_confession_stinger	
+	3955913550	mx_horror_stinger			\Default Work Unit\mx_horror_stinger	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	37671590	193952__soundslikewillem__e	Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\.cache\Windows\SFX\193952__soundslikewillem__e_4F2DCF8F.wem		\Actor-Mixer Hierarchy\Default Work Unit\typing\193952__soundslikewillem__e		8124
+	202748493	193945__soundslikewillem__d	Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\.cache\Windows\SFX\193945__soundslikewillem__d_4F2DCF8F.wem		\Actor-Mixer Hierarchy\Default Work Unit\typing\193945__soundslikewillem__d		1122
+	210647243	193956__soundslikewillem__x	Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\.cache\Windows\SFX\193956__soundslikewillem__x_4F2DCF8F.wem		\Actor-Mixer Hierarchy\Default Work Unit\typing\193956__soundslikewillem__x		1093
+	212712742	193958__soundslikewillem__v	Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\.cache\Windows\SFX\193958__soundslikewillem__v_4F2DCF8F.wem		\Actor-Mixer Hierarchy\Default Work Unit\typing\193958__soundslikewillem__v		2076
+	243698729	193949__soundslikewillem__h	Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\.cache\Windows\SFX\193949__soundslikewillem__h_4F2DCF8F.wem		\Actor-Mixer Hierarchy\Default Work Unit\typing\193949__soundslikewillem__h		4965
+	277825226	193951__soundslikewillem__f	Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\.cache\Windows\SFX\193951__soundslikewillem__f_4F2DCF8F.wem		\Actor-Mixer Hierarchy\Default Work Unit\typing\193951__soundslikewillem__f		1772
+	488112993	193947__soundslikewillem__b	Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\.cache\Windows\SFX\193947__soundslikewillem__b_4F2DCF8F.wem		\Actor-Mixer Hierarchy\Default Work Unit\typing\193947__soundslikewillem__b		2013
+	488189643	attachingPaper	Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\.cache\Windows\SFX\attachingPaper_4F2DCF8F.wem		\Actor-Mixer Hierarchy\Default Work Unit\attachingPaper		33646
+	729038700	193954__soundslikewillem__i	Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\.cache\Windows\SFX\193954__soundslikewillem__i_4F2DCF8F.wem		\Actor-Mixer Hierarchy\Default Work Unit\typing\193954__soundslikewillem__i		1166
+	754822622	193946__soundslikewillem__c	Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\.cache\Windows\SFX\193946__soundslikewillem__c_4F2DCF8F.wem		\Actor-Mixer Hierarchy\Default Work Unit\typing\193946__soundslikewillem__c		1689
+	778584719	193953__soundslikewillem__j	Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\.cache\Windows\SFX\193953__soundslikewillem__j_4F2DCF8F.wem		\Actor-Mixer Hierarchy\Default Work Unit\typing\193953__soundslikewillem__j		4107
+	784448214	193948__soundslikewillem__a	Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\.cache\Windows\SFX\193948__soundslikewillem__a_4F2DCF8F.wem		\Actor-Mixer Hierarchy\Default Work Unit\typing\193948__soundslikewillem__a		2210
+	828369120	193957__soundslikewillem__u	Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\.cache\Windows\SFX\193957__soundslikewillem__u_4F2DCF8F.wem		\Actor-Mixer Hierarchy\Default Work Unit\typing\193957__soundslikewillem__u		1764
+	851791849	193959__soundslikewillem__y	Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\.cache\Windows\SFX\193959__soundslikewillem__y_4F2DCF8F.wem		\Actor-Mixer Hierarchy\Default Work Unit\typing\193959__soundslikewillem__y		1041
+	856251424	193950__soundslikewillem__g	Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\.cache\Windows\SFX\193950__soundslikewillem__g_4F2DCF8F.wem		\Actor-Mixer Hierarchy\Default Work Unit\typing\193950__soundslikewillem__g		1946
+	899779621	mx_stinger_myst_01	Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\.cache\Windows\SFX\222549__caderesounds__horror-cinema-2-2014_91B2A2BD.wem		\Interactive Music Hierarchy\Default Work Unit\Stinger Mystery Playlist\mx_stinger_myst_01\mx_stinger_myst_01		281896
+	961118949	193955__soundslikewillem__w	Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\.cache\Windows\SFX\193955__soundslikewillem__w_4F2DCF8F.wem		\Actor-Mixer Hierarchy\Default Work Unit\typing\193955__soundslikewillem__w		1182
+

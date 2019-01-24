@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="132">
+	<RootPaths>
+		<ProjectRoot>/Users/msweet/Library/Application Support/Wwise2018/Bottles/wwise/dosdevices/y:/GoogleDrive/_CloudSync/Work/Berklee/GIT/Unity-Wwise-Game-Template-Intercept/Wwise Intercept/</ProjectRoot>
+		<SourceFilesRoot>/Users/msweet/Library/Application Support/Wwise2018/Bottles/wwise/dosdevices/y:/GoogleDrive/_CloudSync/Work/Berklee/GIT/Unity-Wwise-Game-Template-Intercept/Wwise Intercept/.cache/Mac/</SourceFilesRoot>
+		<SoundBanksRoot>/Users/msweet/Library/Application Support/Wwise2018/Bottles/wwise/dosdevices/y:/GoogleDrive/_CloudSync/Work/Berklee/GIT/Unity-Wwise-Game-Template-Intercept/Wwise Intercept/GeneratedSoundBanks/Mac/</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>/Users/msweet/Library/Application Support/Wwise2018/Bottles/wwise/dosdevices/y:/GoogleDrive/_CloudSync/Work/Berklee/GIT/Unity-Wwise-Game-Template-Intercept/Wwise Intercept/GeneratedSoundBanks/Mac</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="2340728511" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Intercept_SoundBank</ObjectPath>
+			<ShortName>Intercept_SoundBank</ShortName>
+			<Path>Intercept_SoundBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1527636025" Name="mx_calculating_stinger" ObjectPath="\Events\Default Work Unit\mx_calculating_stinger"/>
+				<Event Id="3134498127" Name="mx_confession_stinger" ObjectPath="\Events\Default Work Unit\mx_confession_stinger"/>
+				<Event Id="3955913550" Name="mx_horror_stinger" ObjectPath="\Events\Default Work Unit\mx_horror_stinger"/>
+				<Event Id="245635415" Name="mx_mystery_stinger" ObjectPath="\Events\Default Work Unit\mx_mystery_stinger"/>
+				<Event Id="2309060650" Name="mx_tension_stinger" ObjectPath="\Events\Default Work Unit\mx_tension_stinger"/>
+				<Event Id="2713007029" Name="mx_waiting_stinger" ObjectPath="\Events\Default Work Unit\mx_waiting_stinger"/>
+				<Event Id="3124573721" Name="sfx_paper" ObjectPath="\Events\Default Work Unit\sfx_paper"/>
+				<Event Id="747531632" Name="sfx_typing" ObjectPath="\Events\Default Work Unit\sfx_typing"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="37671590" Language="SFX">
+					<ShortName>193952__soundslikewillem__e.wav</ShortName>
+					<Path>SFX/193952__soundslikewillem__e_4F2DCF8F.wem</Path>
+				</File>
+				<File Id="202748493" Language="SFX">
+					<ShortName>193945__soundslikewillem__d.wav</ShortName>
+					<Path>SFX/193945__soundslikewillem__d_4F2DCF8F.wem</Path>
+				</File>
+				<File Id="210647243" Language="SFX">
+					<ShortName>193956__soundslikewillem__x.wav</ShortName>
+					<Path>SFX/193956__soundslikewillem__x_4F2DCF8F.wem</Path>
+				</File>
+				<File Id="212712742" Language="SFX">
+					<ShortName>193958__soundslikewillem__v.wav</ShortName>
+					<Path>SFX/193958__soundslikewillem__v_4F2DCF8F.wem</Path>
+				</File>
+				<File Id="243698729" Language="SFX">
+					<ShortName>193949__soundslikewillem__h.wav</ShortName>
+					<Path>SFX/193949__soundslikewillem__h_4F2DCF8F.wem</Path>
+				</File>
+				<File Id="277825226" Language="SFX">
+					<ShortName>193951__soundslikewillem__f.wav</ShortName>
+					<Path>SFX/193951__soundslikewillem__f_4F2DCF8F.wem</Path>
+				</File>
+				<File Id="488112993" Language="SFX">
+					<ShortName>193947__soundslikewillem__b.wav</ShortName>
+					<Path>SFX/193947__soundslikewillem__b_4F2DCF8F.wem</Path>
+				</File>
+				<File Id="488189643" Language="SFX">
+					<ShortName>attachingPaper.wav</ShortName>
+					<Path>SFX/attachingPaper_4F2DCF8F.wem</Path>
+				</File>
+				<File Id="729038700" Language="SFX">
+					<ShortName>193954__soundslikewillem__i.wav</ShortName>
+					<Path>SFX/193954__soundslikewillem__i_4F2DCF8F.wem</Path>
+				</File>
+				<File Id="754822622" Language="SFX">
+					<ShortName>193946__soundslikewillem__c.wav</ShortName>
+					<Path>SFX/193946__soundslikewillem__c_4F2DCF8F.wem</Path>
+				</File>
+				<File Id="778584719" Language="SFX">
+					<ShortName>193953__soundslikewillem__j.wav</ShortName>
+					<Path>SFX/193953__soundslikewillem__j_4F2DCF8F.wem</Path>
+				</File>
+				<File Id="784448214" Language="SFX">
+					<ShortName>193948__soundslikewillem__a.wav</ShortName>
+					<Path>SFX/193948__soundslikewillem__a_4F2DCF8F.wem</Path>
+				</File>
+				<File Id="828369120" Language="SFX">
+					<ShortName>193957__soundslikewillem__u.wav</ShortName>
+					<Path>SFX/193957__soundslikewillem__u_4F2DCF8F.wem</Path>
+				</File>
+				<File Id="851791849" Language="SFX">
+					<ShortName>193959__soundslikewillem__y.wav</ShortName>
+					<Path>SFX/193959__soundslikewillem__y_4F2DCF8F.wem</Path>
+				</File>
+				<File Id="856251424" Language="SFX">
+					<ShortName>193950__soundslikewillem__g.wav</ShortName>
+					<Path>SFX/193950__soundslikewillem__g_4F2DCF8F.wem</Path>
+				</File>
+				<File Id="899779621" Language="SFX">
+					<ShortName>222549__caderesounds__horror-cinema-2-2014.wav</ShortName>
+					<Path>SFX/222549__caderesounds__horror-cinema-2-2014_91B2A2BD.wem</Path>
+				</File>
+				<File Id="961118949" Language="SFX">
+					<ShortName>193955__soundslikewillem__w.wav</ShortName>
+					<Path>SFX/193955__soundslikewillem__w_4F2DCF8F.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

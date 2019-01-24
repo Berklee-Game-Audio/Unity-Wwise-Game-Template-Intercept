@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{C6536F2A-F6CA-4FE8-9050-7FB510991A99}" SchemaVersion="80">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{C6536F2A-F6CA-4FE8-9050-7FB510991A99}" PersistMode="Standalone">
+			<ChildrenList>
+				<RandomSequenceContainer Name="typing" ID="{CF803839-930A-4054-8751-46E11396F126}" ShortID="955675755">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="193945__soundslikewillem__d" ID="{618E3E78-6EFE-41F8-A1DE-F6AB698D0409}" ShortID="874079286">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="193945__soundslikewillem__d" ID="{03C55EED-5002-4207-BECD-906FFBA7F27C}" ShortID="202748493">
+									<Language>SFX</Language>
+									<AudioFile>193945__soundslikewillem__d.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="193945__soundslikewillem__d" ID="{03C55EED-5002-4207-BECD-906FFBA7F27C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="193946__soundslikewillem__c" ID="{42476A1B-C0FF-4289-8FCA-8BAE66859ECA}" ShortID="339744957">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="193946__soundslikewillem__c" ID="{8AEE85C8-DE83-4F94-8994-289F63238661}" ShortID="754822622">
+									<Language>SFX</Language>
+									<AudioFile>193946__soundslikewillem__c.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="193946__soundslikewillem__c" ID="{8AEE85C8-DE83-4F94-8994-289F63238661}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="193947__soundslikewillem__b" ID="{E7B17A41-C2B4-47AF-AEBB-ADF2986F1739}" ShortID="860834459">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="193947__soundslikewillem__b" ID="{0550E771-55BD-450E-B251-ECCD69E87720}" ShortID="488112993">
+									<Language>SFX</Language>
+									<AudioFile>193947__soundslikewillem__b.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="193947__soundslikewillem__b" ID="{0550E771-55BD-450E-B251-ECCD69E87720}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="193948__soundslikewillem__a" ID="{90B98202-0E96-45BF-8864-3CA77DC37797}" ShortID="372502006">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="193948__soundslikewillem__a" ID="{E92491A9-AE2C-4565-BB34-DB92872CF9A1}" ShortID="784448214">
+									<Language>SFX</Language>
+									<AudioFile>193948__soundslikewillem__a.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="193948__soundslikewillem__a" ID="{E92491A9-AE2C-4565-BB34-DB92872CF9A1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="193949__soundslikewillem__h" ID="{7D0379D9-0E18-406D-B9C8-1118348782A6}" ShortID="61773634">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="193949__soundslikewillem__h" ID="{C4F20146-ACF5-45F9-8246-C9D1A24E4F09}" ShortID="243698729">
+									<Language>SFX</Language>
+									<AudioFile>193949__soundslikewillem__h.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="193949__soundslikewillem__h" ID="{C4F20146-ACF5-45F9-8246-C9D1A24E4F09}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="193950__soundslikewillem__g" ID="{ED5BECA0-7BD1-4469-80A1-07D9C2D405B4}" ShortID="684734963">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="193950__soundslikewillem__g" ID="{F4EDE32A-72D3-46E7-803A-DB11EDB5126E}" ShortID="856251424">
+									<Language>SFX</Language>
+									<AudioFile>193950__soundslikewillem__g.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="193950__soundslikewillem__g" ID="{F4EDE32A-72D3-46E7-803A-DB11EDB5126E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="193951__soundslikewillem__f" ID="{036F389F-CC91-4DE6-A5C0-D47ED1DAA4D9}" ShortID="304885425">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="193951__soundslikewillem__f" ID="{04C5A07E-5EF4-4F28-9FB0-F1399A74B32B}" ShortID="277825226">
+									<Language>SFX</Language>
+									<AudioFile>193951__soundslikewillem__f.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="193951__soundslikewillem__f" ID="{04C5A07E-5EF4-4F28-9FB0-F1399A74B32B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="193952__soundslikewillem__e" ID="{EB3FC1CB-2F99-42E0-A346-F3751C843110}" ShortID="899281477">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="193952__soundslikewillem__e" ID="{32C670F5-23CB-4A30-832A-C2EAAA0BCED9}" ShortID="37671590">
+									<Language>SFX</Language>
+									<AudioFile>193952__soundslikewillem__e.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="193952__soundslikewillem__e" ID="{32C670F5-23CB-4A30-832A-C2EAAA0BCED9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="193953__soundslikewillem__j" ID="{338720CC-A60C-4562-988B-5F5C32EC4897}" ShortID="953325732">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="193953__soundslikewillem__j" ID="{B9FC7A97-AB64-4979-910A-62A7B296DD76}" ShortID="778584719">
+									<Language>SFX</Language>
+									<AudioFile>193953__soundslikewillem__j.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="193953__soundslikewillem__j" ID="{B9FC7A97-AB64-4979-910A-62A7B296DD76}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="193954__soundslikewillem__i" ID="{8088B624-61E9-42C8-A434-0B743E40F5D0}" ShortID="356753250">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="193954__soundslikewillem__i" ID="{38DBDBC1-03C8-4161-85C4-A287E5EDD3D3}" ShortID="729038700">
+									<Language>SFX</Language>
+									<AudioFile>193954__soundslikewillem__i.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="193954__soundslikewillem__i" ID="{38DBDBC1-03C8-4161-85C4-A287E5EDD3D3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="193955__soundslikewillem__w" ID="{862886ED-EC22-4E04-9323-6971755F3ECA}" ShortID="206875829">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="193955__soundslikewillem__w" ID="{342C79DB-A73F-41BF-AF38-89787E04FD21}" ShortID="961118949">
+									<Language>SFX</Language>
+									<AudioFile>193955__soundslikewillem__w.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="193955__soundslikewillem__w" ID="{342C79DB-A73F-41BF-AF38-89787E04FD21}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="193956__soundslikewillem__x" ID="{E4EE76C3-20B4-47C7-A97C-2BD23944AF0F}" ShortID="300513002">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="193956__soundslikewillem__x" ID="{3EDD6F89-667B-4A24-A7C6-3F307DF76B5F}" ShortID="210647243">
+									<Language>SFX</Language>
+									<AudioFile>193956__soundslikewillem__x.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="193956__soundslikewillem__x" ID="{3EDD6F89-667B-4A24-A7C6-3F307DF76B5F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="193957__soundslikewillem__u" ID="{D9C38D67-42A6-4159-A7E0-1293007DD11E}" ShortID="547989263">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="193957__soundslikewillem__u" ID="{06B5C6E7-5BE1-456D-B0EB-0A079EA94977}" ShortID="828369120">
+									<Language>SFX</Language>
+									<AudioFile>193957__soundslikewillem__u.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="193957__soundslikewillem__u" ID="{06B5C6E7-5BE1-456D-B0EB-0A079EA94977}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="193958__soundslikewillem__v" ID="{E587E143-C698-4BB6-B208-60D858B81F58}" ShortID="849509469">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="193958__soundslikewillem__v" ID="{F2D3AED3-D19B-491C-8376-42BC7600CAD8}" ShortID="212712742">
+									<Language>SFX</Language>
+									<AudioFile>193958__soundslikewillem__v.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="193958__soundslikewillem__v" ID="{F2D3AED3-D19B-491C-8376-42BC7600CAD8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="193959__soundslikewillem__y" ID="{C384E451-2B3C-4489-81E3-2585F08EAEEE}" ShortID="347140809">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="193959__soundslikewillem__y" ID="{AE0C9E79-A462-4FF6-9560-50CAA3903F8C}" ShortID="851791849">
+									<Language>SFX</Language>
+									<AudioFile>193959__soundslikewillem__y.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="193959__soundslikewillem__y" ID="{AE0C9E79-A462-4FF6-9560-50CAA3903F8C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<Sound Name="attachingPaper" ID="{C285D453-0544-4379-85FD-6BA0903CD184}" ShortID="382387171">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="attachingPaper" ID="{3A105E2E-250C-4D47-948A-F7635B8F52BD}" ShortID="488189643">
+							<Language>SFX</Language>
+							<AudioFile>attachingPaper.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="attachingPaper" ID="{3A105E2E-250C-4D47-948A-F7635B8F52BD}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{C1461E2A-DE0C-44A6-8C42-DA821342BE3F}" SchemaVersion="85">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{C1461E2A-DE0C-44A6-8C42-DA821342BE3F}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="sfx_typing" ID="{D3A4C6E6-D1FD-44BA-9854-3FDCB5742B33}">
+					<ChildrenList>
+						<Action Name="" ID="{D8220368-2BA3-43C0-9237-DC2DB5FA381D}" ShortID="639559299">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="typing" ID="{CF803839-930A-4054-8751-46E11396F126}" WorkUnitID="{C6536F2A-F6CA-4FE8-9050-7FB510991A99}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="sfx_paper" ID="{D287C80A-ADD4-4268-B162-FEF0622E83C0}">
+					<ChildrenList>
+						<Action Name="" ID="{7EDD347A-F7DB-458A-A44A-CFF581ACDF6D}" ShortID="936156403">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="attachingPaper" ID="{C285D453-0544-4379-85FD-6BA0903CD184}" WorkUnitID="{C6536F2A-F6CA-4FE8-9050-7FB510991A99}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="mx_drone" ID="{FFEB0D4E-C5FD-4301-8529-5152D622D85D}">
+					<ChildrenList>
+						<Action Name="" ID="{9C196BE6-64C8-423C-8448-E3B50C240296}" ShortID="444302409">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="drone" ID="{EC9BD4CC-7F8F-4D2D-93B9-3EC1D9DE3D40}" WorkUnitID="{605C0B66-D3E7-427D-9B25-CDAD5D5BDB28}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="mx_horror_stinger" ID="{3ECC1733-9135-4F9B-A0DC-C1C738889A36}">
+					<ChildrenList>
+						<Action Name="" ID="{B97B4E6B-A0C4-4852-9A43-8A4D1E6D8EEE}" ShortID="866388888">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="horror_stinger" ID="{CFB91948-EB3E-4E77-8179-116235292B4A}" WorkUnitID="{605C0B66-D3E7-427D-9B25-CDAD5D5BDB28}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="mx_waiting_stop" ID="{1B7BC0AE-B546-4DFD-9C6B-261CE11014EE}">
+					<ChildrenList>
+						<Action Name="" ID="{8550F2C6-D336-4112-9A5E-B84C5D9CEDF3}" ShortID="617949974">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="3"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Stinger Waiting Playlist" ID="{8B53DE47-BEBB-45DB-99A5-0E1FF6B3006E}" WorkUnitID="{605C0B66-D3E7-427D-9B25-CDAD5D5BDB28}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="mx_waiting_stinger" ID="{FB4C02F8-51D4-4ED7-BB4B-0C46B1B75F18}">
+					<ChildrenList>
+						<Action Name="" ID="{FC8491B1-0EFC-4A39-92EE-383BDD07A14D}" ShortID="681748616">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Stinger Waiting Playlist" ID="{8B53DE47-BEBB-45DB-99A5-0E1FF6B3006E}" WorkUnitID="{605C0B66-D3E7-427D-9B25-CDAD5D5BDB28}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="mx_calculating_stinger" ID="{89C34753-7F71-4C06-9CC7-91272DA5E0B8}">
+					<ChildrenList>
+						<Action Name="" ID="{6988808E-41C8-41D4-88BB-2A3A34DDC18E}" ShortID="545546626">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Stinger Calculating Playlist" ID="{39D4734A-459D-447F-A4A9-D679C33276C7}" WorkUnitID="{605C0B66-D3E7-427D-9B25-CDAD5D5BDB28}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="mx_confession_stinger" ID="{174E956D-60CB-4B67-92AB-45BC5FC80463}">
+					<ChildrenList>
+						<Action Name="" ID="{E880ED3A-6835-4625-9444-05979BE4257B}" ShortID="883666625">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Stinger Confession Playlist" ID="{0FA8AD34-0F9F-4B73-8697-ACAFADB7526A}" WorkUnitID="{605C0B66-D3E7-427D-9B25-CDAD5D5BDB28}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="mx_mystery_stinger" ID="{22D34852-C362-41EF-B294-94873AB2D353}">
+					<ChildrenList>
+						<Action Name="" ID="{0836B838-2F59-4EF2-ACAD-0B8E21A7B130}" ShortID="789552357">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Stinger Mystery Playlist" ID="{DD6DFEFC-8916-4ECD-8F9E-5E52E0E4E68C}" WorkUnitID="{605C0B66-D3E7-427D-9B25-CDAD5D5BDB28}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="mx_tension_stinger" ID="{2193084C-809C-4673-9EF6-3F90505E4DC7}">
+					<ChildrenList>
+						<Action Name="" ID="{58F977BA-193C-47D7-88BB-31CAC47A9B62}" ShortID="621373965">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Stinger Tension Playlist" ID="{A1E474E8-D57B-42F7-B74E-00C12EFF1CC1}" WorkUnitID="{605C0B66-D3E7-427D-9B25-CDAD5D5BDB28}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

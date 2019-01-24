@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{6F984B94-7048-428D-8950-3A578553EDA3}" SchemaVersion="80">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{6F984B94-7048-428D-8950-3A578553EDA3}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Intercept_SoundBank" ID="{26A7EE61-0115-4DBA-8209-F584ADA5A705}">
+					<ObjectInclusionList>
+						<ObjectRef Name="mx_mystery_stinger" ID="{22D34852-C362-41EF-B294-94873AB2D353}" WorkUnitID="{C1461E2A-DE0C-44A6-8C42-DA821342BE3F}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="sfx_paper" ID="{D287C80A-ADD4-4268-B162-FEF0622E83C0}" WorkUnitID="{C1461E2A-DE0C-44A6-8C42-DA821342BE3F}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="sfx_typing" ID="{D3A4C6E6-D1FD-44BA-9854-3FDCB5742B33}" WorkUnitID="{C1461E2A-DE0C-44A6-8C42-DA821342BE3F}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="mx_tension_stinger" ID="{2193084C-809C-4673-9EF6-3F90505E4DC7}" WorkUnitID="{C1461E2A-DE0C-44A6-8C42-DA821342BE3F}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="mx_confession_stinger" ID="{174E956D-60CB-4B67-92AB-45BC5FC80463}" WorkUnitID="{C1461E2A-DE0C-44A6-8C42-DA821342BE3F}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="mx_calculating_stinger" ID="{89C34753-7F71-4C06-9CC7-91272DA5E0B8}" WorkUnitID="{C1461E2A-DE0C-44A6-8C42-DA821342BE3F}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="mx_waiting_stinger" ID="{FB4C02F8-51D4-4ED7-BB4B-0C46B1B75F18}" WorkUnitID="{C1461E2A-DE0C-44A6-8C42-DA821342BE3F}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="mx_horror_stinger" ID="{3ECC1733-9135-4F9B-A0DC-C1C738889A36}" WorkUnitID="{C1461E2A-DE0C-44A6-8C42-DA821342BE3F}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>
