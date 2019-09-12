@@ -45,6 +45,24 @@ public class AkExternalSourceInfo : global::System.IDisposable {
     }
   }
 
+  public AkExternalSourceInfo() : this(AkSoundEnginePINVOKE.CSharp_new_AkExternalSourceInfo__SWIG_0(), true) {
+  }
+
+  public AkExternalSourceInfo(global::System.IntPtr in_pInMemory, uint in_uiMemorySize, uint in_iExternalSrcCookie, uint in_idCodec) : this(AkSoundEnginePINVOKE.CSharp_new_AkExternalSourceInfo__SWIG_1(in_pInMemory, in_uiMemorySize, in_iExternalSrcCookie, in_idCodec), true) {
+  }
+
+  public AkExternalSourceInfo(string in_pszFileName, uint in_iExternalSrcCookie, uint in_idCodec) : this(AkSoundEnginePINVOKE.CSharp_new_AkExternalSourceInfo__SWIG_2(in_pszFileName, in_iExternalSrcCookie, in_idCodec), true) {
+  }
+
+  public AkExternalSourceInfo(uint in_idFile, uint in_iExternalSrcCookie, uint in_idCodec) : this(AkSoundEnginePINVOKE.CSharp_new_AkExternalSourceInfo__SWIG_3(in_idFile, in_iExternalSrcCookie, in_idCodec), true) {
+  }
+
+  public void Clear() { AkSoundEnginePINVOKE.CSharp_AkExternalSourceInfo_Clear(swigCPtr); }
+
+  public void Clone(AkExternalSourceInfo other) { AkSoundEnginePINVOKE.CSharp_AkExternalSourceInfo_Clone(swigCPtr, AkExternalSourceInfo.getCPtr(other)); }
+
+  public static int GetSizeOf() { return AkSoundEnginePINVOKE.CSharp_AkExternalSourceInfo_GetSizeOf(); }
+
   public uint iExternalSrcCookie { set { AkSoundEnginePINVOKE.CSharp_AkExternalSourceInfo_iExternalSrcCookie_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkExternalSourceInfo_iExternalSrcCookie_get(swigCPtr); } 
   }
 
@@ -61,18 +79,6 @@ public class AkExternalSourceInfo : global::System.IDisposable {
   }
 
   public uint idFile { set { AkSoundEnginePINVOKE.CSharp_AkExternalSourceInfo_idFile_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkExternalSourceInfo_idFile_get(swigCPtr); } 
-  }
-
-  public AkExternalSourceInfo() : this(AkSoundEnginePINVOKE.CSharp_new_AkExternalSourceInfo__SWIG_0(), true) {
-  }
-
-  public AkExternalSourceInfo(global::System.IntPtr in_pInMemory, uint in_uiMemorySize, uint in_iExternalSrcCookie, uint in_idCodec) : this(AkSoundEnginePINVOKE.CSharp_new_AkExternalSourceInfo__SWIG_1(in_pInMemory, in_uiMemorySize, in_iExternalSrcCookie, in_idCodec), true) {
-  }
-
-  public AkExternalSourceInfo(string in_pszFileName, uint in_iExternalSrcCookie, uint in_idCodec) : this(AkSoundEnginePINVOKE.CSharp_new_AkExternalSourceInfo__SWIG_2(in_pszFileName, in_iExternalSrcCookie, in_idCodec), true) {
-  }
-
-  public AkExternalSourceInfo(uint in_idFile, uint in_iExternalSrcCookie, uint in_idCodec) : this(AkSoundEnginePINVOKE.CSharp_new_AkExternalSourceInfo__SWIG_3(in_idFile, in_iExternalSrcCookie, in_idCodec), true) {
   }
 
 }

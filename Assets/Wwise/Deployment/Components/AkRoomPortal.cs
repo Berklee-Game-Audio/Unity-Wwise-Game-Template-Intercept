@@ -4,45 +4,106 @@
 [UnityEngine.DisallowMultipleComponent]
 /// @brief An AkRoomPortal can connect two AkRoom components together.
 /// @details 
-public class AkRoomPortal : AkUnityEventHandler
+public class AkRoomPortal : AkTriggerHandler
 {
 	/// AkRoomPortals can only connect a maximum of 2 rooms.
 	public const int MAX_ROOMS_PER_PORTAL = 2;
+	public enum State
+	{
+		Closed,
+		Open
+	}
 
-	private readonly AkVector extent = new AkVector();
+	public State initialState = State.Closed;
 
-	private readonly AkTransform portalTransform = new AkTransform();
+	private AkVector extent;
+	private AkTransform portalTransform;
 
-	private ulong backRoomID = AkRoom.INVALID_ROOM_ID;
+	private bool active = true;
+	public bool portalActive
+	{
+		get
+		{
+			return active;
+		}
+		set
+		{
+			active = value;
+			AkRoomPortalManager.RegisterPortalUpdate(this);
+		}
+	}
 
 	public System.Collections.Generic.List<int> closePortalTriggerList = new System.Collections.Generic.List<int>();
-	private ulong frontRoomID = AkRoom.INVALID_ROOM_ID;
+
+	private ulong frontRoomID { get { return (IsRoomActive(frontRoom) ? frontRoom.GetID() : AkRoom.INVALID_ROOM_ID); } }
+	private ulong backRoomID { get { return (IsRoomActive(backRoom) ? backRoom.GetID() : AkRoom.INVALID_ROOM_ID); } }
 
 	/// The front and back rooms connected by the portal.
 	/// The first room is on the negative side of the portal(opposite to the direction of the local Z axis)
 	/// The second room is on the positive side of the portal.
-	public AkRoom[] rooms = new AkRoom[MAX_ROOMS_PER_PORTAL];
+	[UnityEngine.SerializeField]
+	private AkRoom[] rooms = new AkRoom[MAX_ROOMS_PER_PORTAL];
+	public void SetRoom(int in_roomIndex, AkRoom in_room)
+	{
+		if (rooms[in_roomIndex] != in_room)
+		{
+			rooms[in_roomIndex] = in_room;
+		}
+	}
+
+	public void SetFrontRoom(AkRoom room)
+	{
+		SetRoom(1, room);
+	}
+
+	public void SetBackRoom(AkRoom room)
+	{
+		SetRoom(0, room);
+	}
+
+	public AkRoom GetRoom(int index) { return rooms[index]; }
+
+	/// These private members should not be given setters. Rooms should be set using the array, in case we ever increase MAX_ROOMS_PER_PORTAL
+	public AkRoom frontRoom { get { return rooms[1]; } }
+	public AkRoom backRoom { get { return rooms[0]; } }
+
+	public void UpdateSoundEngineRoomIDs()
+	{
+		if (!enabled)
+			return;
+
+		if (frontRoomID != backRoomID)
+			AkSoundEngine.SetRoomPortal(GetID(), portalTransform, extent, active, frontRoomID, backRoomID);
+		else
+		{
+			UnityEngine.Debug.LogError(name + " is not placed/oriented correctly.");
+		}
+	}
+
+	public bool IsValid { get { return frontRoomID != backRoomID; } }
 
 	/// Access the portal's ID
-	public ulong GetID()
-	{
-		return (ulong) GetInstanceID();
-	}
+	public ulong GetID() { return (ulong)GetInstanceID(); }
 
 	protected override void Awake()
 	{
 		var collider = GetComponent<UnityEngine.BoxCollider>();
 		collider.isTrigger = true;
 
+		portalTransform = new AkTransform();
 		portalTransform.Set(collider.bounds.center.x, collider.bounds.center.y, collider.bounds.center.z, transform.forward.x,
 			transform.forward.y, transform.forward.z, transform.up.x, transform.up.y, transform.up.z);
 
+		extent = new AkVector();
 		extent.X = collider.size.x * transform.localScale.x / 2;
 		extent.Y = collider.size.y * transform.localScale.y / 2;
 		extent.Z = collider.size.z * transform.localScale.z / 2;
 
-		frontRoomID = rooms[1] == null ? AkRoom.INVALID_ROOM_ID : rooms[1].GetID();
-		backRoomID = rooms[0] == null ? AkRoom.INVALID_ROOM_ID : rooms[0].GetID();
+		UpdateOverlappingRooms();
+		AkRoomPortalManager.RegisterPortal(this);
+
+		// set portal in it's initial state
+		portalActive = initialState != State.Closed;
 
 		RegisterTriggers(closePortalTriggerList, ClosePortal);
 
@@ -82,27 +143,23 @@ public class AkRoomPortal : AkUnityEventHandler
 
 		if (closePortalTriggerList.Contains(DESTROY_TRIGGER_ID))
 			ClosePortal(null);
+
+		AkRoomPortalManager.UnregisterPortal(this);
+	}
+
+	private bool IsRoomActive(AkRoom in_room)
+	{
+		return in_room != null && in_room.isActiveAndEnabled;
 	}
 
 	public void Open()
 	{
-		ActivatePortal(true);
+		portalActive = true;
 	}
 
 	public void Close()
 	{
-		ActivatePortal(false);
-	}
-
-	private void ActivatePortal(bool active)
-	{
-		if (!enabled)
-			return;
-
-		if (frontRoomID != backRoomID)
-			AkSoundEngine.SetRoomPortal(GetID(), portalTransform, extent, active, frontRoomID, backRoomID);
-		else
-			UnityEngine.Debug.LogError(name + " is not placed/oriented correctly");
+		portalActive = false;
 	}
 
 	public void FindOverlappingRooms(AkRoom.PriorityList[] roomList)
@@ -138,18 +195,6 @@ public class AkRoomPortal : AkUnityEventHandler
 		}
 	}
 
-	public void SetFrontRoom(AkRoom room)
-	{
-		rooms[1] = room;
-		frontRoomID = rooms[1] == null ? AkRoom.INVALID_ROOM_ID : rooms[1].GetID();
-	}
-
-	public void SetBackRoom(AkRoom room)
-	{
-		rooms[0] = room;
-		backRoomID = rooms[0] == null ? AkRoom.INVALID_ROOM_ID : rooms[0].GetID();
-	}
-
 	public void UpdateOverlappingRooms()
 	{
 		var roomList = new[] { new AkRoom.PriorityList(), new AkRoom.PriorityList() };
@@ -158,11 +203,8 @@ public class AkRoomPortal : AkUnityEventHandler
 		for (var i = 0; i < 2; i++)
 		{
 			if (!roomList[i].Contains(rooms[i]))
-				rooms[i] = roomList[i].GetHighestPriorityRoom();
+				SetRoom(i, roomList[i].GetHighestPriorityRoom());
 		}
-
-		frontRoomID = rooms[1] == null ? AkRoom.INVALID_ROOM_ID : rooms[1].GetID();
-		backRoomID = rooms[0] == null ? AkRoom.INVALID_ROOM_ID : rooms[0].GetID();
 	}
 
 #if UNITY_EDITOR

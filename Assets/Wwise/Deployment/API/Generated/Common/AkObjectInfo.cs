@@ -54,6 +54,12 @@ public class AkObjectInfo : global::System.IDisposable {
   public int iDepth { set { AkSoundEnginePINVOKE.CSharp_AkObjectInfo_iDepth_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkObjectInfo_iDepth_get(swigCPtr); } 
   }
 
+  public void Clear() { AkSoundEnginePINVOKE.CSharp_AkObjectInfo_Clear(swigCPtr); }
+
+  public static int GetSizeOf() { return AkSoundEnginePINVOKE.CSharp_AkObjectInfo_GetSizeOf(); }
+
+  public void Clone(AkObjectInfo other) { AkSoundEnginePINVOKE.CSharp_AkObjectInfo_Clone(swigCPtr, AkObjectInfo.getCPtr(other)); }
+
   public AkObjectInfo() : this(AkSoundEnginePINVOKE.CSharp_new_AkObjectInfo(), true) {
   }
 

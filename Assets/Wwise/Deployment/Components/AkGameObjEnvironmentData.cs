@@ -147,7 +147,7 @@ public class AkGameObjEnvironmentData
 			for (var i = 0; i < AkEnvironmentPortal.MAX_ENVIRONMENTS_PER_PORTAL; i++)
 			{
 				var env = portal.environments[i];
-				if (env != null && !gameObjectCollider.bounds.Intersects(env.GetCollider().bounds))
+				if (env != null && !gameObjectCollider.bounds.Intersects(env.Collider.bounds))
 					RemoveEnvironment(env);
 			}
 

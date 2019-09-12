@@ -93,20 +93,20 @@ public class AkInitializer : UnityEngine.MonoBehaviour
 #pragma warning disable 0414 // private field assigned but not used.
 
 	// previously serialized data that will be consumed by migration
-	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private string basePath;
-	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private string language;
-	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private int defaultPoolSize;
-	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private int lowerPoolSize;
-	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private int streamingPoolSize;
-	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private int preparePoolSize;
-	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private float memoryCutoffThreshold;
-	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private int monitorPoolSize;
-	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private int monitorQueuePoolSize;
-	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private int callbackManagerBufferSize;
-	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private int spatialAudioPoolSize;
-	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private uint maxSoundPropagationDepth;
-	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private AkDiffractionFlags diffractionFlags;
-	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private bool engineLogging;
+	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private string basePath = string.Empty;
+	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private string language = string.Empty;
+	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private int defaultPoolSize = 0;
+	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private int lowerPoolSize = 0;
+	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private int streamingPoolSize = 0;
+	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private int preparePoolSize = 0;
+	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private float memoryCutoffThreshold = 0f;
+	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private int monitorPoolSize = 0;
+	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private int monitorQueuePoolSize = 0;
+	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private int callbackManagerBufferSize = 0;
+	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private int spatialAudioPoolSize = 0;
+	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private uint maxSoundPropagationDepth = 0;
+	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private AkDiffractionFlags diffractionFlags = AkDiffractionFlags.DefaultDiffractionFlags;
+	[UnityEngine.HideInInspector][UnityEngine.SerializeField] private bool engineLogging = false;
 
 #pragma warning restore 0414 // private field assigned but not used.
 
@@ -140,9 +140,9 @@ public class AkInitializer : UnityEngine.MonoBehaviour
 
 			initializationSettings.CallbackManagerInitializationSettings.BufferSize = akInitializer.callbackManagerBufferSize * 1024;
 
-			initializationSettings.AkSpatialAudioInitSettings.uPoolSize = (uint)akInitializer.spatialAudioPoolSize * 1024;
-			initializationSettings.AkSpatialAudioInitSettings.uMaxSoundPropagationDepth = akInitializer.maxSoundPropagationDepth;
-			initializationSettings.AkSpatialAudioInitSettings.uDiffractionFlags = (uint)akInitializer.diffractionFlags;
+			initializationSettings.UserSettings.m_SpatialAudioSettings.m_PoolSize = (uint)akInitializer.spatialAudioPoolSize * 1024;
+			initializationSettings.UserSettings.m_SpatialAudioSettings.m_MaxSoundPropagationDepth = akInitializer.maxSoundPropagationDepth;
+			initializationSettings.UserSettings.m_SpatialAudioSettings.m_DiffractionFlags = (AkCommonUserSettings.SpatialAudioSettings.DiffractionFlags)akInitializer.diffractionFlags;
 
 			initializationSettings.CallbackManagerInitializationSettings.IsLoggingEnabled = akInitializer.engineLogging;
 

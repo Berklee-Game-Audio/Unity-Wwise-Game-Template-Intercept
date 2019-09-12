@@ -19,23 +19,22 @@ public class AkAmbientInspector : AkEventInspector
 	public static System.Collections.Generic.Dictionary<UnityEngine.Object, AttenuationSphereOptions> attSphereProperties =
 		new System.Collections.Generic.Dictionary<UnityEngine.Object, AttenuationSphereOptions>();
 
-	private int curPointIndex = -1;
 	public AttenuationSphereOptions currentAttSphereOp;
-	private bool hideDefaultHandle;
 
 	private AkAmbient m_AkAmbient;
-	private UnityEditor.SerializedProperty multiPositionType;
+	private UnityEditor.SerializedProperty multiPositionTypeProperty;
+	private UnityEditor.SerializedProperty largeModePositionArrayProperty;
 
 	private System.Collections.Generic.List<int> triggerList;
 
-	private new void OnEnable()
+	public new void OnEnable()
 	{
 		base.OnEnable();
 
 		m_AkAmbient = target as AkAmbient;
 
-		multiPositionType = serializedObject.FindProperty("multiPositionTypeLabel");
-		DefaultHandles.Hidden = hideDefaultHandle;
+		multiPositionTypeProperty = serializedObject.FindProperty("multiPositionTypeLabel");
+		largeModePositionArrayProperty = serializedObject.FindProperty("LargeModePositions");
 
 		if (!attSphereProperties.ContainsKey(target))
 			attSphereProperties.Add(target, AttenuationSphereOptions.Dont_Show);
@@ -45,44 +44,13 @@ public class AkAmbientInspector : AkEventInspector
 		AkWwiseXMLWatcher.Instance.XMLUpdated += PopulateMaxAttenuation;
 	}
 
-	private void OnDisable()
+	public new void OnDisable()
 	{
+		base.OnDisable();
+
 		DefaultHandles.Hidden = false;
 
 		AkWwiseXMLWatcher.Instance.XMLUpdated -= PopulateMaxAttenuation;
-	}
-
-	private void DoMyWindow(int windowID)
-	{
-		UnityEngine.GUILayout.Space(UnityEditor.EditorGUIUtility.standardVerticalSpacing);
-
-		using (new UnityEngine.GUILayout.HorizontalScope())
-		{
-			if (UnityEngine.GUILayout.Button("Add Point"))
-				m_AkAmbient.multiPositionArray.Add(m_AkAmbient.transform.InverseTransformPoint(m_AkAmbient.transform.position));
-
-			if (curPointIndex >= 0 && UnityEngine.GUILayout.Button("Delete Point"))
-			{
-				m_AkAmbient.multiPositionArray.RemoveAt(curPointIndex);
-				curPointIndex = m_AkAmbient.multiPositionArray.Count - 1;
-			}
-		}
-
-		UnityEngine.GUILayout.Space(UnityEditor.EditorGUIUtility.standardVerticalSpacing);
-
-		if (hideDefaultHandle)
-		{
-			if (UnityEngine.GUILayout.Button("Show Main Transform"))
-			{
-				hideDefaultHandle = false;
-				DefaultHandles.Hidden = hideDefaultHandle;
-			}
-		}
-		else if (UnityEngine.GUILayout.Button("Hide Main Transform"))
-		{
-			hideDefaultHandle = true;
-			DefaultHandles.Hidden = hideDefaultHandle;
-		}
 	}
 
 	public override void OnChildInspectorGUI()
@@ -92,31 +60,78 @@ public class AkAmbientInspector : AkEventInspector
 
 		base.OnChildInspectorGUI();
 
-		UnityEngine.GUILayout.Space(UnityEditor.EditorGUIUtility.standardVerticalSpacing);
+		if (UnityEngine.Event.current.type == UnityEngine.EventType.ExecuteCommand
+			&& UnityEngine.Event.current.commandName == "ObjectSelectorClosed")
+		{
+			var pickedObject = UnityEditor.EditorGUIUtility.GetObjectPickerObject();
+			if (pickedObject != null)
+			{
+				int insertIndex = largeModePositionArrayProperty.arraySize;
+				largeModePositionArrayProperty.InsertArrayElementAtIndex(insertIndex);
 
-		var type = m_AkAmbient.multiPositionTypeLabel;
+				var newElement = largeModePositionArrayProperty.GetArrayElementAtIndex(insertIndex);
+				newElement.objectReferenceValue = pickedObject;
+				return;
+			}
+		}
+
+		UnityEngine.GUILayout.Space(UnityEditor.EditorGUIUtility.standardVerticalSpacing);
 
 		using (new UnityEditor.EditorGUILayout.VerticalScope("box"))
 		{
-			UnityEditor.EditorGUILayout.PropertyField(multiPositionType, new UnityEngine.GUIContent("Position Type: "));
+			UnityEditor.EditorGUILayout.PropertyField(multiPositionTypeProperty, new UnityEngine.GUIContent("Position Type: ", "Simple Mode: Only one position is used.\nLarge Mode: Children of AkAmbient with AkAmbientLargeModePositioner component will be used as position source for multi-positioning.\nMultiple Position Mode: Every AkAmbient using the same event will be used as position source for multi-positioning."));
 
 			UnityEngine.GUILayout.Space(UnityEditor.EditorGUIUtility.standardVerticalSpacing);
 
 			currentAttSphereOp = (AttenuationSphereOptions) UnityEditor.EditorGUILayout.EnumPopup("Show Attenuation Sphere: ", currentAttSphereOp);
 			attSphereProperties[target] = currentAttSphereOp;
+
+			if (multiPositionTypeProperty.intValue == (int)MultiPositionTypeLabel.Large_Mode)
+			{
+				UnityEngine.GUILayout.BeginHorizontal();
+				if (UnityEngine.GUILayout.Button("Add Large Mode position object"))
+				{
+					int insertIndex = largeModePositionArrayProperty.arraySize;
+					largeModePositionArrayProperty.InsertArrayElementAtIndex(insertIndex);
+
+					UnityEngine.GameObject newPoint = new UnityEngine.GameObject(string.Format("AkAmbientPoint{0}", insertIndex));
+					UnityEditor.Undo.RegisterCreatedObjectUndo(newPoint, "CreateNewLargeModePositionObject");
+					UnityEditor.Undo.AddComponent<AkAmbientLargeModePositioner>(newPoint);
+					UnityEditor.Undo.SetTransformParent(newPoint.transform, m_AkAmbient.transform, "CreateNewLargeModePositionObjectSetParent");
+					newPoint.transform.position = m_AkAmbient.transform.TransformPoint(UnityEngine.Vector3.zero);
+					newPoint.transform.localScale = new UnityEngine.Vector3(1f, 1f, 1f);
+
+					var newElement = largeModePositionArrayProperty.GetArrayElementAtIndex(insertIndex);
+					newElement.objectReferenceValue = newPoint.GetComponent<AkAmbientLargeModePositioner>();
+				}
+
+				if (UnityEngine.GUILayout.Button("Pick existing position object"))
+				{
+					int controlID = UnityEngine.GUIUtility.GetControlID(UnityEngine.FocusType.Passive);
+					UnityEditor.EditorGUIUtility.ShowObjectPicker<AkAmbientLargeModePositioner>(null, true, string.Empty, controlID);
+				}
+				UnityEngine.GUILayout.EndHorizontal();
+
+				++UnityEditor.EditorGUI.indentLevel;
+				UnityEditor.EditorGUI.BeginChangeCheck();
+				for (int i = 0; i < largeModePositionArrayProperty.arraySize; ++i)
+				{
+					UnityEditor.EditorGUILayout.PropertyField(largeModePositionArrayProperty.GetArrayElementAtIndex(i), true);
+				}
+				if (UnityEditor.EditorGUI.EndChangeCheck())
+				{
+					serializedObject.ApplyModifiedProperties();
+				}
+				--UnityEditor.EditorGUI.indentLevel;
+			}
 		}
 
 		//Save multi-position type to know if it has changed
 		var multiPosType = m_AkAmbient.multiPositionTypeLabel;
 
 		if (m_AkAmbient.multiPositionTypeLabel == MultiPositionTypeLabel.MultiPosition_Mode)
-			UpdateTriggers(multiPosType);
-
-		if (UnityEngine.GUI.changed)
 		{
-			if (type != m_AkAmbient.multiPositionTypeLabel &&
-			    m_AkAmbient.multiPositionTypeLabel != MultiPositionTypeLabel.Large_Mode)
-				m_AkAmbient.multiPositionArray.Clear();
+			UpdateTriggers(multiPosType);
 		}
 	}
 
@@ -178,60 +193,6 @@ public class AkAmbientInspector : AkEventInspector
 	private void OnSceneGUI()
 	{
 		RenderAttenuationSpheres();
-
-		if (m_AkAmbient.multiPositionTypeLabel == MultiPositionTypeLabel.Simple_Mode)
-			return;
-
-		var someHashCode = GetHashCode();
-
-		UnityEditor.Handles.matrix = m_AkAmbient.transform.localToWorldMatrix;
-
-		for (var i = 0; i < m_AkAmbient.multiPositionArray.Count; i++)
-		{
-			var pos = m_AkAmbient.multiPositionArray[i];
-
-			UnityEditor.Handles.Label(pos, "Point_" + i);
-
-			var handleSize = UnityEditor.HandleUtility.GetHandleSize(pos);
-
-			// Get the needed data before the handle
-			var controlIDBeforeHandle = UnityEngine.GUIUtility.GetControlID(someHashCode, UnityEngine.FocusType.Passive);
-			var isEventUsedBeforeHandle = UnityEngine.Event.current.type == UnityEngine.EventType.Used;
-
-			UnityEditor.Handles.color = UnityEngine.Color.green;
-#if UNITY_5_6_OR_NEWER
-			UnityEditor.Handles.CapFunction capFunc = UnityEditor.Handles.SphereHandleCap;
-#else
-			UnityEditor.Handles.DrawCapFunction capFunc = UnityEditor.Handles.SphereCap;
-#endif
-			UnityEditor.Handles.ScaleValueHandle(0, pos, UnityEngine.Quaternion.identity, handleSize, capFunc, 0);
-
-			if (curPointIndex == i)
-				pos = UnityEditor.Handles.PositionHandle(pos, UnityEngine.Quaternion.identity);
-
-			// Get the needed data after the handle
-			var controlIDAfterHandle = UnityEngine.GUIUtility.GetControlID(someHashCode, UnityEngine.FocusType.Passive);
-			var isEventUsedByHandle = !isEventUsedBeforeHandle && UnityEngine.Event.current.type == UnityEngine.EventType.Used;
-
-			if (controlIDBeforeHandle < UnityEngine.GUIUtility.hotControl &&
-			    UnityEngine.GUIUtility.hotControl < controlIDAfterHandle || isEventUsedByHandle)
-				curPointIndex = i;
-
-			m_AkAmbient.multiPositionArray[i] = pos;
-		}
-
-		if (m_AkAmbient.multiPositionTypeLabel == MultiPositionTypeLabel.Large_Mode)
-		{
-			UnityEditor.Handles.BeginGUI();
-
-			var size = new UnityEngine.Rect(0, 0, 200, 70);
-			float xPosition = UnityEngine.Screen.width / UnityEditor.EditorGUIUtility.pixelsPerPoint - size.width - 10;
-			float yPosition = UnityEngine.Screen.height / UnityEditor.EditorGUIUtility.pixelsPerPoint - size.height - 50;
-
-			UnityEngine.GUI.Window(0, new UnityEngine.Rect(xPosition, yPosition, size.width, size.height), DoMyWindow, "AkAmbient Tool Bar");
-
-			UnityEditor.Handles.EndGUI();
-		}
 	}
 
 	public void RenderAttenuationSpheres()
@@ -245,13 +206,17 @@ public class AkAmbientInspector : AkEventInspector
 			var radius = AkWwiseProjectInfo.GetData().GetEventMaxAttenuation(m_AkAmbient.data.Id);
 
 			if (m_AkAmbient.multiPositionTypeLabel == MultiPositionTypeLabel.Simple_Mode)
+			{
 				DrawSphere(m_AkAmbient.gameObject.transform.position, radius);
+			}
 			else if (m_AkAmbient.multiPositionTypeLabel == MultiPositionTypeLabel.Large_Mode)
 			{
-				UnityEditor.Handles.matrix = m_AkAmbient.transform.localToWorldMatrix;
+				var positionComponents = m_AkAmbient.GetComponentsInChildren<AkAmbientLargeModePositioner>();
 
-				for (var i = 0; i < m_AkAmbient.multiPositionArray.Count; i++)
-					DrawSphere(m_AkAmbient.multiPositionArray[i], radius);
+				for (int i = 0; i < positionComponents.Length; i++)
+				{
+					DrawSphere(positionComponents[i].transform.position, radius);
+				}
 			}
 			else
 			{
@@ -260,8 +225,10 @@ public class AkAmbientInspector : AkEventInspector
 				for (var i = 0; i < akAmbiants.Length; i++)
 				{
 					if (akAmbiants[i].multiPositionTypeLabel == MultiPositionTypeLabel.MultiPosition_Mode &&
-					    akAmbiants[i].data.Id == m_AkAmbient.data.Id)
+						akAmbiants[i].data.Id == m_AkAmbient.data.Id)
+					{
 						DrawSphere(akAmbiants[i].gameObject.transform.position, radius);
+					}
 				}
 			}
 		}
@@ -276,15 +243,17 @@ public class AkAmbientInspector : AkEventInspector
 
 				if (akAmbiants[i].multiPositionTypeLabel == MultiPositionTypeLabel.Large_Mode)
 				{
-					UnityEditor.Handles.matrix = akAmbiants[i].transform.localToWorldMatrix;
+					var positionComponents = m_AkAmbient.GetComponentsInChildren<AkAmbientLargeModePositioner>();
 
-					for (var j = 0; j < akAmbiants[i].multiPositionArray.Count; j++)
-						DrawSphere(akAmbiants[i].multiPositionArray[j], radius);
-
-					UnityEditor.Handles.matrix = UnityEngine.Matrix4x4.identity;
+					for (int j = 0; j < positionComponents.Length; j++)
+					{
+						DrawSphere(positionComponents[j].transform.position, radius);
+					}
 				}
 				else
+				{
 					DrawSphere(akAmbiants[i].gameObject.transform.position, radius);
+				}
 			}
 		}
 	}
@@ -296,7 +265,7 @@ public class AkAmbientInspector : AkEventInspector
 		UnityEditor.Handles.color = SPHERE_COLOR;
 
 		if (UnityEngine.Vector3.SqrMagnitude(
-			    UnityEditor.SceneView.lastActiveSceneView.camera.transform.position - in_position) > in_radius * in_radius)
+				UnityEditor.SceneView.lastActiveSceneView.camera.transform.position - in_position) > in_radius * in_radius)
 		{
 #if UNITY_5_6_OR_NEWER
 			UnityEditor.Handles.SphereHandleCap(0, in_position, UnityEngine.Quaternion.identity, in_radius * 2.0f,
@@ -306,7 +275,9 @@ public class AkAmbientInspector : AkEventInspector
 #endif
 		}
 		else
+		{
 			DrawDiscs(UnityEngine.Vector3.up, UnityEngine.Vector3.down, 6, in_position, in_radius);
+		}
 	}
 
 	private void DrawDiscs(UnityEngine.Vector3 in_startNormal, UnityEngine.Vector3 in_endNormal, uint in_nbDiscs,

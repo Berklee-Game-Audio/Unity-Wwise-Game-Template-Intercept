@@ -18,90 +18,19 @@
 /// - \ref AkEventPlayableBehavior
 public class AkEventTrack : UnityEngine.Timeline.TrackAsset
 {
-	public override UnityEngine.Playables.Playable CreateTrackMixer(UnityEngine.Playables.PlayableGraph graph,
-		UnityEngine.GameObject go, int inputCount)
+	public override UnityEngine.Playables.Playable CreateTrackMixer(UnityEngine.Playables.PlayableGraph graph, UnityEngine.GameObject go, int inputCount)
 	{
-#if UNITY_EDITOR
-		var Settings = WwiseSettings.LoadSettings();
-		var WprojPath = AkUtilities.GetFullPath(UnityEngine.Application.dataPath, Settings.WwiseProjectPath);
-		AkUtilities.EnableBoolSoundbankSettingInWproj("SoundBankGenerateEstimatedDuration", WprojPath);
-#endif
 		var playable = UnityEngine.Playables.ScriptPlayable<AkEventPlayableBehavior>.Create(graph);
 		UnityEngine.Playables.PlayableExtensions.SetInputCount(playable, inputCount);
-		setFadeTimes();
-		setOwnerClips();
+
+		var clips = GetClips();
+		foreach (var clip in clips)
+		{
+			var akEventPlayable = clip.asset as AkEventPlayable;
+			akEventPlayable.owningClip = clip;
+		}
+
 		return playable;
-	}
-
-	public void setFadeTimes()
-	{
-		var clips = GetClips();
-		foreach (var clip in clips)
-		{
-			var clipPlayable = (AkEventPlayable) clip.asset;
-			clipPlayable.setBlendInDuration((float) getBlendInTime(clipPlayable));
-			clipPlayable.setBlendOutDuration((float) getBlendOutTime(clipPlayable));
-			clipPlayable.setEaseInDuration((float) getEaseInTime(clipPlayable));
-			clipPlayable.setEaseOutDuration((float) getEaseOutTime(clipPlayable));
-		}
-	}
-
-	public void setOwnerClips()
-	{
-		var clips = GetClips();
-		foreach (var clip in clips)
-		{
-			var clipPlayable = (AkEventPlayable) clip.asset;
-			clipPlayable.OwningClip = clip;
-		}
-	}
-
-	public double getBlendInTime(AkEventPlayable playableClip)
-	{
-		var clips = GetClips();
-		foreach (var clip in clips)
-		{
-			if (playableClip == (AkEventPlayable) clip.asset)
-				return clip.blendInDuration;
-		}
-
-		return 0.0;
-	}
-
-	public double getBlendOutTime(AkEventPlayable playableClip)
-	{
-		var clips = GetClips();
-		foreach (var clip in clips)
-		{
-			if (playableClip == (AkEventPlayable) clip.asset)
-				return clip.blendOutDuration;
-		}
-
-		return 0.0;
-	}
-
-	public double getEaseInTime(AkEventPlayable playableClip)
-	{
-		var clips = GetClips();
-		foreach (var clip in clips)
-		{
-			if (playableClip == (AkEventPlayable) clip.asset)
-				return clip.easeInDuration;
-		}
-
-		return 0.0;
-	}
-
-	public double getEaseOutTime(AkEventPlayable playableClip)
-	{
-		var clips = GetClips();
-		foreach (var clip in clips)
-		{
-			if (playableClip == (AkEventPlayable) clip.asset)
-				return clip.easeOutDuration;
-		}
-
-		return 0.0;
 	}
 }
 

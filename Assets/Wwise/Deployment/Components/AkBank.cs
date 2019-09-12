@@ -6,9 +6,12 @@
 //////////////////////////////////////////////////////////////////////
 
 [UnityEngine.AddComponentMenu("Wwise/AkBank")]
-/// @brief Loads and unloads a SoundBank at a specified moment. Vorbis sounds can be decompressed at a specified moment using the decode compressed data option. In that case, the SoundBank will be prepared.
 [UnityEngine.ExecuteInEditMode]
-public class AkBank : AkUnityEventHandler, UnityEngine.ISerializationCallbackReceiver
+/// @brief Loads and unloads a SoundBank at a specified moment. Vorbis sounds can be decompressed at a specified moment using the decode compressed data option. In that case, the SoundBank will be prepared.
+public class AkBank : AkTriggerHandler
+#if UNITY_EDITOR
+	, AK.Wwise.IMigratable
+#endif
 {
 	public AK.Wwise.Bank data = new AK.Wwise.Bank();
 
@@ -28,8 +31,15 @@ public class AkBank : AkUnityEventHandler, UnityEngine.ISerializationCallbackRec
 	protected override void Awake()
 	{
 #if UNITY_EDITOR
-		if (UnityEditor.BuildPipeline.isBuildingPlayer)
+		if (UnityEditor.BuildPipeline.isBuildingPlayer || AkUtilities.IsMigrating)
 			return;
+
+		var reference = AkUtilities.DragAndDropObjectReference;
+		if (reference)
+		{
+			UnityEngine.GUIUtility.hotControl = 0;
+			data.ObjectReference = reference;
+		}
 #endif
 
 		base.Awake();
@@ -43,6 +53,11 @@ public class AkBank : AkUnityEventHandler, UnityEngine.ISerializationCallbackRec
 
 	protected override void Start()
 	{
+#if UNITY_EDITOR
+		if (UnityEditor.BuildPipeline.isBuildingPlayer || AkUtilities.IsMigrating)
+			return;
+#endif
+
 		base.Start();
 
 		//Call the UnloadBank function if registered to the Start Trigger
@@ -67,41 +82,59 @@ public class AkBank : AkUnityEventHandler, UnityEngine.ISerializationCallbackRec
 
 	protected override void OnDestroy()
 	{
+#if UNITY_EDITOR
+		if (UnityEditor.BuildPipeline.isBuildingPlayer || AkUtilities.IsMigrating)
+			return;
+#endif
+
 		base.OnDestroy();
 
 		UnregisterTriggers(unloadTriggerList, UnloadBank);
-
-#if UNITY_EDITOR
-		if (UnityEditor.BuildPipeline.isBuildingPlayer)
-			return;
-#endif
 
 		if (unloadTriggerList.Contains(DESTROY_TRIGGER_ID))
 			UnloadBank(null);
 	}
 
-	#region WwiseMigration
-	void UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize() { }
+	#region Obsolete
+	[System.Obsolete(AkSoundEngine.Deprecation_2018_1_6)]
+	public string bankName { get { return data == null ? string.Empty : data.Name; } }
 
-	void UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize()
+	[System.Obsolete(AkSoundEngine.Deprecation_2018_1_6)]
+	public byte[] valueGuid
 	{
-#if UNITY_EDITOR
-		if (!data.IsValid() && AK.Wwise.BaseType.IsByteArrayValidGuid(valueGuid))
+		get
 		{
-			data.valueGuid = valueGuid;
-			WwiseObjectReference.migrate += data.MigrateData;
+			if (data == null)
+				return null;
+
+			var objRef = data.ObjectReference;
+			return !objRef ? null : objRef.Guid.ToByteArray();
 		}
-
-		valueGuid = null;
-#endif
 	}
+	#endregion
 
+	#region WwiseMigration
 #pragma warning disable 0414 // private field assigned but not used.
 	[UnityEngine.HideInInspector]
 	[UnityEngine.SerializeField]
-	private byte[] valueGuid;
+	[UnityEngine.Serialization.FormerlySerializedAs("bankName")]
+	private string bankNameInternal;
+	[UnityEngine.HideInInspector]
+	[UnityEngine.SerializeField]
+	[UnityEngine.Serialization.FormerlySerializedAs("valueGuid")]
+	private byte[] valueGuidInternal;
 #pragma warning restore 0414 // private field assigned but not used.
 
+#if UNITY_EDITOR
+	bool AK.Wwise.IMigratable.Migrate(UnityEditor.SerializedObject obj)
+	{
+		if (!AkUtilities.IsMigrationRequired(AkUtilities.MigrationStep.WwiseTypes_v2018_1_6))
+			return false;
+
+		return AK.Wwise.TypeMigration.ProcessSingleGuidType(obj.FindProperty("data.WwiseObjectReference"), WwiseObjectType.Soundbank, 
+			obj.FindProperty("valueGuidInternal"), obj.FindProperty("bankNameInternal"));
+	}
+#endif
 	#endregion
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

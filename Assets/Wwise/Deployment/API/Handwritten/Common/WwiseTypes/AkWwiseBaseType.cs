@@ -4,7 +4,7 @@ namespace AK.Wwise
 {
 	[System.Serializable]
 	///@brief This type represents the base for all Wwise Types that require a GUID.
-	public abstract class BaseType : UnityEngine.ISerializationCallbackReceiver
+	public abstract class BaseType
 	{
 		public abstract WwiseObjectReference ObjectReference { get; set; }
 
@@ -13,12 +13,6 @@ namespace AK.Wwise
 		public virtual string Name
 		{
 			get { return IsValid() ? ObjectReference.DisplayName : string.Empty; }
-		}
-
-		[System.Obsolete(AkSoundEngine.Deprecation_2018_1_2)]
-		public int ID
-		{
-			get { return (int)Id; }
 		}
 
 		public uint Id
@@ -60,64 +54,35 @@ namespace AK.Wwise
 		}
 #endif
 
+		#region Obsolete
+		[System.Obsolete(AkSoundEngine.Deprecation_2018_1_2)]
+		public int ID
+		{
+			get { return (int)Id; }
+		}
+
+		[System.Obsolete(AkSoundEngine.Deprecation_2018_1_6)]
+		public byte[] valueGuid
+		{
+			get
+			{
+				var objRef = ObjectReference;
+				return !objRef ? null : objRef.Guid.ToByteArray();
+			}
+		}
+		#endregion
+
 		#region WwiseMigration
-
-		void UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize() { }
-
-		void UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize()
-		{
-#if UNITY_EDITOR
-			if (CanMigrateData())
-				WwiseObjectReference.migrate += MigrateData;
-			else
-				ClearData();
-#endif
-		}
-
-#if UNITY_EDITOR
-		protected virtual bool CanMigrateData()
-		{
-			return !IsValid() && IsByteArrayValidGuid(valueGuid);
-		}
-
-		public void MigrateData()
-		{
-			ObjectReference = WwiseObjectReference.GetWwiseObjectForMigration(WwiseObjectType, valueGuid);
-
-			MigrateDataExtension();
-
-			if (IsValid())
-				UnityEngine.Debug.Log("WwiseUnity: Converted " + Name + " in " + GetType().FullName);
-
-			ClearData();
-		}
-
-		protected virtual void MigrateDataExtension() {}
-
-		protected virtual void ClearData()
-		{
-			valueGuid = null;
-		}
-#endif
-
+#pragma warning disable 0414 // private field assigned but not used.
 		[UnityEngine.HideInInspector]
-		public byte[] valueGuid;
-
-		public static bool IsByteArrayValidGuid(byte[] byteArray)
-		{
-			if (byteArray == null)
-				return false;
-
-			try
-			{
-				var guid = new System.Guid(byteArray);
-				return !guid.Equals(System.Guid.Empty);
-			}
-			catch
-			{
-				return false;
-			}
-		}
+		[UnityEngine.SerializeField]
+		[UnityEngine.Serialization.FormerlySerializedAs("ID")]
+		private int idInternal;
+		[UnityEngine.HideInInspector]
+		[UnityEngine.SerializeField]
+		[UnityEngine.Serialization.FormerlySerializedAs("valueGuid")]
+		private byte[] valueGuidInternal;
+#pragma warning restore 0414 // private field assigned but not used.
 		#endregion
 	}
 }

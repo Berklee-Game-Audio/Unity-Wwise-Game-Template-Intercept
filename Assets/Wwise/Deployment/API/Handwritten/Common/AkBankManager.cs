@@ -31,6 +31,51 @@ public static class AkBankManager
 		BanksToUnload.Clear();
 	}
 
+#if UNITY_EDITOR
+	internal static void ReloadAllBanks()
+	{
+		m_Mutex.WaitOne();
+		foreach (var bankHandle in m_BankHandles.Values)
+		{
+			if (bankHandle != null)
+			{
+				bankHandle.UnloadBank();
+			}
+		}
+
+		UnloadInitBank();
+		LoadInitBank(false);
+
+		foreach(var bankHandle in m_BankHandles.Values)
+		{
+			if (bankHandle != null)
+			{
+				bankHandle.DoLoadBank();
+			}
+		}
+		m_Mutex.ReleaseMutex();
+	}
+#endif
+	public static void LoadInitBank(bool doReset = true)
+	{
+		if (doReset)
+		{
+			Reset();
+		}
+
+		uint BankID;
+		var result = AkSoundEngine.LoadBank("Init.bnk", AkSoundEngine.AK_DEFAULT_POOL_ID, out BankID);
+		if (result != AKRESULT.AK_Success)
+		{
+			UnityEngine.Debug.LogError("WwiseUnity: Failed load Init.bnk with result: " + result);
+		}
+	}
+
+	public static void UnloadInitBank()
+	{
+		AkSoundEngine.UnloadBank("Init.bnk", System.IntPtr.Zero);
+	}
+
 	/// Loads a SoundBank. This version blocks until the bank is loaded. See AK::SoundEngine::LoadBank for more information.
 	public static void LoadBank(string name, bool decodeBank, bool saveDecodedBank)
 	{

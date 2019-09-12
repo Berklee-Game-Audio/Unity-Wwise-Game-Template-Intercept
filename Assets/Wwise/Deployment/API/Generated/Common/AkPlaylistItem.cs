@@ -58,7 +58,7 @@ public class AkPlaylistItem : global::System.IDisposable {
 
   public bool IsEqualTo(AkPlaylistItem in_rCopy) { return AkSoundEnginePINVOKE.CSharp_AkPlaylistItem_IsEqualTo(swigCPtr, AkPlaylistItem.getCPtr(in_rCopy)); }
 
-  public AKRESULT SetExternalSources(uint in_nExternalSrc, AkExternalSourceInfo in_pExternalSrc) { return (AKRESULT)AkSoundEnginePINVOKE.CSharp_AkPlaylistItem_SetExternalSources(swigCPtr, in_nExternalSrc, AkExternalSourceInfo.getCPtr(in_pExternalSrc)); }
+  public AKRESULT SetExternalSources(uint in_nExternalSrc, AkExternalSourceInfoArray in_pExternalSrc) { return (AKRESULT)AkSoundEnginePINVOKE.CSharp_AkPlaylistItem_SetExternalSources(swigCPtr, in_nExternalSrc, in_pExternalSrc.GetBuffer()); }
 
   public uint audioNodeID { set { AkSoundEnginePINVOKE.CSharp_AkPlaylistItem_audioNodeID_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkPlaylistItem_audioNodeID_get(swigCPtr); } 
   }

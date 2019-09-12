@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{605C0B66-D3E7-427D-9B25-CDAD5D5BDB28}" SchemaVersion="89">
+<WwiseDocument Type="WorkUnit" ID="{605C0B66-D3E7-427D-9B25-CDAD5D5BDB28}" SchemaVersion="94">
 	<InteractiveMusic>
 		<WorkUnit Name="Default Work Unit" ID="{605C0B66-D3E7-427D-9B25-CDAD5D5BDB28}" PersistMode="Standalone">
 			<ChildrenList>
@@ -64,6 +64,13 @@
 					</CueList>
 				</MusicSegment>
 				<MusicPlaylistContainer Name="drone" ID="{EC9BD4CC-7F8F-4D2D-93B9-3EC1D9DE3D40}" ShortID="1021575018">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-1</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>

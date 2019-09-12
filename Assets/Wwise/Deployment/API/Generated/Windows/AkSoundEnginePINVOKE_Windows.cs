@@ -30,40 +30,6 @@ class AkSoundEnginePINVOKE {
   public static extern global::System.IntPtr CSharp_new_AkAudioSettings();
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_delete_AkAudioSettings")]
   public static extern void CSharp_delete_AkAudioSettings(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_iExternalSrcCookie_set")]
-  public static extern void CSharp_AkExternalSourceInfo_iExternalSrcCookie_set(global::System.IntPtr jarg1, uint jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_iExternalSrcCookie_get")]
-  public static extern uint CSharp_AkExternalSourceInfo_iExternalSrcCookie_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_idCodec_set")]
-  public static extern void CSharp_AkExternalSourceInfo_idCodec_set(global::System.IntPtr jarg1, uint jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_idCodec_get")]
-  public static extern uint CSharp_AkExternalSourceInfo_idCodec_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_szFile_set")]
-  public static extern void CSharp_AkExternalSourceInfo_szFile_set(global::System.IntPtr jarg1, [global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPWStr)]string jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_szFile_get")]
-  public static extern global::System.IntPtr CSharp_AkExternalSourceInfo_szFile_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_pInMemory_set")]
-  public static extern void CSharp_AkExternalSourceInfo_pInMemory_set(global::System.IntPtr jarg1, global::System.IntPtr jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_pInMemory_get")]
-  public static extern global::System.IntPtr CSharp_AkExternalSourceInfo_pInMemory_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_uiMemorySize_set")]
-  public static extern void CSharp_AkExternalSourceInfo_uiMemorySize_set(global::System.IntPtr jarg1, uint jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_uiMemorySize_get")]
-  public static extern uint CSharp_AkExternalSourceInfo_uiMemorySize_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_idFile_set")]
-  public static extern void CSharp_AkExternalSourceInfo_idFile_set(global::System.IntPtr jarg1, uint jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_idFile_get")]
-  public static extern uint CSharp_AkExternalSourceInfo_idFile_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkExternalSourceInfo__SWIG_0")]
-  public static extern global::System.IntPtr CSharp_new_AkExternalSourceInfo__SWIG_0();
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkExternalSourceInfo__SWIG_1")]
-  public static extern global::System.IntPtr CSharp_new_AkExternalSourceInfo__SWIG_1(global::System.IntPtr jarg1, uint jarg2, uint jarg3, uint jarg4);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkExternalSourceInfo__SWIG_2")]
-  public static extern global::System.IntPtr CSharp_new_AkExternalSourceInfo__SWIG_2([global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPWStr)]string jarg1, uint jarg2, uint jarg3);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkExternalSourceInfo__SWIG_3")]
-  public static extern global::System.IntPtr CSharp_new_AkExternalSourceInfo__SWIG_3(uint jarg1, uint jarg2, uint jarg3);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_delete_AkExternalSourceInfo")]
-  public static extern void CSharp_delete_AkExternalSourceInfo(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkVector_Zero")]
   public static extern void CSharp_AkVector_Zero(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkVector_X_set")]
@@ -112,6 +78,12 @@ class AkSoundEnginePINVOKE {
   public static extern void CSharp_AkObstructionOcclusionValues_obstruction_set(global::System.IntPtr jarg1, float jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkObstructionOcclusionValues_obstruction_get")]
   public static extern float CSharp_AkObstructionOcclusionValues_obstruction_get(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkObstructionOcclusionValues_Clear")]
+  public static extern void CSharp_AkObstructionOcclusionValues_Clear(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkObstructionOcclusionValues_GetSizeOf")]
+  public static extern int CSharp_AkObstructionOcclusionValues_GetSizeOf();
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkObstructionOcclusionValues_Clone")]
+  public static extern void CSharp_AkObstructionOcclusionValues_Clone(global::System.IntPtr jarg1, global::System.IntPtr jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkObstructionOcclusionValues")]
   public static extern global::System.IntPtr CSharp_new_AkObstructionOcclusionValues();
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_delete_AkObstructionOcclusionValues")]
@@ -124,8 +96,6 @@ class AkSoundEnginePINVOKE {
   public static extern void CSharp_AkChannelEmitter_uInputChannels_set(global::System.IntPtr jarg1, uint jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkChannelEmitter_uInputChannels_get")]
   public static extern uint CSharp_AkChannelEmitter_uInputChannels_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkChannelEmitter")]
-  public static extern global::System.IntPtr CSharp_new_AkChannelEmitter();
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_delete_AkChannelEmitter")]
   public static extern void CSharp_delete_AkChannelEmitter(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkAuxSendValue_listenerID_set")]
@@ -146,10 +116,6 @@ class AkSoundEnginePINVOKE {
   public static extern bool CSharp_AkAuxSendValue_IsSame(global::System.IntPtr jarg1, ulong jarg2, uint jarg3);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkAuxSendValue_GetSizeOf")]
   public static extern int CSharp_AkAuxSendValue_GetSizeOf();
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkAuxSendValue_SetGameObjectAuxSendValues")]
-  public static extern int CSharp_AkAuxSendValue_SetGameObjectAuxSendValues(global::System.IntPtr jarg1, ulong jarg2, uint jarg3);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkAuxSendValue_GetGameObjectAuxSendValues")]
-  public static extern int CSharp_AkAuxSendValue_GetGameObjectAuxSendValues(global::System.IntPtr jarg1, ulong jarg2, ref uint jarg3);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_delete_AkAuxSendValue")]
   public static extern void CSharp_delete_AkAuxSendValue(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkRamp__SWIG_0")]
@@ -353,9 +319,7 @@ class AkSoundEnginePINVOKE {
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_DynamicSequenceOpen__SWIG_1")]
   public static extern uint CSharp_DynamicSequenceOpen__SWIG_1(ulong jarg1, uint jarg2, global::System.IntPtr jarg3, global::System.IntPtr jarg4);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_DynamicSequenceOpen__SWIG_2")]
-  public static extern uint CSharp_DynamicSequenceOpen__SWIG_2(ulong jarg1, uint jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_DynamicSequenceOpen__SWIG_3")]
-  public static extern uint CSharp_DynamicSequenceOpen__SWIG_3(ulong jarg1);
+  public static extern uint CSharp_DynamicSequenceOpen__SWIG_2(ulong jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_DynamicSequenceClose")]
   public static extern int CSharp_DynamicSequenceClose(uint jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_DynamicSequencePlay__SWIG_0")]
@@ -426,10 +390,6 @@ class AkSoundEnginePINVOKE {
   public static extern global::System.IntPtr CSharp_new_AkTaskContext();
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_delete_AkTaskContext")]
   public static extern void CSharp_delete_AkTaskContext(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkInitSettings_pfnAssertHook_set")]
-  public static extern void CSharp_AkInitSettings_pfnAssertHook_set(global::System.IntPtr jarg1, global::System.IntPtr jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkInitSettings_pfnAssertHook_get")]
-  public static extern global::System.IntPtr CSharp_AkInitSettings_pfnAssertHook_get(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkInitSettings_uMaxNumPaths_set")]
   public static extern void CSharp_AkInitSettings_uMaxNumPaths_set(global::System.IntPtr jarg1, uint jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkInitSettings_uMaxNumPaths_get")]
@@ -510,6 +470,12 @@ class AkSoundEnginePINVOKE {
   public static extern void CSharp_AkSourceSettings_uMediaSize_set(global::System.IntPtr jarg1, uint jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkSourceSettings_uMediaSize_get")]
   public static extern uint CSharp_AkSourceSettings_uMediaSize_get(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkSourceSettings_Clear")]
+  public static extern void CSharp_AkSourceSettings_Clear(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkSourceSettings_GetSizeOf")]
+  public static extern int CSharp_AkSourceSettings_GetSizeOf();
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkSourceSettings_Clone")]
+  public static extern void CSharp_AkSourceSettings_Clone(global::System.IntPtr jarg1, global::System.IntPtr jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkSourceSettings")]
   public static extern global::System.IntPtr CSharp_new_AkSourceSettings();
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_delete_AkSourceSettings")]
@@ -555,25 +521,17 @@ class AkSoundEnginePINVOKE {
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_PostEvent__SWIG_1")]
   public static extern uint CSharp_PostEvent__SWIG_1(uint jarg1, ulong jarg2, uint jarg3, global::System.IntPtr jarg4, global::System.IntPtr jarg5, uint jarg6, global::System.IntPtr jarg7);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_PostEvent__SWIG_2")]
-  public static extern uint CSharp_PostEvent__SWIG_2(uint jarg1, ulong jarg2, uint jarg3, global::System.IntPtr jarg4, global::System.IntPtr jarg5, uint jarg6);
+  public static extern uint CSharp_PostEvent__SWIG_2(uint jarg1, ulong jarg2, uint jarg3, global::System.IntPtr jarg4, global::System.IntPtr jarg5);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_PostEvent__SWIG_3")]
-  public static extern uint CSharp_PostEvent__SWIG_3(uint jarg1, ulong jarg2, uint jarg3, global::System.IntPtr jarg4, global::System.IntPtr jarg5);
+  public static extern uint CSharp_PostEvent__SWIG_3(uint jarg1, ulong jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_PostEvent__SWIG_4")]
-  public static extern uint CSharp_PostEvent__SWIG_4(uint jarg1, ulong jarg2, uint jarg3);
+  public static extern uint CSharp_PostEvent__SWIG_4([global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPWStr)]string jarg1, ulong jarg2, uint jarg3, global::System.IntPtr jarg4, global::System.IntPtr jarg5, uint jarg6, global::System.IntPtr jarg7, uint jarg8);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_PostEvent__SWIG_5")]
-  public static extern uint CSharp_PostEvent__SWIG_5(uint jarg1, ulong jarg2);
+  public static extern uint CSharp_PostEvent__SWIG_5([global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPWStr)]string jarg1, ulong jarg2, uint jarg3, global::System.IntPtr jarg4, global::System.IntPtr jarg5, uint jarg6, global::System.IntPtr jarg7);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_PostEvent__SWIG_6")]
-  public static extern uint CSharp_PostEvent__SWIG_6([global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPWStr)]string jarg1, ulong jarg2, uint jarg3, global::System.IntPtr jarg4, global::System.IntPtr jarg5, uint jarg6, global::System.IntPtr jarg7, uint jarg8);
+  public static extern uint CSharp_PostEvent__SWIG_6([global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPWStr)]string jarg1, ulong jarg2, uint jarg3, global::System.IntPtr jarg4, global::System.IntPtr jarg5);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_PostEvent__SWIG_7")]
-  public static extern uint CSharp_PostEvent__SWIG_7([global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPWStr)]string jarg1, ulong jarg2, uint jarg3, global::System.IntPtr jarg4, global::System.IntPtr jarg5, uint jarg6, global::System.IntPtr jarg7);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_PostEvent__SWIG_8")]
-  public static extern uint CSharp_PostEvent__SWIG_8([global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPWStr)]string jarg1, ulong jarg2, uint jarg3, global::System.IntPtr jarg4, global::System.IntPtr jarg5, uint jarg6);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_PostEvent__SWIG_9")]
-  public static extern uint CSharp_PostEvent__SWIG_9([global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPWStr)]string jarg1, ulong jarg2, uint jarg3, global::System.IntPtr jarg4, global::System.IntPtr jarg5);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_PostEvent__SWIG_10")]
-  public static extern uint CSharp_PostEvent__SWIG_10([global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPWStr)]string jarg1, ulong jarg2, uint jarg3);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_PostEvent__SWIG_11")]
-  public static extern uint CSharp_PostEvent__SWIG_11([global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPWStr)]string jarg1, ulong jarg2);
+  public static extern uint CSharp_PostEvent__SWIG_7([global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPWStr)]string jarg1, ulong jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_ExecuteActionOnEvent__SWIG_0")]
   public static extern int CSharp_ExecuteActionOnEvent__SWIG_0(uint jarg1, int jarg2, ulong jarg3, int jarg4, int jarg5, uint jarg6);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_ExecuteActionOnEvent__SWIG_1")]
@@ -660,6 +618,12 @@ class AkSoundEnginePINVOKE {
   public static extern void CSharp_StopPlayingID__SWIG_1(uint jarg1, int jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_StopPlayingID__SWIG_2")]
   public static extern void CSharp_StopPlayingID__SWIG_2(uint jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_ExecuteActionOnPlayingID__SWIG_0")]
+  public static extern void CSharp_ExecuteActionOnPlayingID__SWIG_0(int jarg1, uint jarg2, int jarg3, int jarg4);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_ExecuteActionOnPlayingID__SWIG_1")]
+  public static extern void CSharp_ExecuteActionOnPlayingID__SWIG_1(int jarg1, uint jarg2, int jarg3);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_ExecuteActionOnPlayingID__SWIG_2")]
+  public static extern void CSharp_ExecuteActionOnPlayingID__SWIG_2(int jarg1, uint jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_SetRandomSeed")]
   public static extern void CSharp_SetRandomSeed(uint jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_MuteBackgroundMusic")]
@@ -868,6 +832,10 @@ class AkSoundEnginePINVOKE {
   public static extern int CSharp_StopProfilerCapture();
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_RemoveOutput")]
   public static extern int CSharp_RemoveOutput(ulong jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_ReplaceOutput__SWIG_0")]
+  public static extern int CSharp_ReplaceOutput__SWIG_0(global::System.IntPtr jarg1, ulong jarg2, out ulong jarg3);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_ReplaceOutput__SWIG_1")]
+  public static extern int CSharp_ReplaceOutput__SWIG_1(global::System.IntPtr jarg1, ulong jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_GetOutputID__SWIG_0")]
   public static extern ulong CSharp_GetOutputID__SWIG_0(uint jarg1, uint jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_GetOutputID__SWIG_1")]
@@ -878,6 +846,8 @@ class AkSoundEnginePINVOKE {
   public static extern int CSharp_SetBusDevice__SWIG_1([global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPStr)]string jarg1, [global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPStr)]string jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_SetOutputVolume")]
   public static extern int CSharp_SetOutputVolume(ulong jarg1, float jarg2);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_GetDeviceSpatialAudioSupport")]
+  public static extern int CSharp_GetDeviceSpatialAudioSupport(uint jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_Suspend__SWIG_0")]
   public static extern int CSharp_Suspend__SWIG_0(bool jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_Suspend__SWIG_1")]
@@ -1336,6 +1306,8 @@ class AkSoundEnginePINVOKE {
   public static extern int CSharp_GetTimeStamp();
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_GetNumNonZeroBits")]
   public static extern uint CSharp_GetNumNonZeroBits(uint jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkGetDefaultHighPriorityThreadProperties")]
+  public static extern void CSharp_AkGetDefaultHighPriorityThreadProperties(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_ResolveDialogueEvent__SWIG_0")]
   public static extern uint CSharp_ResolveDialogueEvent__SWIG_0(uint jarg1, [global::System.Runtime.InteropServices.In, global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPArray)]uint[] jarg2, uint jarg3, uint jarg4);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_ResolveDialogueEvent__SWIG_1")]
@@ -1364,10 +1336,10 @@ class AkSoundEnginePINVOKE {
   public static extern void CSharp_AkPositioningInfo_e3DSpatializationMode_set(global::System.IntPtr jarg1, int jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPositioningInfo_e3DSpatializationMode_get")]
   public static extern int CSharp_AkPositioningInfo_e3DSpatializationMode_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPositioningInfo_bUseAttenuation_set")]
-  public static extern void CSharp_AkPositioningInfo_bUseAttenuation_set(global::System.IntPtr jarg1, bool jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPositioningInfo_bUseAttenuation_get")]
-  public static extern bool CSharp_AkPositioningInfo_bUseAttenuation_get(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPositioningInfo_bEnableAttenuation_set")]
+  public static extern void CSharp_AkPositioningInfo_bEnableAttenuation_set(global::System.IntPtr jarg1, bool jarg2);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPositioningInfo_bEnableAttenuation_get")]
+  public static extern bool CSharp_AkPositioningInfo_bEnableAttenuation_get(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPositioningInfo_bUseConeAttenuation_set")]
   public static extern void CSharp_AkPositioningInfo_bUseConeAttenuation_set(global::System.IntPtr jarg1, bool jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPositioningInfo_bUseConeAttenuation_get")]
@@ -1432,6 +1404,12 @@ class AkSoundEnginePINVOKE {
   public static extern void CSharp_AkObjectInfo_iDepth_set(global::System.IntPtr jarg1, int jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkObjectInfo_iDepth_get")]
   public static extern int CSharp_AkObjectInfo_iDepth_get(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkObjectInfo_Clear")]
+  public static extern void CSharp_AkObjectInfo_Clear(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkObjectInfo_GetSizeOf")]
+  public static extern int CSharp_AkObjectInfo_GetSizeOf();
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkObjectInfo_Clone")]
+  public static extern void CSharp_AkObjectInfo_Clone(global::System.IntPtr jarg1, global::System.IntPtr jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkObjectInfo")]
   public static extern global::System.IntPtr CSharp_new_AkObjectInfo();
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_delete_AkObjectInfo")]
@@ -1562,20 +1540,30 @@ class AkSoundEnginePINVOKE {
   public static extern void CSharp_AkImageSourceParams_fDiffraction_set(global::System.IntPtr jarg1, float jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkImageSourceParams_fDiffraction_get")]
   public static extern float CSharp_AkImageSourceParams_fDiffraction_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkImageSourceParams_bDiffractedEmitterSide_set")]
-  public static extern void CSharp_AkImageSourceParams_bDiffractedEmitterSide_set(global::System.IntPtr jarg1, bool jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkImageSourceParams_bDiffractedEmitterSide_get")]
-  public static extern bool CSharp_AkImageSourceParams_bDiffractedEmitterSide_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkImageSourceParams_bDiffractedListenerSide_set")]
-  public static extern void CSharp_AkImageSourceParams_bDiffractedListenerSide_set(global::System.IntPtr jarg1, bool jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkImageSourceParams_bDiffractedListenerSide_get")]
-  public static extern bool CSharp_AkImageSourceParams_bDiffractedListenerSide_get(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkImageSourceParams_uDiffractionEmitterSide_set")]
+  public static extern void CSharp_AkImageSourceParams_uDiffractionEmitterSide_set(global::System.IntPtr jarg1, byte jarg2);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkImageSourceParams_uDiffractionEmitterSide_get")]
+  public static extern byte CSharp_AkImageSourceParams_uDiffractionEmitterSide_get(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkImageSourceParams_uDiffractionListenerSide_set")]
+  public static extern void CSharp_AkImageSourceParams_uDiffractionListenerSide_set(global::System.IntPtr jarg1, byte jarg2);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkImageSourceParams_uDiffractionListenerSide_get")]
+  public static extern byte CSharp_AkImageSourceParams_uDiffractionListenerSide_get(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_delete_AkImageSourceParams")]
   public static extern void CSharp_delete_AkImageSourceParams(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_kDefaultMaxPathLength_get")]
   public static extern float CSharp_kDefaultMaxPathLength_get();
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_kDefaultDiffractionMaxEdges_get")]
+  public static extern uint CSharp_kDefaultDiffractionMaxEdges_get();
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_kDefaultDiffractionMaxPaths_get")]
+  public static extern uint CSharp_kDefaultDiffractionMaxPaths_get();
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_kMaxDiffraction_get")]
   public static extern float CSharp_kMaxDiffraction_get();
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_kListenerDiffractionMaxEdges_get")]
+  public static extern uint CSharp_kListenerDiffractionMaxEdges_get();
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_kListenerDiffractionMaxPaths_get")]
+  public static extern uint CSharp_kListenerDiffractionMaxPaths_get();
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_kPortalToPortalDiffractionMaxPaths_get")]
+  public static extern uint CSharp_kPortalToPortalDiffractionMaxPaths_get();
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_g_SpatialAudioPoolId_set")]
   public static extern void CSharp_g_SpatialAudioPoolId_set(int jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_g_SpatialAudioPoolId_get")]
@@ -1612,6 +1600,10 @@ class AkSoundEnginePINVOKE {
   public static extern void CSharp_AkSpatialAudioInitSettings_fDiffractionShadowDegrees_set(global::System.IntPtr jarg1, float jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkSpatialAudioInitSettings_fDiffractionShadowDegrees_get")]
   public static extern float CSharp_AkSpatialAudioInitSettings_fDiffractionShadowDegrees_get(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkSpatialAudioInitSettings_fMovementThreshold_set")]
+  public static extern void CSharp_AkSpatialAudioInitSettings_fMovementThreshold_set(global::System.IntPtr jarg1, float jarg2);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkSpatialAudioInitSettings_fMovementThreshold_get")]
+  public static extern float CSharp_AkSpatialAudioInitSettings_fMovementThreshold_get(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_delete_AkSpatialAudioInitSettings")]
   public static extern void CSharp_delete_AkSpatialAudioInitSettings(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkImageSourceSettings__SWIG_0")]
@@ -1760,10 +1752,6 @@ class AkSoundEnginePINVOKE {
   public static extern void CSharp_AkReflectionPathInfo_numReflections_set(global::System.IntPtr jarg1, uint jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkReflectionPathInfo_numReflections_get")]
   public static extern uint CSharp_AkReflectionPathInfo_numReflections_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkReflectionPathInfo_occlusionPoint_set")]
-  public static extern void CSharp_AkReflectionPathInfo_occlusionPoint_set(global::System.IntPtr jarg1, global::System.IntPtr jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkReflectionPathInfo_occlusionPoint_get")]
-  public static extern global::System.IntPtr CSharp_AkReflectionPathInfo_occlusionPoint_get(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkReflectionPathInfo_level_set")]
   public static extern void CSharp_AkReflectionPathInfo_level_set(global::System.IntPtr jarg1, float jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkReflectionPathInfo_level_get")]
@@ -1812,46 +1800,16 @@ class AkSoundEnginePINVOKE {
   public static extern global::System.IntPtr CSharp_AkDiffractionPathInfo_GetNodes(global::System.IntPtr jarg1, uint jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkDiffractionPathInfo_GetAngles")]
   public static extern float CSharp_AkDiffractionPathInfo_GetAngles(global::System.IntPtr jarg1, uint jarg2);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkDiffractionPathInfo_GetPortals")]
+  public static extern ulong CSharp_AkDiffractionPathInfo_GetPortals(global::System.IntPtr jarg1, uint jarg2);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkDiffractionPathInfo_GetRooms")]
+  public static extern ulong CSharp_AkDiffractionPathInfo_GetRooms(global::System.IntPtr jarg1, uint jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkDiffractionPathInfo_Clone")]
   public static extern void CSharp_AkDiffractionPathInfo_Clone(global::System.IntPtr jarg1, global::System.IntPtr jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkDiffractionPathInfo")]
   public static extern global::System.IntPtr CSharp_new_AkDiffractionPathInfo();
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_delete_AkDiffractionPathInfo")]
   public static extern void CSharp_delete_AkDiffractionPathInfo(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPropagationPathInfo_nodePoint_set")]
-  public static extern void CSharp_AkPropagationPathInfo_nodePoint_set(global::System.IntPtr jarg1, global::System.IntPtr jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPropagationPathInfo_nodePoint_get")]
-  public static extern global::System.IntPtr CSharp_AkPropagationPathInfo_nodePoint_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPropagationPathInfo_numNodes_set")]
-  public static extern void CSharp_AkPropagationPathInfo_numNodes_set(global::System.IntPtr jarg1, uint jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPropagationPathInfo_numNodes_get")]
-  public static extern uint CSharp_AkPropagationPathInfo_numNodes_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPropagationPathInfo_length_set")]
-  public static extern void CSharp_AkPropagationPathInfo_length_set(global::System.IntPtr jarg1, float jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPropagationPathInfo_length_get")]
-  public static extern float CSharp_AkPropagationPathInfo_length_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPropagationPathInfo_gain_set")]
-  public static extern void CSharp_AkPropagationPathInfo_gain_set(global::System.IntPtr jarg1, float jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPropagationPathInfo_gain_get")]
-  public static extern float CSharp_AkPropagationPathInfo_gain_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPropagationPathInfo_dryDiffraction_set")]
-  public static extern void CSharp_AkPropagationPathInfo_dryDiffraction_set(global::System.IntPtr jarg1, float jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPropagationPathInfo_dryDiffraction_get")]
-  public static extern float CSharp_AkPropagationPathInfo_dryDiffraction_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPropagationPathInfo_wetDiffraction_set")]
-  public static extern void CSharp_AkPropagationPathInfo_wetDiffraction_set(global::System.IntPtr jarg1, float jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPropagationPathInfo_wetDiffraction_get")]
-  public static extern float CSharp_AkPropagationPathInfo_wetDiffraction_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPropagationPathInfo_GetSizeOf")]
-  public static extern int CSharp_AkPropagationPathInfo_GetSizeOf();
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPropagationPathInfo_GetNodePoint")]
-  public static extern global::System.IntPtr CSharp_AkPropagationPathInfo_GetNodePoint(global::System.IntPtr jarg1, uint jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPropagationPathInfo_Clone")]
-  public static extern void CSharp_AkPropagationPathInfo_Clone(global::System.IntPtr jarg1, global::System.IntPtr jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkPropagationPathInfo")]
-  public static extern global::System.IntPtr CSharp_new_AkPropagationPathInfo();
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_delete_AkPropagationPathInfo")]
-  public static extern void CSharp_delete_AkPropagationPathInfo(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkRoomParams")]
   public static extern global::System.IntPtr CSharp_new_AkRoomParams();
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkRoomParams_Up_set")]
@@ -1914,10 +1872,16 @@ class AkSoundEnginePINVOKE {
   public static extern int CSharp_SetEmitterObstructionAndOcclusion(ulong jarg1, float jarg2, float jarg3);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_SetPortalObstructionAndOcclusion")]
   public static extern int CSharp_SetPortalObstructionAndOcclusion(ulong jarg1, float jarg2, float jarg3);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_QueryWetDiffraction")]
+  public static extern int CSharp_QueryWetDiffraction(ulong jarg1, out float jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPlatformInitSettings_threadLEngine_set")]
   public static extern void CSharp_AkPlatformInitSettings_threadLEngine_set(global::System.IntPtr jarg1, global::System.IntPtr jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPlatformInitSettings_threadLEngine_get")]
   public static extern global::System.IntPtr CSharp_AkPlatformInitSettings_threadLEngine_get(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPlatformInitSettings_threadOutputMgr_set")]
+  public static extern void CSharp_AkPlatformInitSettings_threadOutputMgr_set(global::System.IntPtr jarg1, global::System.IntPtr jarg2);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPlatformInitSettings_threadOutputMgr_get")]
+  public static extern global::System.IntPtr CSharp_AkPlatformInitSettings_threadOutputMgr_get(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPlatformInitSettings_threadBankManager_set")]
   public static extern void CSharp_AkPlatformInitSettings_threadBankManager_set(global::System.IntPtr jarg1, global::System.IntPtr jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPlatformInitSettings_threadBankManager_get")]
@@ -2082,6 +2046,8 @@ class AkSoundEnginePINVOKE {
   public static extern void CSharp_delete_AkCommunicationSettings(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkInitializationSettings")]
   public static extern global::System.IntPtr CSharp_new_AkInitializationSettings();
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_delete_AkInitializationSettings")]
+  public static extern void CSharp_delete_AkInitializationSettings(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkInitializationSettings_memSettings_set")]
   public static extern void CSharp_AkInitializationSettings_memSettings_set(global::System.IntPtr jarg1, global::System.IntPtr jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkInitializationSettings_memSettings_get")]
@@ -2110,16 +2076,50 @@ class AkSoundEnginePINVOKE {
   public static extern void CSharp_AkInitializationSettings_preparePoolSize_set(global::System.IntPtr jarg1, uint jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkInitializationSettings_preparePoolSize_get")]
   public static extern uint CSharp_AkInitializationSettings_preparePoolSize_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkInitializationSettings_communicationSettings_set")]
-  public static extern void CSharp_AkInitializationSettings_communicationSettings_set(global::System.IntPtr jarg1, global::System.IntPtr jarg2);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkInitializationSettings_communicationSettings_get")]
-  public static extern global::System.IntPtr CSharp_AkInitializationSettings_communicationSettings_get(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkInitializationSettings_unityPlatformSpecificSettings_set")]
   public static extern void CSharp_AkInitializationSettings_unityPlatformSpecificSettings_set(global::System.IntPtr jarg1, global::System.IntPtr jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkInitializationSettings_unityPlatformSpecificSettings_get")]
   public static extern global::System.IntPtr CSharp_AkInitializationSettings_unityPlatformSpecificSettings_get(global::System.IntPtr jarg1);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_delete_AkInitializationSettings")]
-  public static extern void CSharp_delete_AkInitializationSettings(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkExternalSourceInfo__SWIG_0")]
+  public static extern global::System.IntPtr CSharp_new_AkExternalSourceInfo__SWIG_0();
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_delete_AkExternalSourceInfo")]
+  public static extern void CSharp_delete_AkExternalSourceInfo(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkExternalSourceInfo__SWIG_1")]
+  public static extern global::System.IntPtr CSharp_new_AkExternalSourceInfo__SWIG_1(global::System.IntPtr jarg1, uint jarg2, uint jarg3, uint jarg4);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkExternalSourceInfo__SWIG_2")]
+  public static extern global::System.IntPtr CSharp_new_AkExternalSourceInfo__SWIG_2([global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPWStr)]string jarg1, uint jarg2, uint jarg3);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_new_AkExternalSourceInfo__SWIG_3")]
+  public static extern global::System.IntPtr CSharp_new_AkExternalSourceInfo__SWIG_3(uint jarg1, uint jarg2, uint jarg3);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_Clear")]
+  public static extern void CSharp_AkExternalSourceInfo_Clear(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_Clone")]
+  public static extern void CSharp_AkExternalSourceInfo_Clone(global::System.IntPtr jarg1, global::System.IntPtr jarg2);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_GetSizeOf")]
+  public static extern int CSharp_AkExternalSourceInfo_GetSizeOf();
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_iExternalSrcCookie_set")]
+  public static extern void CSharp_AkExternalSourceInfo_iExternalSrcCookie_set(global::System.IntPtr jarg1, uint jarg2);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_iExternalSrcCookie_get")]
+  public static extern uint CSharp_AkExternalSourceInfo_iExternalSrcCookie_get(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_idCodec_set")]
+  public static extern void CSharp_AkExternalSourceInfo_idCodec_set(global::System.IntPtr jarg1, uint jarg2);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_idCodec_get")]
+  public static extern uint CSharp_AkExternalSourceInfo_idCodec_get(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_szFile_set")]
+  public static extern void CSharp_AkExternalSourceInfo_szFile_set(global::System.IntPtr jarg1, [global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPWStr)]string jarg2);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_szFile_get")]
+  public static extern global::System.IntPtr CSharp_AkExternalSourceInfo_szFile_get(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_pInMemory_set")]
+  public static extern void CSharp_AkExternalSourceInfo_pInMemory_set(global::System.IntPtr jarg1, global::System.IntPtr jarg2);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_pInMemory_get")]
+  public static extern global::System.IntPtr CSharp_AkExternalSourceInfo_pInMemory_get(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_uiMemorySize_set")]
+  public static extern void CSharp_AkExternalSourceInfo_uiMemorySize_set(global::System.IntPtr jarg1, uint jarg2);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_uiMemorySize_get")]
+  public static extern uint CSharp_AkExternalSourceInfo_uiMemorySize_get(global::System.IntPtr jarg1);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_idFile_set")]
+  public static extern void CSharp_AkExternalSourceInfo_idFile_set(global::System.IntPtr jarg1, uint jarg2);
+  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkExternalSourceInfo_idFile_get")]
+  public static extern uint CSharp_AkExternalSourceInfo_idFile_get(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_Init")]
   public static extern int CSharp_Init(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_InitSpatialAudio")]
@@ -2186,8 +2186,6 @@ class AkSoundEnginePINVOKE {
   public static extern global::System.IntPtr CSharp_GetWindowsDeviceName(int jarg1, out uint jarg2);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_QueryIndirectPaths")]
   public static extern int CSharp_QueryIndirectPaths(ulong jarg1, global::System.IntPtr jarg2, global::System.IntPtr jarg3, uint jarg4);
-  [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_QuerySoundPropagationPaths")]
-  public static extern int CSharp_QuerySoundPropagationPaths(ulong jarg1, global::System.IntPtr jarg2, global::System.IntPtr jarg3, uint jarg4);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_QueryDiffractionPaths")]
   public static extern int CSharp_QueryDiffractionPaths(ulong jarg1, global::System.IntPtr jarg2, global::System.IntPtr jarg3, uint jarg4);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_SetRoomPortal")]
@@ -2199,7 +2197,7 @@ class AkSoundEnginePINVOKE {
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_UnregisterSpatialAudioListener")]
   public static extern int CSharp_UnregisterSpatialAudioListener(ulong jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_SetGeometry")]
-  public static extern int CSharp_SetGeometry(ulong jarg1, global::System.IntPtr jarg2, uint jarg3, global::System.IntPtr jarg4, uint jarg5, global::System.IntPtr jarg6, uint jarg7, bool jarg8, bool jarg9);
+  public static extern int CSharp_SetGeometry(ulong jarg1, global::System.IntPtr jarg2, uint jarg3, global::System.IntPtr jarg4, uint jarg5, global::System.IntPtr jarg6, uint jarg7, ulong jarg8, bool jarg9, bool jarg10);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkPlaylist_SWIGUpcast")]
   public static extern global::System.IntPtr CSharp_AkPlaylist_SWIGUpcast(global::System.IntPtr jarg1);
   [global::System.Runtime.InteropServices.DllImport("AkSoundEngine", EntryPoint="CSharp_AkMIDIPost_SWIGUpcast")]

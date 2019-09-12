@@ -68,10 +68,10 @@ public class AkImageSourceParams : global::System.IDisposable {
   public float fDiffraction { set { AkSoundEnginePINVOKE.CSharp_AkImageSourceParams_fDiffraction_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkImageSourceParams_fDiffraction_get(swigCPtr); } 
   }
 
-  public bool bDiffractedEmitterSide { set { AkSoundEnginePINVOKE.CSharp_AkImageSourceParams_bDiffractedEmitterSide_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkImageSourceParams_bDiffractedEmitterSide_get(swigCPtr); } 
+  public byte uDiffractionEmitterSide { set { AkSoundEnginePINVOKE.CSharp_AkImageSourceParams_uDiffractionEmitterSide_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkImageSourceParams_uDiffractionEmitterSide_get(swigCPtr); } 
   }
 
-  public bool bDiffractedListenerSide { set { AkSoundEnginePINVOKE.CSharp_AkImageSourceParams_bDiffractedListenerSide_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkImageSourceParams_bDiffractedListenerSide_get(swigCPtr); } 
+  public byte uDiffractionListenerSide { set { AkSoundEnginePINVOKE.CSharp_AkImageSourceParams_uDiffractionListenerSide_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkImageSourceParams_uDiffractionListenerSide_get(swigCPtr); } 
   }
 
 }

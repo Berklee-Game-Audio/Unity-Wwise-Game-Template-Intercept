@@ -175,7 +175,11 @@ public class AkWaapiClient
 
 	private static void ProcessCallbacks()
 	{
-		if (!UnityEditor.EditorApplication.isCompiling && IsConnected)
+		if (UnityEditor.EditorApplication.isCompiling)
+		{
+			UnityEditor.EditorApplication.update -= ProcessCallbacks;
+		}
+		else if (IsConnected)
 		{
 			AkWaapiClient_PINVOKE.ProcessCallbacks();
 		}
@@ -204,12 +208,6 @@ public class AkWaapiClient
 	{
 		UnityEditor.EditorApplication.update += ProcessCallbacks;
 		AkWaapiClient_PINVOKE.SetWampEventCallback(InternalWampEventCallback);
-		UnityEditor.Compilation.CompilationPipeline.assemblyCompilationStarted += CompileStarted;
-	}
-
-	private static void CompileStarted(string s)
-	{
-		UnityEditor.EditorApplication.update -= ProcessCallbacks;
 	}
 
 	~AkWaapiClient()

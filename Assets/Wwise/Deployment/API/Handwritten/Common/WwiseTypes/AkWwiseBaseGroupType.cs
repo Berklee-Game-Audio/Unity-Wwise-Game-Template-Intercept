@@ -17,12 +17,6 @@ namespace AK.Wwise
 
 		public abstract WwiseObjectType WwiseObjectGroupType { get; }
 
-		[System.Obsolete(AkSoundEngine.Deprecation_2018_1_2)]
-		public int groupID
-		{
-			get { return (int)GroupId; }
-		}
-
 		public uint GroupId
 		{
 			get { return GroupWwiseObjectReference ? GroupWwiseObjectReference.Id : AkSoundEngine.AK_INVALID_UNIQUE_ID; }
@@ -33,37 +27,35 @@ namespace AK.Wwise
 			return base.IsValid() && GroupWwiseObjectReference != null;
 		}
 
-#if UNITY_EDITOR
-		public void SetupGroupReference(string name, System.Guid guid)
+		#region Obsolete
+		[System.Obsolete(AkSoundEngine.Deprecation_2018_1_2)]
+		public int groupID
 		{
-			var reference = ObjectReference as WwiseGroupValueObjectReference;
-			if (reference)
-				reference.SetupGroupObjectReference(name, guid);
+			get { return (int)GroupId; }
 		}
-#endif
+
+		[System.Obsolete(AkSoundEngine.Deprecation_2018_1_6)]
+		public byte[] groupGuid
+		{
+			get
+			{
+				var objRef = ObjectReference;
+				return !objRef ? null : objRef.Guid.ToByteArray();
+			}
+		}
+		#endregion
 
 		#region WwiseMigration
-#if UNITY_EDITOR
-		protected override bool CanMigrateData()
-		{
-			return base.CanMigrateData() && IsByteArrayValidGuid(groupGuid);
-		}
-
-		protected override void MigrateDataExtension()
-		{
-			var reference = ObjectReference as WwiseGroupValueObjectReference;
-			if (reference)
-				reference.SetupGroupObjectReferenceForMigration(groupGuid);
-		}
-
-		protected override void ClearData()
-		{
-			valueGuid = groupGuid = null;
-		}
-#endif
-
+#pragma warning disable 0414 // private field assigned but not used.
 		[UnityEngine.HideInInspector]
-		public byte[] groupGuid;
+		[UnityEngine.SerializeField]
+		[UnityEngine.Serialization.FormerlySerializedAs("groupID")]
+		private int groupIdInternal;
+		[UnityEngine.HideInInspector]
+		[UnityEngine.SerializeField]
+		[UnityEngine.Serialization.FormerlySerializedAs("groupGuid")]
+		private byte[] groupGuidInternal;
+#pragma warning restore 0414 // private field assigned but not used.
 		#endregion
 	}
 }

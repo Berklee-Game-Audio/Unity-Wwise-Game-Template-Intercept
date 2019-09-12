@@ -156,10 +156,10 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 #endif
 
 		// We can't do the code in OnDestroy if the gameObj is unregistered, so do it now.
-		var eventHandlers = gameObject.GetComponents<AkUnityEventHandler>();
+		var eventHandlers = gameObject.GetComponents<AkTriggerHandler>();
 		foreach (var handler in eventHandlers)
 		{
-			if (handler.triggerList.Contains(AkUnityEventHandler.DESTROY_TRIGGER_ID))
+			if (handler.triggerList.Contains(AkTriggerHandler.DESTROY_TRIGGER_ID))
 				handler.DoDestroy();
 		}
 

@@ -2,50 +2,37 @@
 {
 	public virtual AkInitializationSettings AkInitializationSettings
 	{
-		get
-		{
-			return new AkInitializationSettings();
-		}
+		get { return new AkInitializationSettings(); }
 	}
 
 	public virtual AkSpatialAudioInitSettings AkSpatialAudioInitSettings
 	{
-		get
-		{
-			return new AkSpatialAudioInitSettings();
-		}
+		get { return new AkSpatialAudioInitSettings(); }
 	}
 
 	public virtual AkCallbackManager.InitializationSettings CallbackManagerInitializationSettings
 	{
-		get
-		{
-			return new AkCallbackManager.InitializationSettings();
-		}
+		get { return new AkCallbackManager.InitializationSettings(); }
 	}
 
 	public virtual string InitialLanguage
 	{
-		get
-		{
-			return "English(US)";
-		}
+		get { return "English(US)"; }
+	}
+
+	public virtual bool RenderDuringFocusLoss
+	{
+		get { return false; }
 	}
 
 	public virtual string SoundbankPath
 	{
-		get
-		{
-			return AkBasePathGetter.DefaultBasePath;
-		}
+		get { return AkBasePathGetter.DefaultBasePath; }
 	}
 
 	public virtual AkCommunicationSettings AkCommunicationSettings
 	{
-		get
-		{
-			return new AkCommunicationSettings();
-		}
+		get { return new AkCommunicationSettings(); }
 	}
 }
 
@@ -248,6 +235,20 @@ public class AkCommonUserSettings : AkSettingsValidationHandler
 	[UnityEngine.Tooltip("Main output device settings.")]
 	public AkCommonOutputSettings m_MainOutputSettings;
 
+	protected static string GetPluginPath()
+	{
+#if UNITY_EDITOR || UNITY_ANDROID || UNITY_WSA
+		return null;
+#elif PLATFORM_LUMIN
+		var dataPath = UnityEngine.Application.dataPath;
+		var find = "Data";
+		var index = dataPath.LastIndexOf(find);
+		return index == -1 ? dataPath : dataPath.Remove(index, find.Length).Insert(index, "bin");
+#else
+		return System.IO.Path.Combine(UnityEngine.Application.dataPath, "Plugins" + System.IO.Path.DirectorySeparatorChar);
+#endif
+	}
+
 	public virtual void CopyTo(AkInitSettings settings)
 	{
 		settings.uMaxNumPaths = m_MaximumNumberOfPositioningPaths;
@@ -256,13 +257,7 @@ public class AkCommonUserSettings : AkSettingsValidationHandler
 		settings.uCommandQueueSize = m_CommandQueueSize;
 		settings.uNumSamplesPerFrame = m_SamplesPerFrame;
 		m_MainOutputSettings.CopyTo(settings.settingsMainOutput);
-#if PLATFORM_LUMIN && !UNITY_EDITOR
-		settings.szPluginDLLPath = UnityEngine.Application.dataPath.Replace("Data", "bin") + System.IO.Path.DirectorySeparatorChar;
-#elif (!UNITY_ANDROID && !UNITY_WSA) || UNITY_EDITOR
-		settings.szPluginDLLPath = System.IO.Path.Combine(UnityEngine.Application.dataPath, "Plugins" + System.IO.Path.DirectorySeparatorChar);
-#else
-		settings.szPluginDLLPath = null;
-#endif
+		settings.szPluginDLLPath = GetPluginPath();
 	}
 
 	[UnityEngine.Tooltip("Multiplication factor for all streaming look-ahead heuristic values.")]
@@ -329,6 +324,9 @@ public class AkCommonUserSettings : AkSettingsValidationHandler
 		[UnityEngine.Tooltip("Determines whether diffraction values for sound passing through portals will be calculated, and how to apply those calculations to Wwise parameters.")]
 		[AkEnumFlag(typeof(DiffractionFlags))]
 		public DiffractionFlags m_DiffractionFlags = (DiffractionFlags)~0;
+
+		[UnityEngine.Tooltip("Distance (in game units) that an emitter or listener has to move to trigger a recalculation of reflections/diffraction. Larger values can reduce the CPU load at the cost of reduced accuracy.")]
+		public float m_MovementThreshold = 1.0f;
 	}
 
 	[UnityEngine.Tooltip("Spatial audio common settings.")]
@@ -339,6 +337,11 @@ public class AkCommonUserSettings : AkSettingsValidationHandler
 		settings.uPoolSize = m_SpatialAudioSettings.m_PoolSize;
 		settings.uMaxSoundPropagationDepth = m_SpatialAudioSettings.m_MaxSoundPropagationDepth;
 		settings.uDiffractionFlags = (uint)m_SpatialAudioSettings.m_DiffractionFlags;
+		settings.fMovementThreshold = m_SpatialAudioSettings.m_MovementThreshold;
+	}
+
+	public virtual void CopyTo(AkUnityPlatformSpecificSettings settings)
+	{
 	}
 
 	public override void Validate()
@@ -401,14 +404,20 @@ public class AkCommonAdvancedSettings : AkSettingsValidationHandler
 		settings.uMaxHardwareTimeoutMs = m_MaximumHardwareTimeoutMs;
 	}
 
+	public virtual void CopyTo(AkPlatformInitSettings settings)
+	{
+	}
+
 	[System.Serializable]
 	public class SpatialAudioSettings
 	{
-		[UnityEngine.Tooltip("Multiplier that is applied to the distance attenuation of diffracted sounds (sounds that are in the 'shadow region') to simulate the phenomenon where by diffracted sound waves decay faster than incident sound waves.")]
-		public float m_DiffractionShadowAttenuationFactor;
+        [UnityEngine.Tooltip("Multiplier that is applied to the distance attenuation of diffracted sounds (sounds that are in the 'shadow region') to simulate the phenomenon where by diffracted sound waves decay faster than incident sound waves.")]
+        [UnityEngine.Range(1.0f, 3.0f)]
+        public float m_DiffractionShadowAttenuationFactor = 2.0f;
 
 		[UnityEngine.Tooltip("Interpolation angle, in degrees, over which the \"Diffraction Shadow Attenuation Factor\" is applied.")]
-		public float m_DiffractionShadowDegrees;
+        [UnityEngine.Range(0.1f, 90.0f)]
+        public float m_DiffractionShadowDegrees = 30.0f;
 	}
 
 	[UnityEngine.Tooltip("Spatial audio advanced settings.")]
@@ -416,8 +425,30 @@ public class AkCommonAdvancedSettings : AkSettingsValidationHandler
 
 	public virtual void CopyTo(AkSpatialAudioInitSettings settings)
 	{
-		settings.fDiffractionShadowAttenFactor = m_SpatialAudioSettings.m_DiffractionShadowAttenuationFactor;
+        settings.fDiffractionShadowAttenFactor = m_SpatialAudioSettings.m_DiffractionShadowAttenuationFactor;
 		settings.fDiffractionShadowDegrees = m_SpatialAudioSettings.m_DiffractionShadowDegrees;
+	}
+
+	public virtual void CopyTo(AkUnityPlatformSpecificSettings settings)
+	{
+	}
+
+	[UnityEngine.Tooltip("The state of the \"in_bRenderAnyway\" argument passed to the AkSoundEngine.Suspend() function when the \"OnApplicationFocus\" Unity callback is received with \"false\" as its argument.")]
+	public bool m_RenderDuringFocusLoss;
+
+	public override void Validate()
+	{
+		if (m_SpatialAudioSettings.m_DiffractionShadowAttenuationFactor <= 0.0f)
+		{
+			UnityEngine.Debug.LogWarning("WwiseUnity: m_SpatialAudioSettings.m_DiffractionShadowAttenuationFactor must be greater than zero. Value was reset to the default (2.0)");
+			m_SpatialAudioSettings.m_DiffractionShadowAttenuationFactor = 2.0f;
+		}
+
+		if (m_SpatialAudioSettings.m_DiffractionShadowDegrees <= 0.0f)
+		{
+			UnityEngine.Debug.LogWarning("WwiseUnity: m_SpatialAudioSettings.m_DiffractionShadowDegrees must be greater than zero. Value was reset to the default (30.0)");
+			m_SpatialAudioSettings.m_DiffractionShadowDegrees = 30.0f;
+		}
 	}
 }
 
@@ -477,7 +508,6 @@ public abstract class AkCommonPlatformSettings : AkBasePlatformSettings
 		get
 		{
 			var settings = base.AkInitializationSettings;
-
 			var userSettings = GetUserSettings();
 			userSettings.CopyTo(settings.memSettings);
 			userSettings.CopyTo(settings.deviceSettings);
@@ -485,12 +515,14 @@ public abstract class AkCommonPlatformSettings : AkBasePlatformSettings
 			userSettings.CopyTo(settings.initSettings);
 			userSettings.CopyTo(settings.platformSettings);
 			userSettings.CopyTo(settings.musicSettings);
+			userSettings.CopyTo(settings.unityPlatformSpecificSettings);
 			settings.preparePoolSize = userSettings.m_PreparePoolSize;
 
 			var advancedSettings = GetAdvancedSettings();
 			advancedSettings.CopyTo(settings.deviceSettings);
 			advancedSettings.CopyTo(settings.initSettings);
-
+			advancedSettings.CopyTo(settings.platformSettings);
+			advancedSettings.CopyTo(settings.unityPlatformSpecificSettings);
 			return settings;
 		}
 	}
@@ -517,18 +549,17 @@ public abstract class AkCommonPlatformSettings : AkBasePlatformSettings
 
 	public override string InitialLanguage
 	{
-		get
-		{
-			return GetUserSettings().m_StartupLanguage;
-		}
+		get { return GetUserSettings().m_StartupLanguage; }
+	}
+
+	public override bool RenderDuringFocusLoss
+	{
+		get { return GetAdvancedSettings().m_RenderDuringFocusLoss; }
 	}
 
 	public override string SoundbankPath
 	{
-		get
-		{
-			return GetUserSettings().m_BasePath;
-		}
+		get { return GetUserSettings().m_BasePath; }
 	}
 
 	public override AkCommunicationSettings AkCommunicationSettings

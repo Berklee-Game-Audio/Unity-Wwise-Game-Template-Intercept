@@ -60,7 +60,7 @@ public class AkPositioningInfo : global::System.IDisposable {
   public Ak3DSpatializationMode e3DSpatializationMode { set { AkSoundEnginePINVOKE.CSharp_AkPositioningInfo_e3DSpatializationMode_set(swigCPtr, (int)value); }  get { return (Ak3DSpatializationMode)AkSoundEnginePINVOKE.CSharp_AkPositioningInfo_e3DSpatializationMode_get(swigCPtr); } 
   }
 
-  public bool bUseAttenuation { set { AkSoundEnginePINVOKE.CSharp_AkPositioningInfo_bUseAttenuation_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkPositioningInfo_bUseAttenuation_get(swigCPtr); } 
+  public bool bEnableAttenuation { set { AkSoundEnginePINVOKE.CSharp_AkPositioningInfo_bEnableAttenuation_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkPositioningInfo_bEnableAttenuation_get(swigCPtr); } 
   }
 
   public bool bUseConeAttenuation { set { AkSoundEnginePINVOKE.CSharp_AkPositioningInfo_bUseConeAttenuation_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkPositioningInfo_bUseConeAttenuation_get(swigCPtr); } 

@@ -56,8 +56,5 @@ public class AkChannelEmitter : global::System.IDisposable {
   public uint uInputChannels { set { AkSoundEnginePINVOKE.CSharp_AkChannelEmitter_uInputChannels_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkChannelEmitter_uInputChannels_get(swigCPtr); } 
   }
 
-  public AkChannelEmitter() : this(AkSoundEnginePINVOKE.CSharp_new_AkChannelEmitter(), true) {
-  }
-
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

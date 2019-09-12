@@ -3,11 +3,8 @@
 public class AkWwisePostImportCallbackSetup
 {
 	private static int m_scheduledMigrationStart;
-	private static int m_scheduledMigrationStop;
 	private static bool m_scheduledReturnToLauncher;
-
 	private static bool m_pendingExecuteMethodCalled;
-
 	private static string s_CurrentScene;
 
 	static AkWwisePostImportCallbackSetup()
@@ -25,13 +22,11 @@ public class AkWwisePostImportCallbackSetup
 		try
 		{
 			int migrationStart;
-			int migrationStop;
 			bool returnToLauncher;
 
-			if (IsMigrationPending(out migrationStart, out migrationStop, out returnToLauncher))
+			if (IsMigrationPending(out migrationStart, out returnToLauncher))
 			{
 				m_scheduledMigrationStart = migrationStart;
-				m_scheduledMigrationStop = migrationStop;
 				m_scheduledReturnToLauncher = returnToLauncher;
 				ScheduleMigration();
 			}
@@ -58,7 +53,7 @@ public class AkWwisePostImportCallbackSetup
 
 		try
 		{
-			WwiseSetupWizard.PerformMigration(m_scheduledMigrationStart, m_scheduledMigrationStop);
+			WwiseSetupWizard.PerformMigration(m_scheduledMigrationStart);
 
 			// Force the user to return to the launcher to perform the post-installation process if necessary
 			if (m_scheduledReturnToLauncher)
@@ -76,10 +71,9 @@ public class AkWwisePostImportCallbackSetup
 		}
 	}
 
-	private static bool IsMigrationPending(out int migrationStart, out int migrationStop, out bool returnToLauncher)
+	private static bool IsMigrationPending(out int migrationStart, out bool returnToLauncher)
 	{
 		migrationStart = 0;
-		migrationStop = 0;
 		returnToLauncher = false;
 
 		var filename = UnityEngine.Application.dataPath + "/../.WwiseLauncherLockFile";
@@ -98,8 +92,7 @@ public class AkWwisePostImportCallbackSetup
 		var m = r.Match(fileContent);
 
 		if (!m.Success || m.Groups.Count < 2 || m.Groups[1].Captures.Count < 1 || m.Groups[2].Captures.Count < 1 ||
-		    !int.TryParse(m.Groups[1].Captures[0].ToString(), out migrationStart) ||
-		    !int.TryParse(m.Groups[2].Captures[0].ToString(), out migrationStop))
+		    !int.TryParse(m.Groups[1].Captures[0].ToString(), out migrationStart))
 			throw new System.Exception("Error in the file format of .WwiseLauncherLockFile.");
 
 		// Handle optional properties
@@ -293,7 +286,6 @@ public class AkWwisePostImportCallbackSetup
 
 			if (settings.CreateWwiseListener)
 			{
-				AkUtilities.RemoveUnityAudioListenerFromMainCamera();
 				AkUtilities.AddAkAudioListenerToMainCamera(true);
 			}
 

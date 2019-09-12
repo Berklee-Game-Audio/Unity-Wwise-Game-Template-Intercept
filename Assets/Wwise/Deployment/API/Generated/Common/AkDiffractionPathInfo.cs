@@ -75,6 +75,10 @@ public class AkDiffractionPathInfo : global::System.IDisposable {
 
   public float GetAngles(uint idx) { return AkSoundEnginePINVOKE.CSharp_AkDiffractionPathInfo_GetAngles(swigCPtr, idx); }
 
+  public ulong GetPortals(uint idx) { return AkSoundEnginePINVOKE.CSharp_AkDiffractionPathInfo_GetPortals(swigCPtr, idx); }
+
+  public ulong GetRooms(uint idx) { return AkSoundEnginePINVOKE.CSharp_AkDiffractionPathInfo_GetRooms(swigCPtr, idx); }
+
   public void Clone(AkDiffractionPathInfo other) { AkSoundEnginePINVOKE.CSharp_AkDiffractionPathInfo_Clone(swigCPtr, AkDiffractionPathInfo.getCPtr(other)); }
 
   public AkDiffractionPathInfo() : this(AkSoundEnginePINVOKE.CSharp_new_AkDiffractionPathInfo(), true) {

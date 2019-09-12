@@ -67,6 +67,7 @@ public class AkSoundEngineController
 #endif
 
 		//Execute callbacks that occurred in last frame (not the current update)
+		AkRoomPortalManager.UpdatePortals();
 		AkCallbackManager.PostCallbacks();
 		AkBankManager.DoUnloadBanks();
 		AkSoundEngine.RenderAudio();
@@ -105,7 +106,7 @@ public class AkSoundEngineController
 			return;
 		}
 #else
-		bool isInitialized = AkSoundEngine.IsInitialized();
+		var isInitialized = AkSoundEngine.IsInitialized();
 #endif
 
 		AkLogger.Instance.Init();
@@ -114,7 +115,14 @@ public class AkSoundEngineController
 		{
 #if UNITY_EDITOR
 			if (AkWwiseInitializationSettings.ResetSoundEngine(UnityEngine.Application.isPlaying || UnityEditor.BuildPipeline.isBuildingPlayer))
+			{
 				UnityEditor.EditorApplication.update += LateUpdate;
+			}
+
+			if (UnityEditor.EditorApplication.isPaused && UnityEngine.Application.isPlaying)
+			{
+				AkSoundEngine.Suspend(true);
+			}
 #else
 			UnityEngine.Debug.LogError("WwiseUnity: Sound engine is already initialized.");
 #endif
@@ -175,7 +183,7 @@ public class AkSoundEngineController
 
 	public void OnApplicationFocus(bool focus)
 	{
-		ActivateAudio(focus);
+		ActivateAudio(focus, AkWwiseInitializationSettings.ActivePlatformSettings.RenderDuringFocusLoss);
 	}
 #endif
 
@@ -186,7 +194,10 @@ public class AkSoundEngineController
 #if UNITY_2017_2_OR_NEWER
 	private void OnPauseStateChanged(UnityEditor.PauseState pauseState)
 	{
-		ActivateAudio(pauseState != UnityEditor.PauseState.Paused);
+		if (UnityEngine.Application.isPlaying)
+		{
+			ActivateAudio(pauseState != UnityEditor.PauseState.Paused);
+		}
 	}
 #else
 	private void OnEditorPlaymodeStateChanged()
@@ -197,14 +208,14 @@ public class AkSoundEngineController
 #endif
 
 #if UNITY_EDITOR || !UNITY_IOS
-	private void ActivateAudio(bool activate)
+	private void ActivateAudio(bool activate, bool renderAnyway = false)
 	{
 		if (AkSoundEngine.IsInitialized())
 		{
 			if (activate)
 				AkSoundEngine.WakeupFromSuspend();
 			else
-				AkSoundEngine.Suspend();
+				AkSoundEngine.Suspend(renderAnyway);
 
 			AkSoundEngine.RenderAudio();
 		}

@@ -54,6 +54,12 @@ public class AkSourceSettings : global::System.IDisposable {
   public uint uMediaSize { set { AkSoundEnginePINVOKE.CSharp_AkSourceSettings_uMediaSize_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkSourceSettings_uMediaSize_get(swigCPtr); } 
   }
 
+  public void Clear() { AkSoundEnginePINVOKE.CSharp_AkSourceSettings_Clear(swigCPtr); }
+
+  public static int GetSizeOf() { return AkSoundEnginePINVOKE.CSharp_AkSourceSettings_GetSizeOf(); }
+
+  public void Clone(AkSourceSettings other) { AkSoundEnginePINVOKE.CSharp_AkSourceSettings_Clone(swigCPtr, AkSourceSettings.getCPtr(other)); }
+
   public AkSourceSettings() : this(AkSoundEnginePINVOKE.CSharp_new_AkSourceSettings(), true) {
   }
 

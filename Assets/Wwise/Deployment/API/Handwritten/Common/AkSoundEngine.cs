@@ -159,6 +159,66 @@ public partial class AkSoundEngine
 			forward.y, forward.z, up.x, up.y, up.z);
 	}
 
+	[System.Obsolete(Deprecation_2019_1_1)]
+	public static uint PostEvent(uint eventId, UnityEngine.GameObject gameObject, uint flags, AkCallbackManager.EventCallback callback, object cookie, uint numSources, AkExternalSourceInfo externalSources, uint playingId)
+	{
+		if (numSources > 1)
+		{
+			numSources = 1;
+			UnityEngine.Debug.LogError("WwiseUnity: This version of PostEvent only sends 1 external source to the sound engine.");
+		}
+
+		var array = new AkExternalSourceInfoArray((int)numSources);
+		if (numSources > 0)
+			array[0] = externalSources;
+
+		return PostEvent(eventId, gameObject, flags, callback, cookie, numSources, array, playingId);
+	}
+
+	[System.Obsolete(Deprecation_2019_1_1)]
+	public static uint PostEvent(uint eventId, UnityEngine.GameObject gameObject, uint flags, AkCallbackManager.EventCallback callback, object cookie, uint numSources, AkExternalSourceInfo externalSources)
+	{
+		if (numSources > 1)
+			UnityEngine.Debug.LogError("WwiseUnity: This version of PostEvent only sends 1 external source to the sound engine.");
+
+		if (numSources == 0)
+			return PostEvent(eventId, gameObject, flags, callback, cookie);
+
+		var array = new AkExternalSourceInfoArray(1);
+		array[0] = externalSources;
+		return PostEvent(eventId, gameObject, flags, callback, cookie, 1, array);
+	}
+
+	[System.Obsolete(Deprecation_2019_1_1)]
+	public static uint PostEvent(string eventName, UnityEngine.GameObject gameObject, uint flags, AkCallbackManager.EventCallback callback, object cookie, uint numSources, AkExternalSourceInfo externalSources, uint playingId)
+	{
+		if (numSources > 1)
+		{
+			numSources = 1;
+			UnityEngine.Debug.LogError("WwiseUnity: This version of PostEvent only sends 1 external source to the sound engine.");
+		}
+
+		var array = new AkExternalSourceInfoArray((int)numSources);
+		if (numSources > 0)
+			array[0] = externalSources;
+
+		return PostEvent(eventName, gameObject, flags, callback, cookie, numSources, array, playingId);
+	}
+
+	[System.Obsolete(Deprecation_2019_1_1)]
+	public static uint PostEvent(string eventName, UnityEngine.GameObject gameObject, uint flags, AkCallbackManager.EventCallback callback, object cookie, uint numSources, AkExternalSourceInfo externalSources)
+	{
+		if (numSources > 1)
+			UnityEngine.Debug.LogError("WwiseUnity: This version of PostEvent only sends 1 external source to the sound engine.");
+
+		if (numSources == 0)
+			return PostEvent(eventName, gameObject, flags, callback, cookie);
+
+		var array = new AkExternalSourceInfoArray(1);
+		array[0] = externalSources;
+		return PostEvent(eventName, gameObject, flags, callback, cookie, 1, array);
+	}
+
 	#endregion
 
 	#region User Hooks
@@ -200,7 +260,8 @@ public partial class AkSoundEngine
 
 	#region Deprecation Strings
 	public const string Deprecation_2018_1_2 = "This functionality is deprecated as of Wwise v2018.1.2 and will be removed in a future release.";
-	public const string Deprecation_2019_1_0 = "This functionality is deprecated as of Wwise v2019.1.0 and will be removed in a future release.";
+	public const string Deprecation_2018_1_6 = "This functionality is deprecated as of Wwise v2018.1.6 and will be removed in a future release.";
+	public const string Deprecation_2019_1_1 = "This functionality is deprecated as of Wwise v2019.1.1 and will be removed in a future release.";
 	#endregion
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

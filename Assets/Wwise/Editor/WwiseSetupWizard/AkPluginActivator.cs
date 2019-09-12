@@ -1,4 +1,4 @@
-﻿#if UNITY_EDITOR
+#if UNITY_EDITOR
 [UnityEditor.InitializeOnLoad]
 public class AkPluginActivator
 {
@@ -20,30 +20,89 @@ public class AkPluginActivator
 	private static readonly System.Collections.Generic.Dictionary<string, System.DateTime> s_LastParsed =
 		new System.Collections.Generic.Dictionary<string, System.DateTime>();
 
-	private static readonly System.Collections.Generic.Dictionary<string, System.Collections.Generic.HashSet<string>>
-		s_PerPlatformPlugins =
-			new System.Collections.Generic.Dictionary<string, System.Collections.Generic.HashSet<string>>();
+	private static readonly System.Collections.Generic.Dictionary<string, System.Collections.Generic.HashSet<AkPluginInfo>>
+		s_PerPlatformPlugins = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.HashSet<AkPluginInfo>>();
 
 	private static readonly System.Collections.Generic.HashSet<PluginID> builtInPluginIDs =
 		new System.Collections.Generic.HashSet<PluginID>
 		{
-			PluginID.SineGenerator,
-			PluginID.WwiseSilence,
-			PluginID.ToneGenerator,
-			PluginID.WwiseParametricEQ,
-			PluginID.Delay,
-			PluginID.WwiseCompressor,
-			PluginID.WwiseExpander,
-			PluginID.WwisePeakLimiter,
-			PluginID.MatrixReverb,
-			PluginID.WwiseRoomVerb,
-			PluginID.WwiseMeter,
-			PluginID.Gain,
+			PluginID.AkCompressor,
+			PluginID.AkDelay,
+			PluginID.AkExpander,
+			PluginID.AkGain,
+			PluginID.AkMatrixReverb,
+			PluginID.AkMeter,
+			PluginID.AkParametricEQ,
+			PluginID.AkPeakLimiter,
+			PluginID.AkRoomVerb,
+#if !UNITY_2018_3_OR_NEWER
 			PluginID.VitaReverb,
 			PluginID.VitaCompressor,
 			PluginID.VitaDelay,
 			PluginID.VitaDistortion,
-			PluginID.VitaEQ
+			PluginID.VitaEQ,
+#endif
+		};
+
+	private static readonly System.Collections.Generic.HashSet<PluginID> alwaysSkipPluginsIDs =
+		new System.Collections.Generic.HashSet<PluginID>
+		{
+			PluginID.SineGenerator,
+			PluginID.SinkAuxiliary,
+			PluginID.SinkCommunication,
+			PluginID.SinkControllerHeadphones,
+			PluginID.SinkControllerSpeaker,
+			PluginID.SinkDVRByPass,
+			PluginID.SinkNoOutput,
+			PluginID.SinkSystem,
+			PluginID.ToneGenerator,
+			PluginID.WwiseSilence,
+			PluginID.AkAudioInput,
+		};
+
+	private static readonly System.Collections.Generic.Dictionary<PluginID, string> PluginIDToStaticLibName =
+		new System.Collections.Generic.Dictionary<PluginID, string>
+		{
+			{ PluginID.AkAudioInput, "AkAudioInputSource" },
+			{ PluginID.AkCompressor, "AkCompressorFX" },
+			{ PluginID.AkConvolutionReverb, "AkConvolutionReverbFX" },
+			{ PluginID.AkDelay, "AkDelayFX" },
+			{ PluginID.AkExpander, "AkExpanderFX" },
+			{ PluginID.AkFlanger, "AkFlangerFX" },
+			{ PluginID.AkGain, "AkGainFX" },
+			{ PluginID.AkGuitarDistortion, "AkGuitarDistortionFX" },
+			{ PluginID.AkHarmonizer, "AkHarmonizerFX" },
+			{ PluginID.AkMatrixReverb, "AkMatrixReverbFX" },
+			{ PluginID.AkMeter, "AkMeterFX" },
+			{ PluginID.AkMotionSink, "AkMotionSink" },
+			{ PluginID.AkMotionSource, "AkMotionSourceSource" },
+			{ PluginID.AkMotionGeneratorSource, "AkMotionGeneratorSource" },
+			{ PluginID.AkParametricEQ, "AkParametricEQFX" },
+			{ PluginID.AkPeakLimiter, "AkPeakLimiterFX" },
+			{ PluginID.AkPitchShifter, "AkPitchShifterFX" },
+			{ PluginID.AkRecorder, "AkRecorderFX" },
+			{ PluginID.AkReflect, "AkReflectFX" },
+			{ PluginID.AkRoomVerb, "AkRoomVerbFX" },
+			{ PluginID.AkSoundSeedGrain, "AkSoundSeedGrainSource" },
+			{ PluginID.AkSoundSeedImpact, "AkSoundSeedImpactFX" },
+			{ PluginID.AkSoundSeedWind, "AkSoundSeedWindSource" },
+			{ PluginID.AkSoundSeedWoosh, "AkSoundSeedWooshSource" },
+			{ PluginID.AkStereoDelay, "AkStereoDelayFX" },
+			{ PluginID.AkSynthOne, "AkSynthOneSource" },
+			{ PluginID.AkTimeStretch, "AkTimeStretchFX" },
+			{ PluginID.AkTremolo, "AkTremoloFX" },
+			{ PluginID.AuroHeadphone, "AuroHeadphoneFX" },
+			{ PluginID.CrankcaseAudioREVModelPlayer, "CrankcaseAudioREVModelPlayerFX" },
+			{ PluginID.iZHybridReverb, "iZHybridReverbFX" },
+			{ PluginID.iZTrashBoxModeler, "iZTrashBoxModelerFX" },
+			{ PluginID.iZTrashDelay, "iZTrashDelayFX" },
+			{ PluginID.iZTrashDistortion, "iZTrashDistortionFX" },
+			{ PluginID.iZTrashDynamics, "iZTrashDynamicsFX" },
+			{ PluginID.iZTrashFilters, "iZTrashFiltersFX" },
+			{ PluginID.iZTrashMultibandDistortion, "iZTrashMultibandDistortionFX" },
+			{ PluginID.McDSPFutzBox, "McDSPFutzBoxFX" },
+			{ PluginID.McDSPLimiter, "McDSPLimiterFX" },
+			{ PluginID.ResonanceAudio, "ResonanceAudioFX" }
 		};
 
 	static AkPluginActivator()
@@ -59,10 +118,14 @@ public class AkPluginActivator
 		var data = AkWwiseProjectInfo.GetData();
 
 		if (CurrentPluginConfigField != null && data != null)
+		{
 			CurrentConfig = (string)CurrentPluginConfigField.GetValue(data);
+		}
 
 		if (string.IsNullOrEmpty(CurrentConfig))
+		{
 			CurrentConfig = CONFIG_PROFILE;
+		}
 
 		return CurrentConfig;
 	}
@@ -72,7 +135,10 @@ public class AkPluginActivator
 		var CurrentPluginConfigField = typeof(AkWwiseProjectData).GetField("CurrentPluginConfig");
 		var data = AkWwiseProjectInfo.GetData();
 		if (CurrentPluginConfigField != null)
+		{
 			CurrentPluginConfigField.SetValue(data, config);
+			UnityEngine.Debug.LogFormat("WwiseUnity: Changed plugin configuration for game runtime to {0}", config);
+		}
 
 		UnityEditor.EditorUtility.SetDirty(AkWwiseProjectInfo.GetData());
 	}
@@ -130,6 +196,9 @@ public class AkPluginActivator
 				return "tvOS";
 
 			case UnityEditor.BuildTarget.StandaloneLinux:
+				UnityEngine.Debug.LogError("WwiseUnity: The Linux Wwise Unity integration does not support the 32 bits architecture");
+				return "Linux";
+				
 			case UnityEditor.BuildTarget.StandaloneLinux64:
 			case UnityEditor.BuildTarget.StandaloneLinuxUniversal:
 				return "Linux";
@@ -149,8 +218,10 @@ public class AkPluginActivator
 			case UnityEditor.BuildTarget.PS4:
 				return "PS4";
 
+#if !UNITY_2018_3_OR_NEWER
 			case UnityEditor.BuildTarget.PSP2:
 				return "Vita";
+#endif
 
 			case UnityEditor.BuildTarget.StandaloneWindows:
 			case UnityEditor.BuildTarget.StandaloneWindows64:
@@ -176,6 +247,8 @@ public class AkPluginActivator
 		if (!RequiresStaticPluginRegistration(target))
 			return;
 
+		string deployementTargetName = GetPluginDeploymentPlatformName(target);
+
 		var staticPluginRegistration = new StaticPluginRegistration(target);
 		var importers = UnityEditor.PluginImporter.GetAllImporters();
 		foreach (var pluginImporter in importers)
@@ -187,7 +260,7 @@ public class AkPluginActivator
 
 			// Path is Assets/Wwise/Deployment/Plugins/Platform. We need the platform string
 			var pluginPlatform = splitPath[4];
-			if (pluginPlatform != GetPluginDeploymentPlatformName(target))
+			if (pluginPlatform != deployementTargetName)
 				continue;
 
 			var pluginConfig = string.Empty;
@@ -227,13 +300,25 @@ public class AkPluginActivator
 			staticPluginRegistration.TryAddLibrary(pluginImporter.assetPath);
 		}
 
-		staticPluginRegistration.TryWriteToFile();
+		var missingPlugins = staticPluginRegistration.GetMissingPlugins(s_PerPlatformPlugins[deployementTargetName]);
+		if (missingPlugins.Count == 0)
+		{
+			staticPluginRegistration.TryWriteToFile();
+		}
+		else
+		{
+			UnityEngine.Debug.LogErrorFormat(
+				"WwiseUnity: These plugins used by the Wwise project are missing from the Unity project: {0}. Please check folder Assets/Wwise/Deployment/Plugin/{1}.", 
+				string.Join(", ", missingPlugins.ToArray()), deployementTargetName);
+		}
 	}
 
 	public static void ActivatePluginsForDeployment(UnityEditor.BuildTarget target, bool Activate)
 	{
 		if (Activate)
+		{
 			SetupStaticPluginRegistration(target);
+		}
 
 		var importers = UnityEditor.PluginImporter.GetAllImporters();
 		foreach (var pluginImporter in importers)
@@ -266,11 +351,21 @@ public class AkPluginActivator
 					pluginConfig = splitPath[6];
 
 					if (pluginArch == "armeabi-v7a")
+					{
 						pluginImporter.SetPlatformData(UnityEditor.BuildTarget.Android, "CPU", "ARMv7");
+					}
+					else if(pluginArch == "arm64-v8a")
+					{
+						pluginImporter.SetPlatformData(UnityEditor.BuildTarget.Android, "CPU", "ARM64");
+					}
 					else if (pluginArch == "x86")
+					{
 						pluginImporter.SetPlatformData(UnityEditor.BuildTarget.Android, "CPU", "x86");
+					}
 					else
+					{
 						UnityEngine.Debug.Log("WwiseUnity: Architecture not found: " + pluginArch);
+					}
 					break;
 
 				case "Linux":
@@ -327,20 +422,23 @@ public class AkPluginActivator
 					pluginArch = splitPath[5];
 					pluginConfig = splitPath[6];
 
+					pluginImporter.SetPlatformData(UnityEditor.BuildTarget.WSAPlayer, "SDK", "AnySDK");
+
 					if (pluginArch == "WSA_UWP_Win32")
 					{
-						pluginImporter.SetPlatformData(UnityEditor.BuildTarget.WSAPlayer, "SDK", "AnySDK");
 						pluginImporter.SetPlatformData(UnityEditor.BuildTarget.WSAPlayer, "CPU", "X86");
 					}
 					else if (pluginArch == "WSA_UWP_x64")
 					{
-						pluginImporter.SetPlatformData(UnityEditor.BuildTarget.WSAPlayer, "SDK", "AnySDK");
 						pluginImporter.SetPlatformData(UnityEditor.BuildTarget.WSAPlayer, "CPU", "X64");
 					}
 					else if (pluginArch == "WSA_UWP_ARM")
 					{
-						pluginImporter.SetPlatformData(UnityEditor.BuildTarget.WSAPlayer, "SDK", "AnySDK");
 						pluginImporter.SetPlatformData(UnityEditor.BuildTarget.WSAPlayer, "CPU", "ARM");
+					}
+					else if (pluginArch == "WSA_UWP_ARM64")
+					{
+						pluginImporter.SetPlatformData(UnityEditor.BuildTarget.WSAPlayer, "CPU", "ARM64");
 					}
 					break;
 
@@ -381,7 +479,9 @@ public class AkPluginActivator
 					pluginConfig = splitPath[6];
 
 					if (SwitchBuildTarget == INVALID_BUILD_TARGET)
+					{
 						continue;
+					}
 
 					if (pluginArch != "NX32" && pluginArch != "NX64")
 					{
@@ -406,21 +506,31 @@ public class AkPluginActivator
 			if (pluginConfig == "DSP")
 			{
 				if (!IsPluginUsed(pluginPlatform, System.IO.Path.GetFileNameWithoutExtension(pluginImporter.assetPath)))
+				{
 					bActivate = false;
+				}
 			}
 			else if (pluginConfig != GetCurrentConfig())
+			{
 				bActivate = false;
+			}
 
 			bool isCompatibleWithPlatform = bActivate && Activate;
 			if (!bActivate && target == UnityEditor.BuildTarget.WSAPlayer)
+			{
 				AssetChanged = true;
+			}
 			else
+			{
 				AssetChanged |= pluginImporter.GetCompatibleWithPlatform(target) != isCompatibleWithPlatform;
+			}
 
 			pluginImporter.SetCompatibleWithPlatform(target, isCompatibleWithPlatform);
 
 			if (AssetChanged)
+			{
 				UnityEditor.AssetDatabase.ImportAsset(pluginImporter.assetPath);
+			}
 		}
 	}
 
@@ -432,7 +542,9 @@ public class AkPluginActivator
 		foreach (var pluginImporter in importers)
 		{
 			if (!pluginImporter.assetPath.Contains(WwisePluginFolder))
+			{
 				continue;
+			}
 
 			var splitPath = pluginImporter.assetPath.Split('/');
 
@@ -470,12 +582,16 @@ public class AkPluginActivator
 				if (pluginConfig == "DSP")
 				{
 					if (!s_PerPlatformPlugins.ContainsKey(pluginPlatform))
+					{
 						continue;
+					}
 
 					bActivate = IsPluginUsed(pluginPlatform, System.IO.Path.GetFileNameWithoutExtension(pluginImporter.assetPath));
 				}
 				else
+				{
 					bActivate = pluginConfig == EditorConfiguration;
+				}
 
 				if (bActivate)
 				{
@@ -495,7 +611,9 @@ public class AkPluginActivator
 		}
 
 		if (ChangedSomeAssets)
+		{
 			UnityEngine.Debug.Log("WwiseUnity: Plugins successfully activated for " + EditorConfiguration + " in Editor.");
+		}
 	}
 
 	private static void CheckMenuItems(string config)
@@ -512,7 +630,9 @@ public class AkPluginActivator
 		foreach (var pluginImporter in importers)
 		{
 			if (!pluginImporter.assetPath.Contains(WwisePluginFolder))
+			{
 				continue;
+			}
 
 			pluginImporter.SetCompatibleWithAnyPlatform(false);
 			UnityEditor.AssetDatabase.ImportAsset(pluginImporter.assetPath);
@@ -534,46 +654,66 @@ public class AkPluginActivator
 		}
 
 		if (!s_PerPlatformPlugins.ContainsKey(pluginDSPPlatform))
+		{
 			return false; //XML not parsed, don't touch anything.
+		}
 
 		if (in_PluginName.Contains("AkSoundEngine"))
+		{
 			return true;
+		}
 
 		var pluginName = in_PluginName;
 		if (in_PluginName.StartsWith("lib"))
+		{
 			pluginName = in_PluginName.Substring(3);
+		}
 
-		System.Collections.Generic.HashSet<string> plugins;
+		int indexOfFactory = in_PluginName.IndexOf("Factory");
+		if (indexOfFactory != -1)
+		{
+			pluginName = in_PluginName.Substring(0, indexOfFactory);
+		}
+
+		System.Collections.Generic.HashSet<AkPluginInfo> plugins;
 		if (s_PerPlatformPlugins.TryGetValue(pluginDSPPlatform, out plugins))
 		{
 			if (in_UnityPlatform != "iOS" && in_UnityPlatform != "tvOS" && in_UnityPlatform != "Switch")
-				return plugins.Contains(pluginName);
-
-			//iOS, tvOS, and Switch deal with the static libs directly, unlike all other platforms.
-			//Luckily the DLL name is always a subset of the lib name.
-			foreach (var pl in plugins)
 			{
-				if (!string.IsNullOrEmpty(pl) && pluginName.Contains(pl))
-					return true;
-
-				if (string.Compare(pl, "iZotope", false) == 0 && pluginName.StartsWith("iZ"))
-					return true;
+				foreach (var pluginInfo in plugins)
+				{
+					if (pluginInfo.DllName == pluginName)
+					{
+						return true;
+					}
+				}
 			}
 
 			//Exceptions
-
 			if (in_UnityPlatform == "iOS" && pluginName.Contains("AkiOSPlugins"))
+			{
 				return true;
+			}
 
 			if (in_UnityPlatform == "tvOS" && pluginName.Contains("AktvOSPlugins"))
+			{
 				return true;
+			}
 
 			if (in_UnityPlatform == "Switch" && pluginName.Contains("AkSwitchPlugins"))
+			{
 				return true;
+			}
 
-			if (plugins.Contains("AkSoundSeedAir") &&
-				(pluginName.Contains("SoundSeedWind") || pluginName.Contains("SoundSeedWoosh")))
-				return true;
+			//iOS, tvOS, and Switch deal with the static libs directly, unlike all other platforms.
+			//Luckily the DLL name is always a subset of the lib name.
+			foreach (var pluginInfo in plugins)
+			{
+				if (pluginInfo.StaticLibName == pluginName)
+				{
+					return true;
+				}
+			}
 		}
 
 		return false;
@@ -637,11 +777,15 @@ public class AkPluginActivator
 				var platform = pairPF.Key;
 
 				var newDlls = ParsePluginsXML(platform, fullPaths);
-				System.Collections.Generic.HashSet<string> oldDlls = null;
+				System.Collections.Generic.HashSet<AkPluginInfo> oldDlls = null;
 
 				//Remap base Wwise platforms to Unity platform folders names
+#if !UNITY_2018_3_OR_NEWER
 				if (platform.Contains("Vita"))
+				{
 					platform = "Vita";
+				}
+#endif
 				//else other platforms already have the right name
 
 				s_PerPlatformPlugins.TryGetValue(platform, out oldDlls);
@@ -651,31 +795,39 @@ public class AkPluginActivator
 				if (!bNeedRefresh && oldDlls != null)
 				{
 					if (oldDlls.Count == newDlls.Count)
+					{
 						oldDlls.IntersectWith(newDlls);
+					}
 
 					bNeedRefresh |= oldDlls.Count != newDlls.Count;
 				}
 				else
+				{
 					bNeedRefresh |= newDlls.Count > 0;
+				}
 			}
 		}
 
 		if (bNeedRefresh)
+		{
 			ActivatePluginsForEditor();
+		}
 
 		var currentConfig = GetCurrentConfig();
 		CheckMenuItems(currentConfig);
 	}
 
-	private static System.Collections.Generic.HashSet<string> ParsePluginsXML(string platform,
+	private static System.Collections.Generic.HashSet<AkPluginInfo> ParsePluginsXML(string platform,
 		System.Collections.Generic.List<string> in_pluginFiles)
 	{
-		var newDlls = new System.Collections.Generic.HashSet<string>();
+		var newPlugins = new System.Collections.Generic.HashSet<AkPluginInfo>();
 
 		foreach (var pluginFile in in_pluginFiles)
 		{
 			if (!System.IO.File.Exists(pluginFile))
+			{
 				continue;
+			}
 
 			try
 			{
@@ -688,28 +840,56 @@ public class AkPluginActivator
 				var it = Navigator.Select("//Plugin");
 
 				if (boolMotion == "true")
-					newDlls.Add("AkMotion");
+				{
+					AkPluginInfo motionPluginInfo = new AkPluginInfo();
+					motionPluginInfo.DllName = "AkMotion";
+					newPlugins.Add(motionPluginInfo);
+				}
 
 				foreach (System.Xml.XPath.XPathNavigator node in it)
 				{
-					var pid = uint.Parse(node.GetAttribute("ID", ""));
-					if (pid == 0)
+					var rawPluginID = uint.Parse(node.GetAttribute("ID", ""));
+					if (rawPluginID == 0)
+					{
 						continue;
+					}
+
+					PluginID pluginID = (PluginID)rawPluginID;
+
+					if (alwaysSkipPluginsIDs.Contains(pluginID))
+					{
+						continue;
+					}
 
 					var dll = string.Empty;
 
 					if (platform == "Switch")
 					{
-						if ((PluginID)pid == PluginID.WwiseMeter)
+						if (pluginID == PluginID.AkMeter)
+						{
 							dll = "AkMeter";
+						}
 					}
-					else if (builtInPluginIDs.Contains((PluginID)pid))
+					else if (builtInPluginIDs.Contains(pluginID))
+					{
 						continue;
+					}
 
 					if (string.IsNullOrEmpty(dll))
+					{
 						dll = node.GetAttribute("DLL", "");
+					}
 
-					newDlls.Add(dll);
+					AkPluginInfo newPluginInfo = new AkPluginInfo();
+					newPluginInfo.PluginID = rawPluginID;
+					newPluginInfo.DllName = dll;
+					
+					if (!PluginIDToStaticLibName.TryGetValue(pluginID, out newPluginInfo.StaticLibName))
+					{
+						newPluginInfo.StaticLibName = dll;
+					}
+
+					newPlugins.Add(newPluginInfo);
 				}
 			}
 			catch (System.Exception ex)
@@ -718,7 +898,7 @@ public class AkPluginActivator
 			}
 		}
 
-		return newDlls;
+		return newPlugins;
 	}
 
 	private static bool RequiresStaticPluginRegistration(UnityEditor.BuildTarget target)
@@ -750,10 +930,25 @@ public class AkPluginActivator
 				var LibName = AssetPath.Substring(begin, end); //Remove the lib prefix and the .a extension
 
 				if (!LibName.Contains("AkSoundEngine"))
-					FactoriesHeaderFilenames.Add(LibName + "Factory.h");
+				{
+					string headerFilename = LibName + "Factory.h";
+
+					string fullPath = System.IO.Path.Combine(UnityEngine.Application.dataPath, WwisePluginFolder + GetWwisePluginRelativeDSPFolder() + headerFilename);
+
+					if (System.IO.File.Exists(fullPath))
+					{
+						FactoriesHeaderFilenames.Add(headerFilename);
+					}
+					else
+					{
+						UnityEngine.Debug.LogErrorFormat("WwiseUnity: Could not find '{0}', required for building plugin.", WwisePluginFolder + GetWwisePluginRelativeDSPFolder() + headerFilename);
+					}
+				}
 			}
 			else if (AssetPath.Contains("Factory.h"))
+			{
 				FactoriesHeaderFilenames.Add(System.IO.Path.GetFileName(AssetPath));
+			}
 		}
 
 		public void TryWriteToFile()
@@ -766,17 +961,17 @@ public class AkPluginActivator
 
 			if (Target == UnityEditor.BuildTarget.iOS)
 			{
-				RelativePath = "/iOS/DSP/AkiOSPlugins.cpp";
+				RelativePath = GetWwisePluginRelativeDSPFolder() + "AkiOSPlugins.cpp";
 				CppText = "#define AK_IOS";
 			}
 			else if (Target == UnityEditor.BuildTarget.tvOS)
 			{
-				RelativePath = "/tvOS/DSP/AktvOSPlugins.cpp";
+				RelativePath = GetWwisePluginRelativeDSPFolder() + "AktvOSPlugins.cpp";
 				CppText = "#define AK_IOS";
 			}
 			else if (Target == SwitchBuildTarget)
 			{
-				RelativePath = "/Switch/NX64/DSP/AkSwitchPlugins.cpp";
+				RelativePath = GetWwisePluginRelativeDSPFolder() + "AkSwitchPlugins.cpp";
 				CppText = "#define AK_NX";
 			}
 			else
@@ -791,7 +986,9 @@ void *_pluginName_##_fp = (void*)&_pluginName_##Registration;
 ";
 
 			foreach (var filename in FactoriesHeaderFilenames)
+			{
 				CppText += "#include \"" + filename + "\"\n";
+			}
 
 			try
 			{
@@ -806,27 +1003,125 @@ void *_pluginName_##_fp = (void*)&_pluginName_##Registration;
 
 			UnityEditor.AssetDatabase.Refresh();
 		}
+
+		public System.Collections.Generic.List<string> GetMissingPlugins(System.Collections.Generic.HashSet<AkPluginInfo> usedPlugins)
+		{
+			System.Collections.Generic.List<string> pluginList = new System.Collections.Generic.List<string>();
+			foreach (var plugin in usedPlugins)
+			{
+				if(string.IsNullOrEmpty(plugin.StaticLibName))
+				{
+					continue;
+				}
+				
+				string includeFilename = plugin.StaticLibName + "Factory.h";
+				if (!FactoriesHeaderFilenames.Contains(includeFilename))
+				{
+					pluginList.Add(plugin.StaticLibName);
+				}
+			}
+
+			return pluginList;
+		}
+
+		private string GetWwisePluginRelativeDSPFolder()
+		{
+			if (Target == UnityEditor.BuildTarget.iOS)
+			{
+				return "/iOS/DSP/";
+			}
+			else if (Target == UnityEditor.BuildTarget.tvOS)
+			{
+				return "/tvOS/DSP/";
+			}
+			else if (Target == SwitchBuildTarget)
+			{
+				return "/Switch/NX64/DSP/";
+			}
+
+			return string.Empty;
+		}
 	}
 
 	private enum PluginID
 	{
+		// Build-in plugins
+		AkCompressor = 0x006C0003, //Wwise Compressor
+		AkDelay = 0x006A0003, //Delay
+		AkExpander = 0x006D0003, //Wwise Expander
+		AkGain = 0x008B0003, //Gain
+		AkMatrixReverb = 0x00730003, //Matrix Reverb
+		AkMeter = 0x00810003, //Wwise Meter
+		AkParametricEQ = 0x00690003, //Wwise Parametric EQ
+		AkPeakLimiter = 0x006E0003, //Wwise Peak Limiter
+		AkRoomVerb = 0x00760003, //Wwise RoomVerb
 		SineGenerator = 0x00640002, //Sine
-		WwiseSilence = 0x00650002, //Wwise Silence
+		SinkAuxiliary = 0xB40007,
+		SinkCommunication = 0xB00007,
+		SinkControllerHeadphones = 0xB10007,
+		SinkControllerSpeaker = 0xB30007,
+		SinkDVRByPass = 0xAF0007,
+		SinkNoOutput = 0xB50007,
+		SinkSystem = 0xAE0007,
 		ToneGenerator = 0x00660002, //Tone Generator
-		WwiseParametricEQ = 0x00690003, //Wwise Parametric EQ
-		Delay = 0x006A0003, //Delay
-		WwiseCompressor = 0x006C0003, //Wwise Compressor
-		WwiseExpander = 0x006D0003, //Wwise Expander
-		WwisePeakLimiter = 0x006E0003, //Wwise Peak Limiter
-		MatrixReverb = 0x00730003, //Matrix Reverb
-		WwiseRoomVerb = 0x00760003, //Wwise RoomVerb
-		WwiseMeter = 0x00810003, //Wwise Meter
-		Gain = 0x008B0003, //Gain
+		WwiseSilence = 0x00650002, //Wwise Silence
+#if !UNITY_2018_3_OR_NEWER
 		VitaReverb = 0x008C0003, //Vita Reverb
 		VitaCompressor = 0x008D0003, //Vita Compressor
 		VitaDelay = 0x008E0003, //Vita Delay
 		VitaDistortion = 0x008F0003, //Vita Distortion
-		VitaEQ = 0x00900003 //Vita EQ
+		VitaEQ = 0x00900003, //Vita EQ
+#endif
+
+		// Static or DLL plugins
+		AkAudioInput = 0xC80002,
+		AkConvolutionReverb = 0x7F0003,
+		AkFlanger = 0x7D0003,
+		AkGuitarDistortion = 0x7E0003,
+		AkHarmonizer = 0x8A0003,
+		AkMotionSink = 0x1FB0007,
+		AkMotionSource = 0x1990002,
+		AkMotionGeneratorSource = 0x1950002,
+		AkPitchShifter = 0x880003,
+		AkRecorder = 0x840003,
+		AkReflect = 0xAB0003,
+		AkSoundSeedGrain = 0xB70002,
+		AkSoundSeedImpact = 0x740003,
+		AkSoundSeedWind = 0x770002,
+		AkSoundSeedWoosh = 0x780002,
+		AkStereoDelay = 0x870003,
+		AkSynthOne = 0x940002,
+		AkTimeStretch = 0x820003,
+		AkTremolo = 0x830003,
+		AuroHeadphone = 0x44C1073,
+		CrankcaseAudioREVModelPlayer = 0x1A01052,
+		iZHybridReverb = 0x21033,
+		iZTrashBoxModeler = 0x71033,
+		iZTrashDelay = 0x41033,
+		iZTrashDistortion = 0x31033,
+		iZTrashDynamics = 0x51033,
+		iZTrashFilters = 0x61033,
+		iZTrashMultibandDistortion = 0x91033,
+		McDSPFutzBox = 0x6E1003,
+		McDSPLimiter = 0x671003,
+		ResonanceAudio = 0x641103
+	}
+
+	private class AkPluginInfo
+	{
+		public uint PluginID;
+		public string DllName;
+		public string StaticLibName;
+
+		public override int GetHashCode()
+		{
+			return PluginID.GetHashCode();
+		}
+
+		public override bool Equals(object obj)
+		{
+			return PluginID.Equals(obj);
+		}
 	}
 }
 #endif

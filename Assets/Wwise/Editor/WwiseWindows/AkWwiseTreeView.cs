@@ -12,7 +12,7 @@ public class AkWwiseTreeView : AK.Wwise.TreeView.TreeViewControl
 	private UnityEngine.GUIStyle m_filterBoxStyle;
 	private UnityEngine.GUIStyle m_filterBoxCancelButtonStyle;
 	private string m_filterString = string.Empty;
-	private static UnityEditor.MonoScript DragDropHelperMonoScript;
+	private static System.Collections.Generic.Dictionary<WwiseObjectType, UnityEditor.MonoScript> DragDropMonoScriptMap;
 
 	public AkWwiseTreeView()
 	{
@@ -126,7 +126,6 @@ public class AkWwiseTreeView : AK.Wwise.TreeView.TreeViewControl
 		PopulateItem(attachTo, itemName, akInfoWwu);
 	}
 
-
 	public void PopulateItem(AK.Wwise.TreeView.TreeViewItem attachTo, string itemName,
 		System.Collections.Generic.List<AkWwiseProjectData.GroupValWorkUnit> GroupWorkUnits)
 	{
@@ -186,6 +185,9 @@ public class AkWwiseTreeView : AK.Wwise.TreeView.TreeViewControl
 
 			var treeInfo = (AkTreeInfo)item.DataContext;
 			var reference = WwiseObjectReference.FindOrCreateWwiseObject(treeInfo.ObjectType, item.Header, treeInfo.Guid);
+			if (!reference)
+				return;
+
 			var groupReference = reference as WwiseGroupValueObjectReference;
 			if (groupReference)
 			{
@@ -193,10 +195,15 @@ public class AkWwiseTreeView : AK.Wwise.TreeView.TreeViewControl
 				groupReference.SetupGroupObjectReference(item.Parent.Header, ParentTreeInfo.Guid);
 			}
 
-			UnityEngine.GUIUtility.hotControl = 0;
-			UnityEditor.DragAndDrop.objectReferences = new UnityEngine.Object[] { DragDropHelperMonoScript, reference };
-			UnityEditor.DragAndDrop.SetGenericData(AkDragDropHelper.DragDropIdentifier, reference);
-			UnityEditor.DragAndDrop.StartDrag("Dragging an AkObject");
+			UnityEditor.MonoScript script;
+			if (DragDropMonoScriptMap.TryGetValue(reference.WwiseObjectType, out script))
+			{
+				UnityEngine.GUIUtility.hotControl = 0;
+				UnityEditor.DragAndDrop.PrepareStartDrag();
+				UnityEditor.DragAndDrop.objectReferences = new UnityEngine.Object[] { script };
+				AkUtilities.DragAndDropObjectReference = reference;
+				UnityEditor.DragAndDrop.StartDrag("Dragging an AkObject");
+			}
 		}
 		catch (System.Exception e)
 		{
@@ -216,8 +223,12 @@ public class AkWwiseTreeView : AK.Wwise.TreeView.TreeViewControl
 	{
 		var item = (AK.Wwise.TreeView.TreeViewItem) sender;
 		var treeInfo = (AkTreeInfo) item.DataContext;
+
 		switch (treeInfo.ObjectType)
 		{
+			case WwiseObjectType.AcousticTexture:
+				ShowButtonTextureInternal(m_textureWwiseAcousticTextureIcon);
+				break;
 			case WwiseObjectType.AuxBus:
 				ShowButtonTextureInternal(m_textureWwiseAuxBusIcon);
 				break;
@@ -225,12 +236,13 @@ public class AkWwiseTreeView : AK.Wwise.TreeView.TreeViewControl
 				ShowButtonTextureInternal(m_textureWwiseBusIcon);
 				break;
 			case WwiseObjectType.Event:
-			case WwiseObjectType.GameParameter:
-			case WwiseObjectType.AcousticTexture:
 				ShowButtonTextureInternal(m_textureWwiseEventIcon);
 				break;
 			case WwiseObjectType.Folder:
 				ShowButtonTextureInternal(m_textureWwiseFolderIcon);
+				break;
+			case WwiseObjectType.GameParameter:
+				ShowButtonTextureInternal(m_textureWwiseGameParameterIcon);
 				break;
 			case WwiseObjectType.PhysicalFolder:
 				ShowButtonTextureInternal(m_textureWwisePhysicalFolderIcon);
@@ -264,11 +276,13 @@ public class AkWwiseTreeView : AK.Wwise.TreeView.TreeViewControl
 	/// <summary>
 	///     Wwise logos
 	/// </summary>
-	private UnityEngine.Texture2D m_textureWwiseAuxBusIcon;
 
+	private UnityEngine.Texture2D m_textureWwiseAcousticTextureIcon;
+	private UnityEngine.Texture2D m_textureWwiseAuxBusIcon;
 	private UnityEngine.Texture2D m_textureWwiseBusIcon;
 	private UnityEngine.Texture2D m_textureWwiseEventIcon;
 	private UnityEngine.Texture2D m_textureWwiseFolderIcon;
+	private UnityEngine.Texture2D m_textureWwiseGameParameterIcon;
 	private UnityEngine.Texture2D m_textureWwisePhysicalFolderIcon;
 	private UnityEngine.Texture2D m_textureWwiseProjectIcon;
 	private UnityEngine.Texture2D m_textureWwiseSoundbankIcon;
@@ -285,10 +299,13 @@ public class AkWwiseTreeView : AK.Wwise.TreeView.TreeViewControl
 	{
 		base.AssignDefaults();
 		var tempWwisePath = "Assets/Wwise/Editor/WwiseWindows/TreeViewControl/";
+
+		m_textureWwiseAcousticTextureIcon = GetTexture(tempWwisePath + "acoustictexture_nor.png");
 		m_textureWwiseAuxBusIcon = GetTexture(tempWwisePath + "auxbus_nor.png");
 		m_textureWwiseBusIcon = GetTexture(tempWwisePath + "bus_nor.png");
 		m_textureWwiseEventIcon = GetTexture(tempWwisePath + "event_nor.png");
 		m_textureWwiseFolderIcon = GetTexture(tempWwisePath + "folder_nor.png");
+		m_textureWwiseGameParameterIcon = GetTexture(tempWwisePath + "gameparameter_nor.png");
 		m_textureWwisePhysicalFolderIcon = GetTexture(tempWwisePath + "physical_folder_nor.png");
 		m_textureWwiseProjectIcon = GetTexture(tempWwisePath + "wproj.png");
 		m_textureWwiseSoundbankIcon = GetTexture(tempWwisePath + "soundbank_nor.png");
@@ -307,19 +324,30 @@ public class AkWwiseTreeView : AK.Wwise.TreeView.TreeViewControl
 			m_filterBoxCancelButtonStyle = InspectorSkin.FindStyle("SearchCancelButton");
 		}
 
-		if (DragDropHelperMonoScript == null)
+		if (DragDropMonoScriptMap == null)
 		{
+			DragDropMonoScriptMap = new System.Collections.Generic.Dictionary<WwiseObjectType, UnityEditor.MonoScript>();
+
 			var scripts = UnityEngine.Resources.FindObjectsOfTypeAll<UnityEditor.MonoScript>();
-			for (var i = 0; i < scripts.Length; i++)
+			foreach (var script in scripts)
 			{
-				if (scripts[i].GetClass() == typeof(AkDragDropHelper))
-				{
-					DragDropHelperMonoScript = scripts[i];
-					break;
-				}
+				WwiseObjectType wwiseObjectType;
+				var type = script.GetClass();
+				if (type != null && ScriptTypeMap.TryGetValue(type, out wwiseObjectType))
+					DragDropMonoScriptMap[wwiseObjectType] = script;
 			}
 		}
 	}
+
+	private static System.Collections.Generic.Dictionary<System.Type, WwiseObjectType> ScriptTypeMap
+		= new System.Collections.Generic.Dictionary<System.Type, WwiseObjectType>{
+		{ typeof(AkAmbient), WwiseObjectType.Event },
+		{ typeof(AkBank), WwiseObjectType.Soundbank },
+		{ typeof(AkEnvironment), WwiseObjectType.AuxBus },
+		{ typeof(AkState), WwiseObjectType.State },
+		{ typeof(AkSurfaceReflector), WwiseObjectType.AcousticTexture },
+		{ typeof(AkSwitch), WwiseObjectType.Switch },
+	};
 
 	public override void DisplayTreeView(DisplayTypes displayType)
 	{

@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{605C0B66-D3E7-427D-9B25-CDAD5D5BDB28}" SchemaVersion="89">
+	<InteractiveMusic>
+		<WorkUnit Name="Default Work Unit" ID="{605C0B66-D3E7-427D-9B25-CDAD5D5BDB28}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicSegment Name="horror_stinger" ID="{CFB91948-EB3E-4E77-8179-116235292B4A}" ShortID="191939712">
+					<PropertyList>
+						<Property Name="EndPosition" Type="Real64" Value="23200"/>
+						<Property Name="Tempo" Type="Real64" Value="75"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicTrack Name="mx_intro" ID="{0C2FAE59-D40F-4F6F-BE2C-7A6A4A55BF04}" ShortID="875910712">
+							<ReferenceList>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="222549__caderesounds__horror-cinema-2-2014" ID="{295F916B-6E58-4FEA-B379-72DB3E42A476}" ShortID="899779621">
+									<Language>SFX</Language>
+									<AudioFile>222549__caderesounds__horror-cinema-2-2014.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{DF068440-2A2F-4E43-8400-4FBB2144927A}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<SequenceList>
+								<MusicTrackSequence Name="" ID="{8FD8CCAC-EDEE-42C3-9696-86D2048AAE2A}">
+									<ClipList>
+										<MusicClip Name="222549__caderesounds__horror-cinema-2-2014" ID="{479E79D2-A6C0-47BC-A7DB-9D62E086FC91}">
+											<PropertyList>
+												<Property Name="EndTrimOffset" Type="Real64" Value="20000"/>
+												<Property Name="FadeInMode" Type="int16" Value="0"/>
+												<Property Name="FadeOutMode" Type="int16" Value="0"/>
+											</PropertyList>
+											<AudioSourceRef Name="222549__caderesounds__horror-cinema-2-2014" ID="{295F916B-6E58-4FEA-B379-72DB3E42A476}"/>
+										</MusicClip>
+									</ClipList>
+								</MusicTrackSequence>
+							</SequenceList>
+						</MusicTrack>
+					</ChildrenList>
+					<CueList>
+						<MusicCue Name="Entry Cue" ID="{C72F6E80-4713-4CE8-BAE6-ACBA5DAF3E1B}"/>
+						<MusicCue Name="Exit Cue" ID="{DE027C0D-4A15-4B71-B614-476F70B20B2E}">
+							<PropertyList>
+								<Property Name="CueType" Type="int16" Value="1"/>
+								<Property Name="TimeMs" Type="Real64" Value="20000"/>
+							</PropertyList>
+						</MusicCue>
+					</CueList>
+				</MusicSegment>
+				<MusicPlaylistContainer Name="drone" ID="{EC9BD4CC-7F8F-4D2D-93B9-3EC1D9DE3D40}" ShortID="1021575018">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="looping-dark-ambience" ID="{857FF4A5-11AB-48D1-9794-4EC9FA16BA92}" ShortID="860557682">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="19655.6204804442"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="looping-dark-ambience" ID="{C8B7090E-E0A7-4E91-AEB3-7DF8E34A0B20}" ShortID="606787651">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Drone CD 2" ID="{CBF52672-DC57-41E6-866C-FF929CC4FF3B}" ShortID="533037548">
+											<Language>SFX</Language>
+											<AudioFile>Drone CD 2.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{78EAF8F2-A798-482F-A0B7-59113B9D2DC9}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{C171A791-D6CA-473B-80A7-DCF7EFBC0C15}">
+											<ClipList>
+												<MusicClip Name="Drone CD 2" ID="{A78F2D1E-D989-403C-B385-C9C89156984A}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="12095.4421768707"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Drone CD 2" ID="{CBF52672-DC57-41E6-866C-FF929CC4FF3B}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{2C5458C3-43BA-4FF0-A6E9-481DC60D8393}"/>
+								<MusicCue Name="Exit Cue" ID="{D38C08E9-9818-4D21-94FD-F0025F4B3608}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="16000"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+					</ChildrenList>
+					<TransitionList>
+						<MusicTransition Name="Root" ID="{96B97BFB-853F-4EDD-8C3F-6DC1D572EDC4}">
+							<PropertyList>
+								<Property Name="IsFolder" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicTransition Name="Transition" ID="{FE7B18F9-E872-4604-A97A-A4E1D81E5B77}">
+									<TransitionInfo/>
+								</MusicTransition>
+							</ChildrenList>
+							<TransitionInfo/>
+						</MusicTransition>
+					</TransitionList>
+					<Playlist>
+						<MusicPlaylistItem Name="" ID="{D17676CE-0373-4DB8-8721-83B15D3DEBFE}" ShortID="550879066">
+							<PropertyList>
+								<Property Name="LoopCount" Type="int16" Value="0"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicPlaylistItem Name="" ID="{8B0852B0-DF36-4670-BF36-FD6FA11EA7C1}" ShortID="920048059">
+									<PropertyList>
+										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+									</PropertyList>
+									<SegmentRef Name="looping-dark-ambience" ID="{857FF4A5-11AB-48D1-9794-4EC9FA16BA92}"/>
+								</MusicPlaylistItem>
+							</ChildrenList>
+						</MusicPlaylistItem>
+					</Playlist>
+				</MusicPlaylistContainer>
+				<MusicPlaylistContainer Name="Stinger Waiting Playlist" ID="{8B53DE47-BEBB-45DB-99A5-0E1FF6B3006E}" ShortID="259789477">
+					<PropertyList>
+						<Property Name="Tempo" Type="Real64" Value="75"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="mx_wait_01" ID="{AEB5FE20-5F53-4B8D-9765-FD3F2772F212}" ShortID="161525387">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="25600"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="mx_wait_01" ID="{D4A43608-20D2-4CAC-9CD4-511D1901B315}" ShortID="314178500">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="222549__caderesounds__horror-cinema-2-2014" ID="{0DBEF22D-867E-4F43-8E2A-D14C92984D93}" ShortID="1048673997">
+											<Language>SFX</Language>
+											<AudioFile>222549__caderesounds__horror-cinema-2-2014.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="899779621"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{FCC3E7CE-1F31-4A68-988D-64420267C1D3}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{86F3E8B0-163E-4B5D-8872-09BB0B4DE685}">
+											<ClipList>
+												<MusicClip Name="222549__caderesounds__horror-cinema-2-2014" ID="{B8FE2628-F2F1-458B-A285-F4240B38A98A}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="20000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="222549__caderesounds__horror-cinema-2-2014" ID="{0DBEF22D-867E-4F43-8E2A-D14C92984D93}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{1749CD7E-2AB7-4BE0-B8CB-F515EE5981F9}"/>
+								<MusicCue Name="Exit Cue" ID="{F3A1187A-DCA6-4C2E-8DFF-109DCC6F0773}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="19200"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+					</ChildrenList>
+					<TransitionList>
+						<MusicTransition Name="Root" ID="{4DE14D60-D24D-4C29-9F35-E8DDE8A71B7E}">
+							<PropertyList>
+								<Property Name="IsFolder" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicTransition Name="Transition" ID="{3E7E989B-2207-4AB2-9940-9C3A66D1A898}">
+									<TransitionInfo/>
+								</MusicTransition>
+							</ChildrenList>
+							<TransitionInfo/>
+						</MusicTransition>
+					</TransitionList>
+					<Playlist>
+						<MusicPlaylistItem Name="" ID="{0B06D61F-9EB0-45FC-BA0C-F247A696CEA2}" ShortID="853266558">
+							<PropertyList>
+								<Property Name="PlayMode" Type="int16" Value="3"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicPlaylistItem Name="" ID="{A41407E5-D748-4FEA-930F-E14DD7A7855E}" ShortID="951063933">
+									<PropertyList>
+										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+									</PropertyList>
+									<SegmentRef Name="mx_wait_01" ID="{AEB5FE20-5F53-4B8D-9765-FD3F2772F212}"/>
+								</MusicPlaylistItem>
+							</ChildrenList>
+						</MusicPlaylistItem>
+					</Playlist>
+				</MusicPlaylistContainer>
+				<MusicPlaylistContainer Name="Stinger Calculating Playlist" ID="{39D4734A-459D-447F-A4A9-D679C33276C7}" ShortID="563586754">
+					<PropertyList>
+						<Property Name="Tempo" Type="Real64" Value="75"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="mx_stinger_calc_01" ID="{7F09BA35-DFA2-473F-BE42-C55145F9FAAA}" ShortID="707896450">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="22200"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="mx_stinger_calc_01" ID="{CF8F356A-E4D7-45BF-9A4B-B0018E6DD1DF}" ShortID="135478230">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="222549__caderesounds__horror-cinema-2-2014" ID="{43C9255C-190B-48B2-A962-2169F21682D3}" ShortID="614081936">
+											<Language>SFX</Language>
+											<AudioFile>222549__caderesounds__horror-cinema-2-2014.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="899779621"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{D8FD0363-910A-4BA5-95E9-D9C3B8D745ED}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{A0ED205D-9CC0-40EF-8E22-5A1FDA19716C}">
+											<ClipList>
+												<MusicClip Name="222549__caderesounds__horror-cinema-2-2014" ID="{AF4EEFAF-03B8-41F8-99D5-D89450EF4413}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="20000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="222549__caderesounds__horror-cinema-2-2014" ID="{43C9255C-190B-48B2-A962-2169F21682D3}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{D8FE64DD-BAFD-4353-838E-CBA7C712965C}"/>
+								<MusicCue Name="Exit Cue" ID="{45EBF58D-2E31-4DF7-8396-25E33BC99EFA}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="9600"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+					</ChildrenList>
+					<TransitionList>
+						<MusicTransition Name="Root" ID="{A7EBDD71-6E5E-4AB1-9F50-3D9D4BF8A56C}">
+							<PropertyList>
+								<Property Name="IsFolder" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicTransition Name="Transition" ID="{C577709A-3B83-492C-8F49-4855C6C60EA2}">
+									<TransitionInfo/>
+								</MusicTransition>
+							</ChildrenList>
+							<TransitionInfo/>
+						</MusicTransition>
+					</TransitionList>
+					<Playlist>
+						<MusicPlaylistItem Name="" ID="{DEFA26A7-262A-44D6-A61C-123F942D2912}" ShortID="449212097">
+							<PropertyList>
+								<Property Name="PlayMode" Type="int16" Value="3"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicPlaylistItem Name="" ID="{9E0A678C-6856-4CDA-9CF2-B2B2D5A2CFAC}" ShortID="1015771483">
+									<PropertyList>
+										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+									</PropertyList>
+									<SegmentRef Name="mx_stinger_calc_01" ID="{7F09BA35-DFA2-473F-BE42-C55145F9FAAA}"/>
+								</MusicPlaylistItem>
+							</ChildrenList>
+						</MusicPlaylistItem>
+					</Playlist>
+				</MusicPlaylistContainer>
+				<MusicPlaylistContainer Name="Stinger Confession Playlist" ID="{0FA8AD34-0F9F-4B73-8697-ACAFADB7526A}" ShortID="589639273">
+					<PropertyList>
+						<Property Name="Tempo" Type="Real64" Value="75"/>
+						<Property Name="TimeSignatureLower" Type="int16" Value="8"/>
+						<Property Name="TimeSignatureUpper" Type="int16" Value="6"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="mx_stinger_conf_01" ID="{A6C4D618-9D2E-47DB-BC71-444C82FE1866}" ShortID="784090878">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="22200"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="mx_stinger_conf_01" ID="{6A4F21BE-FF7D-44C0-8946-5F9535D01A8E}" ShortID="421774960">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="222549__caderesounds__horror-cinema-2-2014" ID="{D8F23DDA-C04E-4F69-9BF4-3F9E3F08F7ED}" ShortID="936892183">
+											<Language>SFX</Language>
+											<AudioFile>222549__caderesounds__horror-cinema-2-2014.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="899779621"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{9F338A23-4DCA-41CA-989E-0D1C406D35FE}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{40C8E555-9B57-4158-91F1-8F7DBC02E459}">
+											<ClipList>
+												<MusicClip Name="222549__caderesounds__horror-cinema-2-2014" ID="{1C399CD7-D973-4C9C-B140-8EA122051162}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="20000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="222549__caderesounds__horror-cinema-2-2014" ID="{D8F23DDA-C04E-4F69-9BF4-3F9E3F08F7ED}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{F92C2F10-1FE4-4B8E-8B7B-06905BEE33D3}"/>
+								<MusicCue Name="Exit Cue" ID="{B9B37232-125C-45C1-92D0-B2482F8ED6E3}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="9600"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+					</ChildrenList>
+					<TransitionList>
+						<MusicTransition Name="Root" ID="{8F06DBDC-2573-472B-B191-FF40EB81C223}">
+							<PropertyList>
+								<Property Name="IsFolder" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicTransition Name="Transition" ID="{FAC963B8-5D0C-41AC-B3F3-D278243B5296}">
+									<TransitionInfo/>
+								</MusicTransition>
+							</ChildrenList>
+							<TransitionInfo/>
+						</MusicTransition>
+					</TransitionList>
+					<Playlist>
+						<MusicPlaylistItem Name="" ID="{3EC943BA-207E-4CC0-9A81-A4AB536EB77F}" ShortID="464635605">
+							<PropertyList>
+								<Property Name="PlayMode" Type="int16" Value="3"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicPlaylistItem Name="" ID="{79152689-ACD7-4670-A164-486EBF158D14}" ShortID="366237709">
+									<PropertyList>
+										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+									</PropertyList>
+									<SegmentRef Name="mx_stinger_conf_01" ID="{A6C4D618-9D2E-47DB-BC71-444C82FE1866}"/>
+								</MusicPlaylistItem>
+							</ChildrenList>
+						</MusicPlaylistItem>
+					</Playlist>
+				</MusicPlaylistContainer>
+				<MusicPlaylistContainer Name="Stinger Mystery Playlist" ID="{DD6DFEFC-8916-4ECD-8F9E-5E52E0E4E68C}" ShortID="1050053858">
+					<PropertyList>
+						<Property Name="Tempo" Type="Real64" Value="75"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="mx_stinger_myst_01" ID="{BFF99B4B-6099-43E0-A2B5-5EA064970674}" ShortID="892341639">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="22400"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="mx_stinger_myst_01" ID="{BAD38390-37EB-4441-AD9E-BE93F8F89DBE}" ShortID="55229831">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="222549__caderesounds__horror-cinema-2-2014" ID="{5A8253D6-DE61-4D6C-AF13-B74733512A4F}" ShortID="1056474051">
+											<Language>SFX</Language>
+											<AudioFile>222549__caderesounds__horror-cinema-2-2014.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="899779621"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{ED9E1A70-F6EC-4378-A573-DA76C57C80F1}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{280F98C3-3B41-4FC4-8DD7-FE5B885C50EA}">
+											<ClipList>
+												<MusicClip Name="222549__caderesounds__horror-cinema-2-2014" ID="{6A50C22A-BFD4-4E54-8FE1-E342423E58A6}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="20000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="222549__caderesounds__horror-cinema-2-2014" ID="{5A8253D6-DE61-4D6C-AF13-B74733512A4F}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{DF7831B9-35EA-4CA5-87F2-FB9CA9F877A0}"/>
+								<MusicCue Name="Exit Cue" ID="{39719371-4D76-4D4F-A0C9-11E21F89963C}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="9600"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+					</ChildrenList>
+					<TransitionList>
+						<MusicTransition Name="Root" ID="{7604E4B7-B7A3-4CA2-AC4B-C9005F9F3ABC}">
+							<PropertyList>
+								<Property Name="IsFolder" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicTransition Name="Transition" ID="{BB7062DD-B5BF-4BAC-94F8-7596C961117D}">
+									<TransitionInfo/>
+								</MusicTransition>
+							</ChildrenList>
+							<TransitionInfo/>
+						</MusicTransition>
+					</TransitionList>
+					<Playlist>
+						<MusicPlaylistItem Name="" ID="{585EDCE2-7949-4758-A972-DDF229748665}" ShortID="814935971">
+							<PropertyList>
+								<Property Name="PlayMode" Type="int16" Value="3"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicPlaylistItem Name="" ID="{93ACECB8-1A0D-4854-8296-F5E431487C3D}" ShortID="78340676">
+									<PropertyList>
+										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+									</PropertyList>
+									<SegmentRef Name="mx_stinger_myst_01" ID="{BFF99B4B-6099-43E0-A2B5-5EA064970674}"/>
+								</MusicPlaylistItem>
+							</ChildrenList>
+						</MusicPlaylistItem>
+					</Playlist>
+				</MusicPlaylistContainer>
+				<MusicPlaylistContainer Name="Stinger Tension Playlist" ID="{A1E474E8-D57B-42F7-B74E-00C12EFF1CC1}" ShortID="965994727">
+					<PropertyList>
+						<Property Name="Tempo" Type="Real64" Value="75"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="mx_stinger_tens_01" ID="{7289424A-D529-46AC-84CA-A629C34AFDD2}" ShortID="935138395">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="21800"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C3E3C54B-7CCE-4D99-9660-53BB4E65EB28}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="mx_stinger_tens_01" ID="{1A1DABE5-D958-4BAA-A1A9-5D3EA26F8FF1}" ShortID="407662349">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{869EF596-E081-4A36-A44F-61B30437CFDB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="222549__caderesounds__horror-cinema-2-2014" ID="{7B52D133-576C-4922-98D9-B44B8DEEAB96}" ShortID="821191708">
+											<Language>SFX</Language>
+											<AudioFile>222549__caderesounds__horror-cinema-2-2014.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="899779621"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{A0600D8E-C1BE-4709-94B3-5F664E400F8C}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{1838FC88-07FD-49BC-9AA3-FB95D1CE2D26}">
+											<ClipList>
+												<MusicClip Name="222549__caderesounds__horror-cinema-2-2014" ID="{E5936104-510F-40B1-ADD5-D0B60D5E2E9A}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="20000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="222549__caderesounds__horror-cinema-2-2014" ID="{7B52D133-576C-4922-98D9-B44B8DEEAB96}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{35A2872E-7E90-4AED-A00F-D3AD7AE95FC7}"/>
+								<MusicCue Name="Exit Cue" ID="{48818C54-9E32-44BB-A5BA-5FA97A6F7EA2}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="9600"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+					</ChildrenList>
+					<TransitionList>
+						<MusicTransition Name="Root" ID="{027155AF-B0F4-4C4E-A923-8CCEF9666B13}">
+							<PropertyList>
+								<Property Name="IsFolder" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicTransition Name="Transition" ID="{66179E57-06F5-4990-B0E7-5CAB855CEE31}">
+									<TransitionInfo/>
+								</MusicTransition>
+							</ChildrenList>
+							<TransitionInfo/>
+						</MusicTransition>
+					</TransitionList>
+					<Playlist>
+						<MusicPlaylistItem Name="" ID="{2CE4C69C-49D8-4B10-84D3-12D4575230DD}" ShortID="525167386">
+							<PropertyList>
+								<Property Name="PlayMode" Type="int16" Value="3"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicPlaylistItem Name="" ID="{573120F5-B3C2-47A3-A102-ED68591601FD}" ShortID="1355892">
+									<PropertyList>
+										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+									</PropertyList>
+									<SegmentRef Name="mx_stinger_tens_01" ID="{7289424A-D529-46AC-84CA-A629C34AFDD2}"/>
+								</MusicPlaylistItem>
+							</ChildrenList>
+						</MusicPlaylistItem>
+					</Playlist>
+				</MusicPlaylistContainer>
+			</ChildrenList>
+		</WorkUnit>
+	</InteractiveMusic>
+</WwiseDocument>

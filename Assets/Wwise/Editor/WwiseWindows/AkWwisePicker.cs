@@ -14,6 +14,10 @@ public class AkWwisePicker : UnityEditor.EditorWindow
 	{
 		GetWindow<AkWwisePicker>("Wwise Picker", true,
 			typeof(UnityEditor.EditorWindow).Assembly.GetType("UnityEditor.ConsoleWindow"));
+	}
+
+	public void OnEnable()
+	{
 		PopulateTreeview();
 	}
 

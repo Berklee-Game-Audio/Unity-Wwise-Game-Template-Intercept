@@ -411,12 +411,6 @@ namespace AK.Wwise.TreeView
 		{
 			try
 			{
-#if UNITY_EDITOR_MAC
-				var importer = UnityEditor.AssetImporter.GetAtPath(texturePath) as UnityEditor.TextureImporter;
-				importer.textureType = UnityEditor.TextureImporterType.Cursor;
-				UnityEditor.AssetDatabase.WriteImportSettingsIfDirty(texturePath);
-#endif
-
 				return UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Texture2D>(texturePath);
 			}
 			catch (System.Exception ex)

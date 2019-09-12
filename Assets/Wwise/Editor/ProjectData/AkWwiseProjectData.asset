@@ -15,20 +15,23 @@ MonoBehaviour:
   AcousticTextureWwu:
   - PhysicalPath: Virtual Acoustics/Default Work Unit.wwu
     ParentPhysicalPath: 
-    guid: 0a8a4de7e5d1aa41a47425eb7d033a38
-    m_lastTime: -8586665344074775808
+    guid: 00000000000000000000000000000000
+    GuidInternal: 
+    m_lastTime: -8586333061044775808
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy/Default Work Unit.wwu
     ParentPhysicalPath: 
-    guid: 96f59e8681e0364aa44f61b30437cfdb
-    m_lastTime: -8586665344074775808
+    guid: 00000000000000000000000000000000
+    GuidInternal: 
+    m_lastTime: -8586333061044775808
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks/Default Work Unit.wwu
     ParentPhysicalPath: 
-    guid: 944b986f48708d4289503a578553eda3
-    m_lastTime: -8586665344074775808
+    guid: 00000000000000000000000000000000
+    GuidInternal: 
+    m_lastTime: -8586333061044775808
     List:
     - name: Intercept_SoundBank
       guid: 61eea7261501ba4d8209f584ada5a705
@@ -42,8 +45,9 @@ MonoBehaviour:
   EventWwu:
   - PhysicalPath: Events/Default Work Unit.wwu
     ParentPhysicalPath: 
-    guid: 2a1e46c10cdea6448c42da821342be3f
-    m_lastTime: -8586665344074775808
+    guid: 00000000000000000000000000000000
+    GuidInternal: 
+    m_lastTime: -8586333061044775808
     List:
     - name: mx_calculating_stinger
       guid: 5347c389717f064c9cc791272da5e0b8
@@ -168,26 +172,30 @@ MonoBehaviour:
   RtpcWwu:
   - PhysicalPath: Game Parameters/Default Work Unit.wwu
     ParentPhysicalPath: 
-    guid: 391b859612f2f044a40beeac53dbf82e
-    m_lastTime: -8586665344074775808
+    guid: 00000000000000000000000000000000
+    GuidInternal: 
+    m_lastTime: -8586333061044775808
     List: []
   StateWwu:
   - PhysicalPath: States/Default Work Unit.wwu
     ParentPhysicalPath: 
-    guid: 86409a158eb84c408fe6dc94f05315ae
-    m_lastTime: -8586665344074775808
+    guid: 00000000000000000000000000000000
+    GuidInternal: 
+    m_lastTime: -8586333061044775808
     List: []
   SwitchWwu:
   - PhysicalPath: Switches/Default Work Unit.wwu
     ParentPhysicalPath: 
-    guid: e94c81780e07f6458d5dc82efca2585a
-    m_lastTime: -8586665344074775808
+    guid: 00000000000000000000000000000000
+    GuidInternal: 
+    m_lastTime: -8586333061044775808
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers/Default Work Unit.wwu
     ParentPhysicalPath: 
-    guid: 27427975de5fdd4ea8323edc0d24aa02
-    m_lastTime: -8586665344074775808
+    guid: 00000000000000000000000000000000
+    GuidInternal: 
+    m_lastTime: -8586333061044775808
     List: []
   ExpandedItems: []
   autoPopulateEnabled: 1

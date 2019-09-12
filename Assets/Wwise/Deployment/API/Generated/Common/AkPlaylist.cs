@@ -44,7 +44,7 @@ public class AkPlaylist : AkPlaylistArray {
     }
   }
 
-  public AKRESULT Enqueue(uint in_audioNodeID, int in_msDelay, global::System.IntPtr in_pCustomInfo, uint in_cExternals, AkExternalSourceInfo in_pExternalSources) { return (AKRESULT)AkSoundEnginePINVOKE.CSharp_AkPlaylist_Enqueue__SWIG_0(swigCPtr, in_audioNodeID, in_msDelay, in_pCustomInfo, in_cExternals, AkExternalSourceInfo.getCPtr(in_pExternalSources)); }
+  public AKRESULT Enqueue(uint in_audioNodeID, int in_msDelay, global::System.IntPtr in_pCustomInfo, uint in_cExternals, AkExternalSourceInfoArray in_pExternalSources) { return (AKRESULT)AkSoundEnginePINVOKE.CSharp_AkPlaylist_Enqueue__SWIG_0(swigCPtr, in_audioNodeID, in_msDelay, in_pCustomInfo, in_cExternals, in_pExternalSources.GetBuffer()); }
 
   public AKRESULT Enqueue(uint in_audioNodeID, int in_msDelay, global::System.IntPtr in_pCustomInfo, uint in_cExternals) { return (AKRESULT)AkSoundEnginePINVOKE.CSharp_AkPlaylist_Enqueue__SWIG_1(swigCPtr, in_audioNodeID, in_msDelay, in_pCustomInfo, in_cExternals); }
 

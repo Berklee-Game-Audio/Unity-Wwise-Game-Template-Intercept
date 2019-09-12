@@ -1,55 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ValidationCache Version="1" SchemaVersion="89">
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Attenuations\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Audio Devices\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Control Surface Sessions\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Conversion Settings\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Effects\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Effects\Factory Effects.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Events\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Game Parameters\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Mixing Sessions\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Modulators\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Presets\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Queries\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Queries\Factory Queries.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\SoundBanks\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\States\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Switches\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Triggers\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Virtual Acoustics\Default Work Unit.wwu" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Wwise Intercept.crossover.wsettings" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\Unity3d Templates\__Latest Versions of Final Projects\Final_Project_04_Wwise_Intercept\Wwise Intercept\Wwise Intercept.wproj" DateLow="1535072477" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Attenuations\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Audio Devices\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Control Surface Sessions\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Conversion Settings\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Effects\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Effects\Factory Effects.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Events\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Game Parameters\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Mixing Sessions\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Modulators\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Presets\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Queries\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Queries\Factory Queries.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\SoundBanks\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\States\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Switches\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Triggers\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Virtual Acoustics\Default Work Unit.wwu" DateLow="1535072478" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Wwise Intercept.crossover.wsettings" DateLow="1548373033" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Wwise Intercept.wproj" DateLow="1548372912" DateHigh="0"/>
+<ValidationCache Version="1" SchemaVersion="94">
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Attenuations\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Audio Devices\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Control Surface Sessions\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Conversion Settings\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Effects\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Effects\Factory Effects.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Events\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Game Parameters\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Mixing Sessions\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Modulators\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Presets\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Queries\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Queries\Factory Queries.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\SoundBanks\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\States\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Switches\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Triggers\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Virtual Acoustics\Default Work Unit.wwu" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Wwise Intercept.crossover.wsettings" DateLow="1568300780" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\GoogleDrive\_CloudSync\Work\Berklee\GIT\Unity-Wwise-Game-Template-Intercept\Wwise Intercept\Wwise Intercept.wproj" DateLow="1568300780" DateHigh="0"/>
 </ValidationCache>

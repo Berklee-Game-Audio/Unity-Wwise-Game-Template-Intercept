@@ -43,10 +43,7 @@ public abstract class WwiseObjectReference : UnityEngine.ScriptableObject
 	/// </summary>
 	public virtual string DisplayName
 	{
-		get
-		{
-			return ObjectName;
-		}
+		get { return ObjectName; }
 	}
 
 	/// <summary>
@@ -149,8 +146,6 @@ public abstract class WwiseObjectReference : UnityEngine.ScriptableObject
 	#endregion
 
 	#region WwiseMigration
-	public static UnityEditor.EditorApplication.CallbackFunction migrate;
-
 	private class WwiseObjectData
 	{
 		public string objectName;
@@ -183,9 +178,22 @@ public abstract class WwiseObjectReference : UnityEngine.ScriptableObject
 		data.objectName = name;
 	}
 
-	public static WwiseObjectReference GetWwiseObjectForMigration(WwiseObjectType wwiseObjectType, byte[] valueGuid)
+	public static WwiseObjectReference GetWwiseObjectForMigration(WwiseObjectType wwiseObjectType, byte[] valueGuid, int id)
 	{
-		System.Guid guid;
+		if (valueGuid == null)
+		{
+			return null;
+		}
+
+		System.Collections.Generic.Dictionary<System.Guid, WwiseObjectData> map = null;
+		if (!WwiseObjectDataMap.TryGetValue(wwiseObjectType, out map) || map == null)
+		{
+			UnityEngine.Debug.LogWarning("WwiseUnity: Cannot find WwiseObjectReferences of type <WwiseObjectType." + wwiseObjectType + ">.");
+			return null;
+		}
+
+		var guid = System.Guid.Empty;
+		WwiseObjectData data = null;
 
 		try
 		{
@@ -197,27 +205,40 @@ public abstract class WwiseObjectReference : UnityEngine.ScriptableObject
 			return null;
 		}
 
-		System.Collections.Generic.Dictionary<System.Guid, WwiseObjectData> map = null;
-		if (!WwiseObjectDataMap.TryGetValue(wwiseObjectType, out map))
+		if (guid != System.Guid.Empty && !map.TryGetValue(guid, out data))
 		{
-			UnityEngine.Debug.LogWarning("WwiseUnity: Cannot find WwiseObjectReferences of type <WwiseObjectType." + wwiseObjectType + ">.");
+			UnityEngine.Debug.LogWarning("WwiseUnity: Cannot find guid <" + guid.ToString() + "> for WwiseObjectReference of type <WwiseObjectType." + wwiseObjectType + "> in Wwise Project.");
+
+			foreach (var pair in map)
+			{
+				if ((int)AkUtilities.ShortIDGenerator.Compute(pair.Value.objectName) == id)
+				{
+					guid = pair.Key;
+					data = pair.Value;
+					UnityEngine.Debug.LogWarning("WwiseUnity: Found guid <" + guid.ToString() + "> for <" + pair.Value.objectName + ">.");
+					break;
+				}
+			}
+		}
+
+		if (data == null)
+		{
 			return null;
 		}
 
-		WwiseObjectData data = null;
-		if (!map.TryGetValue(guid, out data))
+		var objectReference = FindOrCreateWwiseObject(wwiseObjectType, data.objectName, guid);
+		if (objectReference && objectReference.Id != (uint)id)
 		{
-			UnityEngine.Debug.LogWarning("WwiseUnity: Cannot find guid <" + guid.ToString() + "> for WwiseObjectReference of type <WwiseObjectType." + wwiseObjectType + ">.");
-			return null;
+			UnityEngine.Debug.LogWarning("WwiseUnity: ID mismatch for WwiseObjectReference of type <WwiseObjectType." + wwiseObjectType + ">. Expected <" + ((uint)id) + ">. Found <" + objectReference.Id + ">.");
 		}
 
-		return FindOrCreateWwiseObject(wwiseObjectType, data.objectName, guid);
+		return objectReference;
 	}
 	#endregion
 #endif
 }
 
-/// @brief Represents Wwise group value objects (sucha as states and switches) as Unity assets.
+/// @brief Represents Wwise group value objects (such as states and switches) as Unity assets.
 public abstract class WwiseGroupValueObjectReference : WwiseObjectReference
 {
 	#region Properties
@@ -263,9 +284,31 @@ public abstract class WwiseGroupValueObjectReference : WwiseObjectReference
 		GroupObjectReference = FindOrCreateWwiseObject(GroupWwiseObjectType, name, guid);
 	}
 
-	public void SetupGroupObjectReferenceForMigration(byte[] groupGuid)
+	#region WwiseMigration
+	public static WwiseGroupValueObjectReference GetWwiseObjectForMigration(WwiseObjectType wwiseObjectType, byte[] valueGuid, int id, byte[] groupGuid, int groupId)
 	{
-		GroupObjectReference = GetWwiseObjectForMigration(GroupWwiseObjectType, groupGuid);
+		var objectReference = GetWwiseObjectForMigration(wwiseObjectType, valueGuid, id);
+		if (!objectReference)
+			return null;
+
+		var groupValueObjectReference = objectReference as WwiseGroupValueObjectReference;
+		if (!groupValueObjectReference)
+		{
+			UnityEngine.Debug.LogWarning("WwiseUnity: Not setting WwiseObjectReference since it is not a WwiseGroupValueObjectReference.");
+			return null;
+		}
+
+		var groupObjectReference = GetWwiseObjectForMigration(groupValueObjectReference.GroupWwiseObjectType, groupGuid, groupId);
+		if (!groupObjectReference)
+		{
+			UnityEngine.Debug.LogWarning("WwiseUnity: Not setting WwiseObjectReference since its GroupObjectReference cannot be determined.");
+			return null;
+		}
+
+		groupValueObjectReference.GroupObjectReference = groupObjectReference;
+		UnityEditor.EditorUtility.SetDirty(groupValueObjectReference);
+		return groupValueObjectReference;
 	}
+	#endregion
 #endif
 }

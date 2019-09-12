@@ -48,36 +48,30 @@ namespace AK.Wwise.Editor
 		private void HandleDragAndDrop(UnityEditor.SerializedProperty wwiseObjectReference, UnityEngine.Rect dropArea)
 		{
 			var currentEvent = UnityEngine.Event.current;
+			if (!dropArea.Contains(currentEvent.mousePosition))
+				return;
 
-			if (currentEvent.type == UnityEngine.EventType.DragExited)
+			if (currentEvent.type != UnityEngine.EventType.DragUpdated && currentEvent.type != UnityEngine.EventType.DragPerform)
+				return;
+
+			var reference = AkUtilities.DragAndDropObjectReference;
+			if (reference != null && reference.WwiseObjectType != WwiseObjectType)
+				reference = null;
+
+			UnityEditor.DragAndDrop.visualMode = reference != null ? UnityEditor.DragAndDropVisualMode.Link : UnityEditor.DragAndDropVisualMode.Rejected;
+
+			if (currentEvent.type == UnityEngine.EventType.DragPerform)
 			{
+				UnityEditor.DragAndDrop.AcceptDrag();
+
+				if (reference != null)
+					wwiseObjectReference.objectReferenceValue = reference;
+
 				UnityEditor.DragAndDrop.PrepareStartDrag();
+				UnityEngine.GUIUtility.hotControl = 0;
 			}
-			else if ((currentEvent.type == UnityEngine.EventType.DragUpdated || currentEvent.type == UnityEngine.EventType.DragPerform)
-				&& dropArea.Contains(currentEvent.mousePosition))
-			{
-				var reference = UnityEditor.DragAndDrop.GetGenericData(AkDragDropHelper.DragDropIdentifier) as WwiseObjectReference;
-				if (reference != null && reference.WwiseObjectType != WwiseObjectType)
-					reference = null;
 
-				if (currentEvent.type == UnityEngine.EventType.DragUpdated)
-				{
-					UnityEditor.DragAndDrop.visualMode = reference != null
-						? UnityEditor.DragAndDropVisualMode.Link
-						: UnityEditor.DragAndDropVisualMode.Rejected;
-				}
-				else
-				{
-					UnityEditor.DragAndDrop.AcceptDrag();
-
-					if (reference != null)
-						wwiseObjectReference.objectReferenceValue = reference;
-
-					UnityEngine.GUIUtility.hotControl = 0;
-				}
-
-				currentEvent.Use();
-			}
+			currentEvent.Use();
 		}
 	}
 }

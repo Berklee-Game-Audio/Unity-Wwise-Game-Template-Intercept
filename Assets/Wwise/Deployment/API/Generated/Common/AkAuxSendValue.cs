@@ -72,21 +72,5 @@ public class AkAuxSendValue : global::System.IDisposable {
 
   public static int GetSizeOf() { return AkSoundEnginePINVOKE.CSharp_AkAuxSendValue_GetSizeOf(); }
 
-  public AKRESULT SetGameObjectAuxSendValues(UnityEngine.GameObject in_gameObjectID, uint in_uNumSendValues) {
-
-	var in_gameObjectID_id = AkSoundEngine.GetAkGameObjectID(in_gameObjectID);
-	AkSoundEngine.PreGameObjectAPICall(in_gameObjectID, in_gameObjectID_id);
-
-    { return (AKRESULT)AkSoundEnginePINVOKE.CSharp_AkAuxSendValue_SetGameObjectAuxSendValues(swigCPtr, in_gameObjectID_id, in_uNumSendValues); }
-  }
-
-  public AKRESULT GetGameObjectAuxSendValues(UnityEngine.GameObject in_gameObjectID, ref uint io_ruNumSendValues) {
-
-	var in_gameObjectID_id = AkSoundEngine.GetAkGameObjectID(in_gameObjectID);
-	AkSoundEngine.PreGameObjectAPICall(in_gameObjectID, in_gameObjectID_id);
-
-    { return (AKRESULT)AkSoundEnginePINVOKE.CSharp_AkAuxSendValue_GetGameObjectAuxSendValues(swigCPtr, in_gameObjectID_id, ref io_ruNumSendValues); }
-  }
-
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

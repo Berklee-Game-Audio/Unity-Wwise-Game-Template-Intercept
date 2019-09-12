@@ -5,9 +5,15 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+[UnityEditor.InitializeOnLoad]
 public class AkWwiseXMLBuilder
 {
 	private static readonly System.DateTime s_LastParsed = System.DateTime.MinValue;
+
+	static AkWwiseXMLBuilder()
+	{
+		AkWwiseXMLWatcher.Instance.PopulateXML = Populate;
+	}
 
 	public static bool Populate()
 	{
@@ -75,78 +81,61 @@ public class AkWwiseXMLBuilder
 			var events = includedEvents[i].SelectNodes("Event");
 			for (var j = 0; j < events.Count; j++)
 			{
-				bChanged = SerialiseMaxAttenuation(events[j]) || SerialiseEstimatedDuration(events[j]) || bChanged;
+				bChanged = SerialiseEventData(events[j]) || bChanged;
 			}
 		}
 
 		return bChanged;
 	}
 
-	private static bool SerialiseMaxAttenuation(System.Xml.XmlNode node)
+	private static float GetFloatFromString(string s)
 	{
-		var bChanged = false;
-		for (var i = 0; i < AkWwiseProjectInfo.GetData().EventWwu.Count; i++)
-		{
-			for (var j = 0; j < AkWwiseProjectInfo.GetData().EventWwu[i].List.Count; j++)
-			{
-				if (node.Attributes["MaxAttenuation"] != null &&
-				    node.Attributes["Name"].InnerText == AkWwiseProjectInfo.GetData().EventWwu[i].List[j].Name)
-				{
-					var radius = float.Parse(node.Attributes["MaxAttenuation"].InnerText);
-					if (AkWwiseProjectInfo.GetData().EventWwu[i].List[j].maxAttenuation != radius)
-					{
-						AkWwiseProjectInfo.GetData().EventWwu[i].List[j].maxAttenuation = radius;
-						bChanged = true;
-					}
+		return string.Compare(s, "Infinite") == 0 ? UnityEngine.Mathf.Infinity : float.Parse(s);
+	}
 
-					break;
+	private static bool SerialiseEventData(System.Xml.XmlNode node)
+	{
+		var maxAttenuationAttribute = node.Attributes["MaxAttenuation"];
+		var durationMinAttribute = node.Attributes["DurationMin"];
+		var durationMaxAttribute = node.Attributes["DurationMax"];
+		if (maxAttenuationAttribute == null && durationMinAttribute == null && durationMaxAttribute == null)
+			return false;
+
+		var bChanged = false;
+		var name = node.Attributes["Name"].InnerText;
+		foreach (var wwu in AkWwiseProjectInfo.GetData().EventWwu)
+		{
+			var eventData = wwu.Find(name);
+			if (eventData == null)
+				continue;
+
+			if (maxAttenuationAttribute != null)
+			{
+				var maxAttenuation = float.Parse(maxAttenuationAttribute.InnerText);
+				if (eventData.maxAttenuation != maxAttenuation)
+				{
+					eventData.maxAttenuation = maxAttenuation;
+					bChanged = true;
 				}
 			}
-		}
 
-		return bChanged;
-	}
-
-	private static bool SerialiseEstimatedDuration(System.Xml.XmlNode node)
-	{
-		var bChanged = false;
-		for (var i = 0; i < AkWwiseProjectInfo.GetData().EventWwu.Count; i++)
-		{
-			for (var j = 0; j < AkWwiseProjectInfo.GetData().EventWwu[i].List.Count; j++)
+			if (durationMinAttribute != null)
 			{
-				if (node.Attributes["Name"].InnerText == AkWwiseProjectInfo.GetData().EventWwu[i].List[j].Name)
+				var minDuration = GetFloatFromString(durationMinAttribute.InnerText);
+				if (eventData.minDuration != minDuration)
 				{
-					if (node.Attributes["DurationMin"] != null)
-					{
-						var minDuration = UnityEngine.Mathf.Infinity;
-						if (string.Compare(node.Attributes["DurationMin"].InnerText, "Infinite") != 0)
-						{
-							minDuration = float.Parse(node.Attributes["DurationMin"].InnerText);
-						}
+					eventData.minDuration = minDuration;
+					bChanged = true;
+				}
+			}
 
-						if (AkWwiseProjectInfo.GetData().EventWwu[i].List[j].minDuration != minDuration)
-						{
-							AkWwiseProjectInfo.GetData().EventWwu[i].List[j].minDuration = minDuration;
-							bChanged = true;
-						}
-					}
-
-					if (node.Attributes["DurationMax"] != null)
-					{
-						var maxDuration = UnityEngine.Mathf.Infinity;
-						if (string.Compare(node.Attributes["DurationMax"].InnerText, "Infinite") != 0)
-						{
-							maxDuration = float.Parse(node.Attributes["DurationMax"].InnerText);
-						}
-
-						if (AkWwiseProjectInfo.GetData().EventWwu[i].List[j].maxDuration != maxDuration)
-						{
-							AkWwiseProjectInfo.GetData().EventWwu[i].List[j].maxDuration = maxDuration;
-							bChanged = true;
-						}
-					}
-
-					break;
+			if (durationMaxAttribute != null)
+			{
+				var maxDuration = GetFloatFromString(durationMaxAttribute.InnerText);
+				if (eventData.maxDuration != maxDuration)
+				{
+					eventData.maxDuration = maxDuration;
+					bChanged = true;
 				}
 			}
 		}

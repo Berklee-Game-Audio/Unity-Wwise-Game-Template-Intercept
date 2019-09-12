@@ -72,7 +72,8 @@ public class AkWwiseInitializationSettings : AkCommonPlatformSettings
 		"UserSettings.m_SpatialAudioSettings.m_PoolSize",
 		"UserSettings.m_SpatialAudioSettings.m_MaxSoundPropagationDepth",
 		"UserSettings.m_SpatialAudioSettings.m_DiffractionFlags",
-		"CommsSettings.m_PoolSize",
+        "UserSettings.m_SpatialAudioSettings.m_MovementThreshold",
+        "CommsSettings.m_PoolSize",
 		"CommsSettings.m_DiscoveryBroadcastPort",
 		"CommsSettings.m_CommandPort",
 		"CommsSettings.m_NotificationPort",
@@ -90,6 +91,7 @@ public class AkWwiseInitializationSettings : AkCommonPlatformSettings
 		"AdvancedSettings.m_MaximumHardwareTimeoutMs",
 		"AdvancedSettings.m_SpatialAudioSettings.m_DiffractionShadowAttenuationFactor",
 		"AdvancedSettings.m_SpatialAudioSettings.m_DiffractionShadowDegrees",
+		"AdvancedSettings.m_RenderDuringFocusLoss",
 	};
 
 	public abstract class PlatformSettings : AkCommonPlatformSettings
@@ -241,7 +243,7 @@ public class AkWwiseInitializationSettings : AkCommonPlatformSettings
 		for (var i = 0; i < instance.Count; ++i)
 		{
 			var platformSettings = instance.PlatformSettingsList[i];
-			if (platformSettings && (string.Compare(platformName, instance.PlatformSettingsNameList[i], true) == 0))
+			if (platformSettings && (string.Equals(platformName, instance.PlatformSettingsNameList[i], System.StringComparison.OrdinalIgnoreCase)))
 				return platformSettings;
 		}
 
@@ -294,14 +296,18 @@ public class AkWwiseInitializationSettings : AkCommonPlatformSettings
 		var basePathToSet = AkBasePathGetter.GetSoundbankBasePath();
 		if (string.IsNullOrEmpty(basePathToSet))
 		{
-			UnityEngine.Debug.LogError("WwiseUnity: Couldn't find soundbanks base path. Terminate sound engine.");
+			UnityEngine.Debug.LogError("WwiseUnity: Couldn't find soundbanks base path. Terminating sound engine.");
 			AkSoundEngine.Term();
 			return false;
 		}
 
 		if (AkSoundEngine.SetBasePath(basePathToSet) != AKRESULT.AK_Success)
 		{
-			UnityEngine.Debug.LogError("WwiseUnity: Failed to set soundbanks base path. Terminate sound engine.");
+#if UNITY_EDITOR
+			UnityEngine.Debug.LogError("WwiseUnity: Failed to set soundbanks base path to <" + basePathToSet + ">. Make sure soundbank path is correctly set under Edit > Wwise Setting... > Asset Management.");
+#else
+			UnityEngine.Debug.LogError("WwiseUnity: Failed to set soundbanks base path to <" + basePathToSet + ">. Make sure soundbank path is correctly set under Edit > Project Settings > Wwise Initialization Settings.");
+#endif
 			AkSoundEngine.Term();
 			return false;
 		}
@@ -328,7 +334,7 @@ public class AkWwiseInitializationSettings : AkCommonPlatformSettings
 
 		AkCallbackManager.Init(ActivePlatformSettings.CallbackManagerInitializationSettings);
 		UnityEngine.Debug.Log("WwiseUnity: Sound engine initialized successfully.");
-		LoadInitBank();
+		AkBankManager.LoadInitBank();
 		return true;
 	}
 
@@ -337,21 +343,11 @@ public class AkWwiseInitializationSettings : AkCommonPlatformSettings
 		if (isPlaying)
 		{
 			AkSoundEngine.ClearBanks();
-			LoadInitBank();
+			AkBankManager.LoadInitBank();
 		}
 
 		AkCallbackManager.Init(ActivePlatformSettings.CallbackManagerInitializationSettings);
 		return true;
-	}
-
-	private static void LoadInitBank()
-	{
-		AkBankManager.Reset();
-
-		uint BankID;
-		var result = AkSoundEngine.LoadBank("Init.bnk", AkSoundEngine.AK_DEFAULT_POOL_ID, out BankID);
-		if (result != AKRESULT.AK_Success)
-			UnityEngine.Debug.LogError("WwiseUnity: Failed load Init.bnk with result: " + result);
 	}
 
 	public static void TerminateSoundEngine()
@@ -395,7 +391,7 @@ public class AkWwiseInitializationSettings : AkCommonPlatformSettings
 		using (var tmpEvent = new System.Threading.ManualResetEvent(false))
 			tmpEvent.WaitOne(System.TimeSpan.FromMilliseconds(milliseconds));
 	}
-	#endregion
+#endregion
 
 #if UNITY_EDITOR
 	[UnityEditor.MenuItem("Edit/Project Settings/Wwise Initialization Settings")]
@@ -567,7 +563,7 @@ public class AkWwiseInitializationSettings : AkCommonPlatformSettings
 		}
 	}
 
-	#region Custom Editor
+#region Custom Editor
 	[UnityEditor.CustomEditor(typeof(AkWwiseInitializationSettings))]
 	public class Editor : UnityEditor.Editor
 	{
@@ -1210,6 +1206,6 @@ public class AkWwiseInitializationSettings : AkCommonPlatformSettings
 			}
 		}
 	}
-	#endregion
+#endregion
 #endif
 }

@@ -99,14 +99,6 @@ public class AkInitializationSettings : global::System.IDisposable {
   public uint preparePoolSize { set { AkSoundEnginePINVOKE.CSharp_AkInitializationSettings_preparePoolSize_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkInitializationSettings_preparePoolSize_get(swigCPtr); } 
   }
 
-  public AkCommunicationSettings communicationSettings { set { AkSoundEnginePINVOKE.CSharp_AkInitializationSettings_communicationSettings_set(swigCPtr, AkCommunicationSettings.getCPtr(value)); } 
-    get {
-      global::System.IntPtr cPtr = AkSoundEnginePINVOKE.CSharp_AkInitializationSettings_communicationSettings_get(swigCPtr);
-      AkCommunicationSettings ret = (cPtr == global::System.IntPtr.Zero) ? null : new AkCommunicationSettings(cPtr, false);
-      return ret;
-    } 
-  }
-
   public AkUnityPlatformSpecificSettings unityPlatformSpecificSettings { set { AkSoundEnginePINVOKE.CSharp_AkInitializationSettings_unityPlatformSpecificSettings_set(swigCPtr, AkUnityPlatformSpecificSettings.getCPtr(value)); } 
     get {
       global::System.IntPtr cPtr = AkSoundEnginePINVOKE.CSharp_AkInitializationSettings_unityPlatformSpecificSettings_get(swigCPtr);
